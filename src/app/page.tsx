@@ -9,8 +9,8 @@ export default function Home() {
   const dispatch = useAppDispatch();
   return (
     <main>
-      <h1>total: {count}</h1>
-      <button onClick={()=> dispatch(increment())}>Increment</button>
+      {/* <h1>total: {count}</h1>
+      <button onClick={()=> dispatch(increment())}>Increment</button> */}
     </main>
   );
 }
