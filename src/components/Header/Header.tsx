@@ -14,7 +14,7 @@ const Header = ()=> {
                     <li> <a href="">Información</a> </li>
                     <li> <a href="">Contactanos</a> </li>
                     <li> <Button text={"Registrate"} /> </li>
-                    <li> <Button text={"Iniciar sesión"} /> </li>
+                    <li> <Button text={"Iniciar sesión"} /></li>
                 </ul>
             </nav>
         </header>

@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --blue-dark: #112B3C;
+  --blue: #205375;
+  --orange: #F66B0E;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
