@@ -1,5 +1,6 @@
 "use client"
 
+import "./globals.css";
 import Footer from "app/components/Footer/Footer";
 import { increment } from "app/redux/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "app/redux/hooks";
