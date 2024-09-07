@@ -14,12 +14,7 @@ const Header = ({ children  }: PropsWithChildren) => {
             </HeaderSection>
             <HeaderNav>
                 <HeaderUl>
-                    <li> <a href="">Inicio</a> </li>
-                    <li> <a href="">Beneficios</a> </li>
-                    <li> <a href="">Información</a> </li>
-                    <li> <a href="">Contactanos</a> </li>
-                    <li> <Button text={"Registrate"} /> </li>
-                    <li> <Button text={"Iniciar sesión"} /></li>
+                    {children}
                 </HeaderUl>
             </HeaderNav>
         </HeaderStyle>
