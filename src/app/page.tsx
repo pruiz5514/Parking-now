@@ -15,21 +15,6 @@ export default function Home() {
     <main>
       <Header/>
       <h1>total: {count}</h1>
-      <Input
-        label="Mensaje"
-        type="email"
-        placeholder="Ingresa tu nombre"
-        id="nombre"
-        icon={MdOutlinePersonOutline}
-      />
-      <Input
-        label="Nombre Completo"
-        type="email"
-        placeholder="Ingresa tu nombre"
-        id="nombre"
-        icon={MdOutlinePersonOutline}
-      />
-      <TextArea id="textareamsn" label="Mensaje"></TextArea>
       <button onClick={()=> dispatch(increment())}>Increment</button>
       <Footer></Footer>
     </main>

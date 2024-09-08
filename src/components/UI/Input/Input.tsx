@@ -5,7 +5,7 @@ import { IInput } from "app/types/IInput";
 const Input: React.FC<IInput> = ({  label, type, placeholder, required, id, value, onChange, icon: IconComponent }) => {
     return (
         <InputContainer>
-            <Label>{label}
+            <Label htmlFor={id}>{label}</Label>
             <InputWrapper>
                 <IconContainer>
                 <SpanIcon>{IconComponent && <IconComponent />}</SpanIcon>
@@ -19,7 +19,7 @@ const Input: React.FC<IInput> = ({  label, type, placeholder, required, id, valu
                     {...(required && { required })}
                 />
             </InputWrapper>
-            </Label>
+            
         </InputContainer>
     );
 }

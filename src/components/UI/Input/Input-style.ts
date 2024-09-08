@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.article`
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
+  margin: 0.3rem;
 `;
 
 export const Label = styled.label`
-  font-size: 18px;
-  margin-bottom: 1rem;
+  font-size: 14px;
   cursor: pointer;
   color: var(--blue);
 `;
@@ -21,7 +20,7 @@ export const InputWrapper = styled.div`
 
 export const IconContainer = styled.div`
   position: absolute;
-  left: 10px;
+  left: 5px;
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--blue);
@@ -31,19 +30,15 @@ export const IconContainer = styled.div`
 
 export const SpanIcon = styled.span`
   color: var(--orange);
-  font-size: 18px;
+  font-size: 14px;
 `;
 
 export const InputStyled = styled.input`
   width: 100%;
-  padding: 10px 10px 10px 50px; 
+  padding: 5px 5px 5px 35px; 
   border: 1px solid var(--orange);
-  border-radius: 20px;
-  font-size: 16px;
+  border-radius:20px;
+  font-size: 12px;
   outline: none;
   color: var(--blue-dark);
-
-  &:focus {
-    border-color: var(--orange);
-  }
 `;
