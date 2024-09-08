@@ -6,13 +6,16 @@ export const MainEsStyle = styled.main`
     display: flex;
 `
 export const AsideEsStye = styled.aside`
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    padding: 30px;
-    max-width: 300px;
-    min-height: calc(100vh - 100px - 100px);
-    gap: 40px;
+    display: none;
+    @media (min-width: 576px){
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        padding: 30px;
+        max-width: 300px;
+        min-height: calc(100vh - 100px - 100px);
+        gap: 40px;
+    }
 `
 
 export const FormEsStyle = styled.form`

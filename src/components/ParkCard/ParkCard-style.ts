@@ -2,19 +2,29 @@ import styled from "styled-components";
 
 export const ArticleCardPark = styled.article`
     display: flex;
+    flex-direction: column;
     width: 700px;
-    height: 150px;
+    min-height: 150px;
     background-color: var(--blue);
     border-radius: 12px;
     position: relative;
+
+    @media (min-width: 576px){
+        flex-direction: row;
+        height: 150px;
+    }
 `
 export const ImgContainerCardPark = styled.div`
-    width: 50%;
-    max-width: 200px;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 576px){
+        width: 50%;
+        max-width: 200px;
+    }
 `
 export const ImgCardPark = styled.img`
     width: 90%;
@@ -44,10 +54,18 @@ export const PriceCardPark = styled.p`
     color: var(--white);
     margin-top: 10px;
 `
-export const DivButtonContainer = styled.p`
-    width: auto;
-    height: auto;
-    position: absolute;
-    bottom: 20px;
-    right: 30px;
+export const DivButtonContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    @media (min-width: 576px){
+        width: auto;
+        height: auto;
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+    }
 `

@@ -11,11 +11,11 @@ import ParkCard from "app/components/ParkCard/ParkCard"
 const Estacionamientos = () => {
     return(
         <>
-            <Header>
+            {/* <Header>
                 <li><Link href={"/"}>Inicio</Link></li>
                 <li>Publicar parqueadero</li>
                 <li><Button text={"Cerrar sesión"}/></li>
-            </Header>
+            </Header> */}
 
             <MainEsStyle>
                 <AsideEsStye>
@@ -69,11 +69,12 @@ const Estacionamientos = () => {
                 </AsideEsStye>
 
                 <MainSectionEsStyle>
+
                     <ParkCard/>
                 </MainSectionEsStyle>
             </MainEsStyle>
 
-            <Footer/>
+            {/* <Footer/> */}
         </>
     )
 }
