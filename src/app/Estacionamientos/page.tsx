@@ -5,9 +5,10 @@ import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
 import '../globals.css'
 import Link from "next/link"
-import { AsideEsStye, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle } from "./estacionamientos-style"
+import { AsideEsStye, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle } from "./estacionamientos-style"
 import ParkCard from "app/components/ParkCard/ParkCard"
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
+import { IoClose } from "react-icons/io5"
 
 const Estacionamientos = () => {
     return(
@@ -20,6 +21,7 @@ const Estacionamientos = () => {
 
             <MainEsStyle>
                 <AsideEsStye>
+                    <CloseAsideButton> <IoClose /> </CloseAsideButton>
                     <FormEsStyle>
                         <H2EsStyle>Ubicación</H2EsStyle>
                         <Select name={"location"} id={"location-select"}>

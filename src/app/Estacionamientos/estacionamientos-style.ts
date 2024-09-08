@@ -6,15 +6,26 @@ export const MainEsStyle = styled.main`
     display: flex;
 `
 export const AsideEsStye = styled.aside`
-    display: none;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    width: 100%;
+    height: 100vh;
+    padding: 30px;
+    gap: 50px;
     @media (min-width: 576px){
-        display: flex;
-        flex-direction: column;
+        position: relative;
         width: 30%;
         padding: 30px;
         max-width: 300px;
         min-height: calc(100vh - 100px - 100px);
         gap: 40px;
+        z-index: 0;
     }
 `
 export const FormEsStyle = styled.form`
@@ -51,6 +62,17 @@ export const FilterButton = styled.button`
     align-items: center;
     font-weight: bold;
     font-size: 18px;
+
+    @media (min-width: 576px){
+        display: none;
+    }
+`
+export const CloseAsideButton = styled.button`
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-weight: bold;
+    font-size: 28px;
 
     @media (min-width: 576px){
         display: none;
