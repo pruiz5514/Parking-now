@@ -20,8 +20,9 @@ export const ImgContainerCardPark = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    padding-top: 15px;
     @media (min-width: 576px){
+        padding-top: 0;
         width: 50%;
         max-width: 200px;
     }
@@ -30,6 +31,7 @@ export const ImgCardPark = styled.img`
     width: 90%;
     height: 85%;
     border-radius: 12px;
+    
 `
 
 export const TextCardPark = styled.div`

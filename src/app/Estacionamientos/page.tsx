@@ -5,8 +5,9 @@ import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
 import '../globals.css'
 import Link from "next/link"
-import { AsideEsStye, DivEsStyle, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle } from "./estacionamientos-style"
+import { AsideEsStye, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle } from "./estacionamientos-style"
 import ParkCard from "app/components/ParkCard/ParkCard"
+import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
 
 const Estacionamientos = () => {
     return(
@@ -69,7 +70,9 @@ const Estacionamientos = () => {
                 </AsideEsStye>
 
                 <MainSectionEsStyle>
-
+                    <FilterButton> Filtrar <HiOutlineAdjustmentsHorizontal /> </FilterButton>
+                    <ParkCard/>
+                    <ParkCard/>
                     <ParkCard/>
                 </MainSectionEsStyle>
             </MainEsStyle>

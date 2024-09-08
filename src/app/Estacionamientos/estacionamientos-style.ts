@@ -17,7 +17,6 @@ export const AsideEsStye = styled.aside`
         gap: 40px;
     }
 `
-
 export const FormEsStyle = styled.form`
     width: 100%;
     display: flex;
@@ -31,16 +30,29 @@ export const DivEsStyle = styled.div`
     display: flex;
     gap: 15px;
 `
-
 export const LabelEsStyle = styled.label`
 
 `
 export const MainSectionEsStyle = styled.section`
     display: flex;
+    /* flex-direction: column; */
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    align-items: center;
     width: 100%;
     min-height: calc(100vh - 100px - 100px);
     padding: 30px;
+`
+export const FilterButton = styled.button`
+    display: flex;
+    border: none;
+    background-color: var(--white);
+    gap: 10px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+
+    @media (min-width: 576px){
+        display: none;
+    }
 `
