@@ -32,3 +32,12 @@ export const DivEsStyle = styled.div`
 export const LabelEsStyle = styled.label`
 
 `
+export const MainSectionEsStyle = styled.section`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    min-height: calc(100vh - 100px - 100px);
+    padding: 30px;
+`

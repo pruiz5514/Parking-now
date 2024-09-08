@@ -5,7 +5,8 @@ import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
 import '../globals.css'
 import Link from "next/link"
-import { AsideEsStye, DivEsStyle, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle } from "./estacionamientos-style"
+import { AsideEsStye, DivEsStyle, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle } from "./estacionamientos-style"
+import ParkCard from "app/components/ParkCard/ParkCard"
 
 const Estacionamientos = () => {
     return(
@@ -66,6 +67,10 @@ const Estacionamientos = () => {
                     </FormEsStyle>
 
                 </AsideEsStye>
+
+                <MainSectionEsStyle>
+                    <ParkCard/>
+                </MainSectionEsStyle>
             </MainEsStyle>
 
             <Footer/>
