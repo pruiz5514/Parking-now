@@ -12,7 +12,7 @@ export const TextAreaStyled = styled.textarea`
   border-radius: 20px;
   border: 1px solid var(--orange);
   background-color: var(--white);
-  font-size: 16px;
+  font-size: 12px;
   color: var(--blue-dark);
   outline: none;
 `;
