@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem;
 `;
 
 export const Label = styled.label`
@@ -29,7 +29,7 @@ export const IconContainer = styled.div`
   border-radius: 50%;
 `;
 
-export const Icon = styled.span`
+export const SpanIcon = styled.span`
   color: var(--orange);
   font-size: 18px;
 `;

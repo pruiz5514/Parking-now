@@ -1,6 +1,5 @@
 import React from "react";
-// import { IoPersonSharp } from "react-icons/io5";
-import { InputContainer, Label, InputStyled, InputWrapper, IconContainer, Icon } from "./Input-style";
+import { InputContainer, Label, InputStyled, InputWrapper, IconContainer, SpanIcon } from "./Input-style";
 import { IInput } from "app/types/IInput";
 
 const Input: React.FC<IInput> = ({  label, type, placeholder, required, id, value, onChange, icon: IconComponent }) => {
@@ -9,7 +8,7 @@ const Input: React.FC<IInput> = ({  label, type, placeholder, required, id, valu
             <Label>{label}
             <InputWrapper>
                 <IconContainer>
-                <Icon>{IconComponent && <IconComponent />}</Icon>
+                <SpanIcon>{IconComponent && <IconComponent />}</SpanIcon>
                 </IconContainer>
                 <InputStyled 
                     type={type} 
