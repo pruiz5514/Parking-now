@@ -22,9 +22,8 @@ export default function Home() {
         <li> <Button text={"Iniciar sesión"} /></li>
       </Header>
       <main>
-        {/* <h1>total: {count}</h1>
-        <button onClick={()=> dispatch(increment())}>Increment</button> */}
-        <ReservedParking/>
+        <h1>total: {count}</h1>
+        <button onClick={()=> dispatch(increment())}>Increment</button>
       </main>
       <Footer></Footer>
     </>

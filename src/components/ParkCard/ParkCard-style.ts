@@ -3,13 +3,15 @@ import styled from "styled-components";
 export const ArticleCardPark = styled.article`
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
+    min-width: 300px;
     min-height: 150px;
     background-color: var(--blue);
     border-radius: 12px;
     position: relative;
 
-    @media (min-width: 576px){
+    @media (min-width: 711px){
         flex-direction: row;
         height: 150px;
     }
@@ -21,7 +23,7 @@ export const ImgContainerCardPark = styled.div`
     justify-content: center;
     align-items: center;
     padding-top: 15px;
-    @media (min-width: 576px){
+    @media (min-width: 711px){
         padding-top: 0;
         width: 50%;
         max-width: 200px;
@@ -63,7 +65,7 @@ export const DivButtonContainer = styled.div`
     margin-top: 20px;
     margin-bottom: 10px;
 
-    @media (min-width: 576px){
+    @media (min-width: 711px){
         width: auto;
         height: auto;
         position: absolute;

@@ -18,7 +18,7 @@ export const AsideEsStye = styled.aside<{ isOpen: boolean }>`
     height: 100vh;
     padding: 30px;
     gap: 50px;
-    @media (min-width: 576px){
+    @media (min-width: 711px){
         display: flex;
         position: relative;
         width: 30%;
@@ -64,7 +64,7 @@ export const FilterButton = styled.button`
     font-weight: bold;
     font-size: 18px;
 
-    @media (min-width: 576px){
+    @media (min-width: 711px){
         display: none;
     }
 `
@@ -75,7 +75,7 @@ export const CloseAsideButton = styled.button`
     font-weight: bold;
     font-size: 28px;
 
-    @media (min-width: 576px){
+    @media (min-width: 711px){
         display: none;
     }
 `
