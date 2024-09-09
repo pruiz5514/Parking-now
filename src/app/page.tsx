@@ -5,7 +5,11 @@ import Footer from "app/components/Footer/Footer";
 import { increment } from "app/redux/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "app/redux/hooks";
 import Header from "app/components/Header/Header";
+import Hero from "app/components/Hero/Hero";
+import Benefits from "app/components/Benefits/Benefits";
+import Baner from "app/components/General-baner/Baner";
 import Button from "app/components/UI/Button/Button";
+import FormContactUs from "app/components/Contact-us/Form-contact-us";
 import ReservedParking from "app/components/ReservedParking/ReservedParking";
 
 export default function Home() {
@@ -21,11 +25,11 @@ export default function Home() {
         <li> <Button text={"Registrate"} /> </li>
         <li> <Button text={"Iniciar sesión"} /></li>
       </Header>
-      <main>
-        <h1>total: {count}</h1>
-        <button onClick={()=> dispatch(increment())}>Increment</button>
-      </main>
-      <Footer></Footer>
+      <Hero/>
+      <Benefits/>
+      <Baner/>
+      <FormContactUs/>
+      <Footer/>
     </>
   );
 }

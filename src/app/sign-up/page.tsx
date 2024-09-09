@@ -1,15 +1,15 @@
 "use client"
 
 import { MdOutlinePersonOutline } from "react-icons/md";
-import Input from "../UI/Input/Input";
 import { LiaAddressCardSolid } from "react-icons/lia";
 import { RiHomeHeartLine, RiKey2Line } from "react-icons/ri";
 import { LuPhoneCall } from "react-icons/lu";
 import { HiOutlineMail } from "react-icons/hi";
-import Button from "../UI/Button/Button";
 import { FormBody, FormContainer, FormContainerButton, FormFooter, FormHeader, H1Form, SpanForm } from "./Sign-up-style";
 import Link from "next/link";
 import Image from "next/image";
+import Input from "app/components/UI/Input/Input";
+import Button from "app/components/UI/Button/Button";
 
 const SignUp: React.FC = () => {
     return (
