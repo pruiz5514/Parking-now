@@ -8,6 +8,7 @@ export const FormContainer = styled.article`
     padding-right: 100px;
     padding-left: 100px;
     padding-bottom: 20px;
+    padding-top: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 `;
