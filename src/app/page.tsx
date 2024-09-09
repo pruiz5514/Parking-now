@@ -5,6 +5,9 @@ import Footer from "app/components/Footer/Footer";
 import { increment } from "app/redux/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "app/redux/hooks";
 import Header from "app/components/Header/Header";
+import Hero from "app/components/Hero/Hero";
+import Benefits from "app/components/Benefits/Benefits";
+import Baner from "app/components/General-baner/Baner";
 import Button from "app/components/UI/Button/Button";
 
 export default function Home() {
@@ -22,7 +25,10 @@ export default function Home() {
       </Header>
         <h1>total: {count}</h1>
         <button onClick={()=> dispatch(increment())}>Increment</button>
-      <Footer></Footer>
+      <Hero/>
+       <Benefits/>
+       <Baner/>
+      <Footer/>
     </main>
   );
 }
