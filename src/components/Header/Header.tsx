@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Button from "../UI/Button/Button";
 import { PropsWithChildren, useState } from "react";
-import { BurgerContainer, CloseHeaderButton, HeaderAside, HeaderNav, HeaderSection, HeaderStyle, HeaderUl, HeaderUlAside } from "./Header-style";
+import { BurgerButton, CloseHeaderButton, HeaderAside, HeaderNav, HeaderSection, HeaderStyle, HeaderUl, HeaderUlAside } from "./Header-style";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
@@ -18,11 +18,13 @@ const Header = ({ children  }: PropsWithChildren) => {
             </HeaderSection>
 
             <HeaderNav>
-                <BurgerContainer>
+                <BurgerButton onClick={()=>setIsOpen(true)}>
                     <RxHamburgerMenu />
-                </BurgerContainer>
-                <HeaderAside>
-                    <CloseHeaderButton><IoClose/></CloseHeaderButton>
+                </BurgerButton>
+                <HeaderAside isOpen={isOpen}>
+                    <CloseHeaderButton onClick={()=>setIsOpen(false)}>
+                        <IoClose/>
+                    </CloseHeaderButton>
                     <HeaderUlAside>
                         {children}
                     </HeaderUlAside>

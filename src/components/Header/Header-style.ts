@@ -33,7 +33,7 @@ export const HeaderUl = styled.ul`
         display: flex;
     }
 `
-export const BurgerContainer = styled.div`
+export const BurgerButton = styled.button`
     width: auto;
     height: auto;
     color: var(--white);
@@ -44,8 +44,9 @@ export const BurgerContainer = styled.div`
     }
 `
 
-export const HeaderAside = styled.aside`
+export const HeaderAside = styled.aside<{ isOpen: boolean }>`
     position: fixed;
+    display: ${props => (props.isOpen ? 'flex' : 'none')};
     top: 0;
     left: 0;
     width: 100%;
@@ -66,7 +67,7 @@ export const HeaderUlAside = styled.ul`
     font-weight: bold;
     font-size: 16px;
 `
-export const CloseHeaderButton = styled.div`
+export const CloseHeaderButton = styled.button`
     position: absolute;
     top: 30px;
     right: 30px;
