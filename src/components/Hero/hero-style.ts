@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const HeroStyled = styled.section`
     height: 550px;
-    background-image: url(https://www.wradio.com.co/resizer/v2/CNVLIH5MPJAM3N7CFHFYZTGUUI.jpg?auth=d95d120b35548dc34d3f611c74f3fc12e2ca1d27d1e5176e0ff1c8c18f0f0a02&width=650&height=488&quality=70&smart=true);
+    background-image: url(https://images.pexels.com/photos/2402235/pexels-photo-2402235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     background-repeat: no-repeat;
     background-size: 100% 550px;
     display: flex;
