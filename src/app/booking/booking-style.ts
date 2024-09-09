@@ -5,7 +5,10 @@ export const MainStyle = styled.main`
     min-height: calc(100vh - 100px - 100px);
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    
 
     @media (min-width: 576px){
         flex-direction: row;
@@ -13,10 +16,10 @@ export const MainStyle = styled.main`
 `
 
 export const ContainerDataBooking = styled.section`
+    width: 80%;
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
-    gap: 20px;
+    gap: 30px;
     margin: 20px;
 `
 
@@ -41,17 +44,35 @@ export const TitleInfo = styled.h4`
     text-align: center;
 `
 
+const commonContainerAmountTimeAndTotal = `
+   display: flex;
+   justify-content: space-around;
+`
+
+export const ContainerAmountTime = styled.div`${commonContainerAmountTimeAndTotal}`
+
+export const ContainerAmountTotal = styled.div`${commonContainerAmountTimeAndTotal}`
+
+export const Containerhours = styled.div`
+   background-color: var(--blue-dark);
+   color: var(--white);
+   border-radius: 50%;
+   width: 30px;
+   text-align: center;
+`
+
 export const ContainerDetailsBooking = styled.section`
+    width: 80%;
+    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    border: 1px solid red;
+    justify-content: center;
+    gap: 50px;
     margin: 20px;
 `
 
 const commonContainersDetails = `
-  border: 1px solid red;
     background-color: var(--grey);
     border-radius: 10px;
     width: 60%;
@@ -59,7 +80,9 @@ const commonContainersDetails = `
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    gap: 10px;
+    height: 40%;
 `
 
 export const ContainerTime = styled.div`${commonContainersDetails}`

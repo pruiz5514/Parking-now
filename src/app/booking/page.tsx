@@ -3,7 +3,7 @@ import Header from "app/components/Header/Header"
 import Footer from "app/components/Footer/Footer"
 import Link from "next/link"
 import Button from "app/components/UI/Button/Button"
-import { MainStyle, Title, ContainerDataBooking, ContainerDetailsBooking, ContainerInfoContact, ContainerInfoParking, TitleInfo, ContainerTime, ContainerDeatails, Text } from "./booking-style"
+import { MainStyle, Title, ContainerDataBooking, ContainerDetailsBooking, ContainerInfoContact, ContainerInfoParking, TitleInfo, ContainerTime, ContainerDeatails, Text, ContainerAmountTime, Containerhours, ContainerAmountTotal } from "./booking-style"
 import Input from "app/components/UI/Input/Input"
 import { MdOutlinePersonOutline } from "react-icons/md"
 import { LuPhoneCall } from "react-icons/lu"
@@ -28,12 +28,13 @@ const Booking = () => {
             <Input label= "Correo electrónico" id="userAddressEmail"  type="email" placeholder="pepito@micorreo.com" icon={HiOutlineMail} required={true}/>
             <Input label= "Placa" id="userIdVehicle"  type="text" placeholder="AXY78G" icon={FaAddressCard} required={true}/>
             </ContainerInfoContact>
+
             <ContainerInfoParking>
             <TitleInfo>Informacion del estacionamiento</TitleInfo>
             <Input label= "Ubicación" id="userAddress"  type="text" placeholder=" mde cra 55 # 25-15 " icon={RiHomeHeartLine} required={true}/>
             </ContainerInfoParking>   
             </ContainerDataBooking>
-
+            
             <ContainerDetailsBooking>
                 <ContainerTime>
                 <TitleInfo>Tiempo de parqueo</TitleInfo>
@@ -47,20 +48,19 @@ const Booking = () => {
                 <input type="text" />
                 </div>
 
-                <div>
+                <ContainerAmountTime>
                 <Text>Cantidad de horas:</Text>
-                <div>5</div>
-                </div>
+                <Containerhours>5</Containerhours>
+                </ContainerAmountTime>
                 </ContainerTime>
 
                 <ContainerDeatails>
                 <TitleInfo>Detalles de la reserva</TitleInfo>
                 <Text>1 estacionamiento * 5 horas</Text>
-
-                <div>
+                <ContainerAmountTotal>
                 <Text>Total a pagar:</Text>
                 <Text>40.000</Text>
-                </div>             
+                </ContainerAmountTotal>             
                 <Button text={"RESERVA AHORA"}></Button>
                 </ContainerDeatails>
             </ContainerDetailsBooking>
