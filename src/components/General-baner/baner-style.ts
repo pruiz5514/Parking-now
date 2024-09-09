@@ -16,7 +16,7 @@ export const BanerBackgroundOverlay = styled.div`
     height: 100%;
     background-color: rgba(0,0,0,.6);
 `
-export const BanerContainer= styled.div`
+export const BanerContainer = styled.div`
     display: flex;
     align-items: center;
     padding: 0 50px;
@@ -25,4 +25,5 @@ export const BanerContainer= styled.div`
 export const Title = styled.h2`
     font-size: 32px;
     color: var(--white);
+    text-align: center;
 `

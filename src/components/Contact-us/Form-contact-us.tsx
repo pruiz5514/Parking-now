@@ -1,7 +1,6 @@
 "use client"
 
 import { HiOutlineMail } from "react-icons/hi"
-import { FormBody,  FormContainerButton,  FormHeader, H1Form } from "../Sign-up/Sign-up-style"
 import Button from "../UI/Button/Button"
 import TextArea from "../UI/TextArea/TextArea"
 import { MdOutlinePersonOutline } from "react-icons/md"
@@ -9,6 +8,7 @@ import { LuPhoneCall } from "react-icons/lu"
 import { InputContainer } from "../UI/Input/Input-style"
 import Input from "../UI/Input/Input"
 import { FormContainerContactUs } from "./Contact-us-style"
+import { FormHeader, H1Form, FormBody, FormContainerButton } from "app/app/sign-up/Sign-up-style"
 
 const FormContactUs: React.FC =() => {
     return (

@@ -3,7 +3,7 @@
 import Input from "../../components/UI/Input/Input";
 import { HiOutlineMail } from "react-icons/hi";
 import Button from "../../components/UI/Button/Button";
-import { FormBody, FormContainer, FormContainerButton, FormFooter, FormHeader, H1Form, SpanForm } from "../Sign-up/Sign-up-style";
+import { FormBody, FormContainer, FormContainerButton, FormFooter, FormHeader, H1Form, SpanForm } from "../sign-up/Sign-up-style";
 import Link from "next/link";
 import Image from "next/image";
 import { RiKey2Line } from "react-icons/ri";

@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
 export const HeroStyled = styled.section`
-    height: 500px;
+    height: 550px;
     background-image: url(https://www.wradio.com.co/resizer/v2/CNVLIH5MPJAM3N7CFHFYZTGUUI.jpg?auth=d95d120b35548dc34d3f611c74f3fc12e2ca1d27d1e5176e0ff1c8c18f0f0a02&width=650&height=488&quality=70&smart=true);
     background-repeat: no-repeat;
-    background-size: 100% 500px;
+    background-size: 100% 550px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,7 @@ export const HeroBackgroundOverlay = styled.div`
     height: 100%;
     background-color: rgba(0,0,0,.6);
 `
-export const HeroContainer= styled.div`
+export const HeroContainer = styled.div`
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -29,4 +29,5 @@ export const HeroContainer= styled.div`
 export const Title = styled.h1`
     font-size: 60px;
     color: var(--white);
+    text-align: center;
 `
