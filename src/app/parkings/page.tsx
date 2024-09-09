@@ -12,7 +12,7 @@ import { IoClose } from "react-icons/io5"
 import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 
-const Estacionamientos = () => {
+const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
     const dispatch = useAppDispatch();
     return(
@@ -88,4 +88,4 @@ const Estacionamientos = () => {
     )
 }
 
-export default Estacionamientos
+export default Parkings
