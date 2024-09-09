@@ -17,11 +17,11 @@ const Estacionamientos = () => {
     const dispatch = useAppDispatch();
     return(
         <>
-            {/* <Header>
+            <Header>
                 <li><Link href={"/"}>Inicio</Link></li>
                 <li>Publicar parqueadero</li>
                 <li><Button text={"Cerrar sesión"}/></li>
-            </Header> */}
+            </Header>
 
             <MainEsStyle>
                 <AsideEsStye isOpen={asideState}>
@@ -83,7 +83,7 @@ const Estacionamientos = () => {
                 </MainSectionEsStyle>
             </MainEsStyle>
 
-            {/* <Footer/> */}
+            <Footer/>
         </>
     )
 }

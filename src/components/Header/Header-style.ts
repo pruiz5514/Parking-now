@@ -8,24 +8,70 @@ export const HeaderStyle = styled.header`
 `
 export const HeaderSection = styled.section`
     width: 30%;
+    min-width: 150px;
     height: 100%;
     padding-left: 30px;
     display: flex;
     align-items: center;
 `
 export const HeaderNav = styled.nav`
+    display: flex;
     width: 70%;
     height: 100%;
-    display: flex;
     justify-content: end;
     align-items: center;
     padding-right: 50px;
 `
 export const HeaderUl = styled.ul`
-    display: flex;
+    display: none;
     gap: 40px;
     color: var(--white);
     font-weight: bold;
     font-size: 16px;
     align-items: center;
+    @media (min-width: 950px){
+        display: flex;
+    }
+`
+export const BurgerButton = styled.button`
+    width: auto;
+    height: auto;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 34px;
+    @media (min-width: 950px){
+        display: none;
+    }
+`
+
+export const HeaderAside = styled.aside<{ isOpen: boolean }>`
+    position: fixed;
+    display: ${props => (props.isOpen ? 'flex' : 'none')};
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--blue-dark);
+    z-index: 20;
+    padding: 50px 30px;
+
+    @media (min-width: 950px){
+        display: none;
+    }
+`
+export const HeaderUlAside = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 16px;
+`
+export const CloseHeaderButton = styled.button`
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 34px;
 `
