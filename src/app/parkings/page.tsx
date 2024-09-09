@@ -46,6 +46,15 @@ const Parkings = () => {
                             <option value="el-poblado">El Poblado</option>
                             <option value="guayabal">Guayabal</option>
                             <option value="belen">Belén</option>
+                            <option value="copacabana">Copacabana</option>
+                            <option value="bello">Bello</option>
+                            <option value="itagui">Itagüí</option>
+                            <option value="sabaneta">Sabaneta</option>
+                            <option value="envigado">Envigado</option>
+                            <option value="la-estrella">La Estrella</option>
+                            <option value="caldas">Caldas</option>
+                            <option value="girardota">Girardota</option>
+                            <option value="barbosa">Barbosa</option>
                         </Select>
                     </FormEsStyle>
                     

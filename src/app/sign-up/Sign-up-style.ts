@@ -52,3 +52,12 @@ export const FormFooter = styled.div`
     margin-top: 10px;
     // border: 2px solid var(--blue-dark);
 `;
+
+export const SelectAddress = styled.select`
+    border: 1px solid var(--orange);
+    border-radius:20px;
+    padding: 5px;
+    font-size: 12px;
+    outline: none;
+    color: var(--blue-dark);
+`;

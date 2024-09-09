@@ -15,4 +15,5 @@ export const TextAreaStyled = styled.textarea`
   font-size: 12px;
   color: var(--blue-dark);
   outline: none;
+  resize: none;
 `;
