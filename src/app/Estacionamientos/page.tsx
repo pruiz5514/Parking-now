@@ -83,7 +83,7 @@ const Estacionamientos = () => {
                 </MainSectionEsStyle>
             </MainEsStyle>
 
-            {/* <Footer/> */}
+            <Footer/>
         </>
     )
 }
