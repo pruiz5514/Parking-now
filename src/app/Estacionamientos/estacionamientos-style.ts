@@ -5,9 +5,9 @@ export const MainEsStyle = styled.main`
     min-height: calc(100vh - 100px - 100px);
     display: flex;
 `
-export const AsideEsStye = styled.aside`
+export const AsideEsStye = styled.aside<{ isOpen: boolean }>`
     position: fixed;
-    display: flex;
+    display: ${props => (props.isOpen ? 'flex' : 'none')};
     flex-direction: column;
     z-index: 10;
     position: fixed;
@@ -19,6 +19,7 @@ export const AsideEsStye = styled.aside`
     padding: 30px;
     gap: 50px;
     @media (min-width: 576px){
+        display: flex;
         position: relative;
         width: 30%;
         padding: 30px;

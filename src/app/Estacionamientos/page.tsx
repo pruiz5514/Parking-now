@@ -9,8 +9,12 @@ import { AsideEsStye, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H
 import ParkCard from "app/components/ParkCard/ParkCard"
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
 import { IoClose } from "react-icons/io5"
+import { useAppDispatch, useAppSelector } from "app/redux/hooks"
+import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 
 const Estacionamientos = () => {
+    const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
+    const dispatch = useAppDispatch();
     return(
         <>
             {/* <Header>
@@ -20,8 +24,8 @@ const Estacionamientos = () => {
             </Header> */}
 
             <MainEsStyle>
-                <AsideEsStye>
-                    <CloseAsideButton> <IoClose /> </CloseAsideButton>
+                <AsideEsStye isOpen={asideState}>
+                    <CloseAsideButton onClick={()=> dispatch(closeAside())}> <IoClose /> </CloseAsideButton>
                     <FormEsStyle>
                         <H2EsStyle>Ubicación</H2EsStyle>
                         <Select name={"location"} id={"location-select"}>
@@ -72,7 +76,7 @@ const Estacionamientos = () => {
                 </AsideEsStye>
 
                 <MainSectionEsStyle>
-                    <FilterButton> Filtrar <HiOutlineAdjustmentsHorizontal /> </FilterButton>
+                    <FilterButton onClick={()=> dispatch(openAside())}> Filtrar <HiOutlineAdjustmentsHorizontal /> </FilterButton>
                     <ParkCard/>
                     <ParkCard/>
                     <ParkCard/>
