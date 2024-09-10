@@ -20,7 +20,7 @@ export const ContainerDataBooking = styled.section`
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin: 20px;
+    padding: 50px;
 `
 
 export const Title = styled.h1`
@@ -91,4 +91,8 @@ export const ContainerDeatails = styled.div`${commonContainersDetails}`
 
 export const Text = styled.p`
 color: var(--blue-dark);
+`
+export const ContainerButton = styled.div`
+display: flex;
+justify-content: center;
 `

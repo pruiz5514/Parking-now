@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { ArticleCardPark, DivButtonContainer, H2CardPark, ImgCardPark, ImgContainerCardPark, PCardPark, PriceCardPark, TextCardPark } from "./ParkCard-style"
 import Button from "../UI/Button/Button";
+import Link from "next/link";
 
 const ParkCard = ()=>{
     return(
@@ -15,7 +16,7 @@ const ParkCard = ()=>{
                     <PCardPark>Parquadero cubierto</PCardPark>
                     <PriceCardPark>$ 3000/Hora</PriceCardPark>
                     <DivButtonContainer>
-                        <Button text={"Reservar"}/>
+                        <Link href="./parking-info"><Button text={"Ver mas"}/></Link>
                     </DivButtonContainer>
                 </TextCardPark>
             </ArticleCardPark>

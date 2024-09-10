@@ -24,7 +24,6 @@ export const SpanContent = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    // border: 2px solid var(--blue-dark);
 `;
 
 export const SelectAddress = styled.select`
@@ -35,3 +34,4 @@ export const SelectAddress = styled.select`
     outline: none;
     color: var(--blue-dark);
 `;
+

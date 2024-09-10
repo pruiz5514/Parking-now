@@ -1,5 +1,5 @@
 'use client'
-import { BenefitsStyled, ContainerBenefits, Title, BenefitsList,CheckIconStyled } from "./Benefits-style"
+import { BenefitsStyled, ContainerBenefits, Title, BenefitsList, CheckIconStyled } from "./Benefits-style"
 
 interface BenefitsProps {
     id: string;
