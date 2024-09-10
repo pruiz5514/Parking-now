@@ -31,7 +31,6 @@ export default function Home() {
       <Benefits id={"benefits"}/>
       <Baner/>
       <FormContactUs/>
-      <FormAddSlots/>
       <Footer/>
     </>
   );
