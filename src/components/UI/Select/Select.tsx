@@ -1,6 +1,6 @@
 "use client"
 import { ISelect } from "app/types/ISelect";
-import { SelectStyle } from "./Select-style";
+import { SelectStyle } from "./select-style";
 
 const Select :React.FC<ISelect> = ({name, id, children}) => {
     return(

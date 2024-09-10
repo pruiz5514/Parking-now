@@ -9,6 +9,7 @@ import Baner from "app/components/General-baner/Baner";
 import Button from "app/components/UI/Button/Button";
 import FormContactUs from "app/components/Contact-us/Form-contact-us";
 import Link from "next/link";
+import FormAddSlots from "app/components/FormAddSlot/FormAddSlots";
 
 export default function Home() {
   return (
