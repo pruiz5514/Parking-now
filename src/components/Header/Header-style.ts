@@ -7,7 +7,7 @@ export const HeaderStyle = styled.header`
     display: flex;
     position: sticky;
     top:0;
-    z-index: 100;
+    z-index: 5;
 `
 export const HeaderSection = styled.section`
     width: 30%;
