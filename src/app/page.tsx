@@ -12,6 +12,7 @@ import Button from "app/components/UI/Button/Button";
 import FormContactUs from "app/components/Contact-us/Form-contact-us";
 import ReservedParking from "app/components/ReservedParking/ReservedParking";
 import Link from "next/link";
+import FormAddSlots from "app/components/FormAddSlot/FormAddSlots";
 
 export default function Home() {
   const count = useAppSelector(state => state.counterReducer.counter);
@@ -30,6 +31,7 @@ export default function Home() {
       <Benefits id={"benefits"}/>
       <Baner/>
       <FormContactUs/>
+      <FormAddSlots/>
       <Footer/>
     </>
   );
