@@ -24,7 +24,7 @@ const SignIn: React.FC = () => {
                     footerContent={
                         <>
                             <SpanContent>
-                            <Link href="./parkings"><Button text={"INGRESAR"}/></Link>
+                            <Link href="./parkings"><Button text={"Ingresar"}/></Link>
                                 <Label>
                                     {"¿No tienes cuenta? "}
                                 </Label>

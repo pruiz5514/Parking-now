@@ -23,7 +23,7 @@ const SignUp: React.FC = () => {
                     footerContent={
                         <>
                             <SpanContent>
-                            <Link href="./sign-in"><Button text={"CREAR CUENTA"} /></Link>
+                            <Link href="./sign-in"><Button text={"Crear cuenta"} /></Link>
                                 <Label>
                                     {"¿Ya tienes cuenta? "}
                                 </Label>

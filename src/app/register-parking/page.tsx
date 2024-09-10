@@ -29,7 +29,7 @@ const registerParking: React.FC = () => {
                     title="Registro Parqueadero"
                     footerContent={
                         <ContainerButton>
-                            <Button text={"GUARDAR PARQUEADERO"} />
+                            <Button text={"Guardar parqueadero"} />
                         </ContainerButton>
                     }
                 >

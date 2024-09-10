@@ -17,7 +17,7 @@ const FormContactUs: React.FC<ContactProps> = ({ id }) => {
             title="CONTACTANOS"
             footerContent={
                 <>
-                    <Button text={"ENVIAR"} />
+                    <Button text={"Enviar"} />
                 </>
             }
         >

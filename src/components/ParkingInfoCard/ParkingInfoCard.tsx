@@ -3,6 +3,8 @@
 import { ParkingInfoCardButton, ParkingInfoCardContainer, ParkingInfoCardImage, ParkingInfoCardImg, ParkingInfoCardP, ParkingInfoCardPrice, ParkingInfoCardText } from "./ParkingInfoCard-style";
 import Button from "../UI/Button/Button";
 import Link from "next/link";
+import { FaLocationDot } from "react-icons/fa6";
+import { GiHomeGarage } from "react-icons/gi";
 
 const ParkingInfoCard = ()=>{
     return(
@@ -13,11 +15,12 @@ const ParkingInfoCard = ()=>{
 
             <ParkingInfoCardText>
                 <p>Ubicado en una zona segura y de fácil acceso, este parqueadero cuenta con vigilancia 24/7 y cámaras de seguridad, brindando tranquilidad y protección para tu vehículo. Se encuentra dentro de una moderna unidad residencial que ofrece acceso controlado, permitiéndote entrar y salir con facilidad a través de un sistema de portería con vigilancia.</p>
-                <ParkingInfoCardP>Barrio Robledo</ParkingInfoCardP>
-                <ParkingInfoCardP>Parqueadero cubierto</ParkingInfoCardP>
-                <ParkingInfoCardPrice>$ 3000/Horas</ParkingInfoCardPrice>
+                
+                <ParkingInfoCardP> <FaLocationDot /> Barrio Robledo</ParkingInfoCardP>
+                <ParkingInfoCardP> <GiHomeGarage /> Parqueadero cubierto</ParkingInfoCardP>
 
                 <ParkingInfoCardButton> 
+                    <ParkingInfoCardPrice>$ 3000/Hora</ParkingInfoCardPrice>
                     <Link href="./booking"><Button text={"Reservar"}/></Link>
                 </ParkingInfoCardButton>
             </ParkingInfoCardText>
