@@ -11,6 +11,7 @@ import Baner from "app/components/General-baner/Baner";
 import Button from "app/components/UI/Button/Button";
 import FormContactUs from "app/components/Contact-us/Form-contact-us";
 import ReservedParking from "app/components/ReservedParking/ReservedParking";
+import Link from "next/link";
 
 export default function Home() {
   const count = useAppSelector(state => state.counterReducer.counter);
@@ -18,15 +19,15 @@ export default function Home() {
   return (
     <>
       <Header>
-        <li> <a href="">Inicio</a> </li>
-        <li> <a href="">Beneficios</a> </li>
-        <li> <a href="">Información</a> </li>
-        <li> <a href="">Contactanos</a> </li>
-        <li> <Button text={"Registrate"} /> </li>
+        <li> <Link href="/">Inicio</Link> </li>
+        <li> <Link href="#benefits">Beneficios</Link> </li>
+        <li> <Link href="#benefits">Información</Link></li>
+        <li> <Link href="#benefits">Contactanos</Link></li>
+        <li> <Link href="/sign-up"><Button text={"Registrate"} /></Link> </li>
         <li> <Button text={"Iniciar sesión"} /></li>
       </Header>
       <Hero/>
-      <Benefits/>
+      <Benefits id={"benefits"}/>
       <Baner/>
       <FormContactUs/>
       <Footer/>

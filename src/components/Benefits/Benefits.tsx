@@ -1,9 +1,13 @@
 'use client'
 import { BenefitsStyled, ContainerBenefits, Title, BenefitsList,CheckIconStyled } from "./Benefits-style"
 
-const Benefits = () => {
+interface BenefitsProps {
+    id: string;
+};
+
+const Benefits: React.FC<BenefitsProps> = ({ id }) => {
     return (
-        <BenefitsStyled>
+        <BenefitsStyled id={id}>
             <ContainerBenefits>
                 <Title>Beneficios</Title>
 
