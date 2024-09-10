@@ -2,6 +2,8 @@ import Image from "next/image"
 import { ArticleCardPark, DivButtonContainer, H2CardPark, ImgCardPark, ImgContainerCardPark, PCardPark, PriceCardPark, TextCardPark } from "./ParkCard-style"
 import Button from "../UI/Button/Button";
 import Link from "next/link";
+import { FaLocationDot } from "react-icons/fa6";
+import { GiHomeGarage } from "react-icons/gi";
 
 const ParkCard = ()=>{
     return(
@@ -12,8 +14,8 @@ const ParkCard = ()=>{
                 </ImgContainerCardPark>
                 <TextCardPark>
                     <H2CardPark>Unidad residencial Rio campestre</H2CardPark>
-                    <PCardPark>Barrio Robledo</PCardPark>
-                    <PCardPark>Parquadero cubierto</PCardPark>
+                    <PCardPark> <FaLocationDot /> Barrio Robledo</PCardPark>
+                    <PCardPark> <GiHomeGarage /> Parquadero cubierto</PCardPark>
                     <PriceCardPark>$ 3000/Hora</PriceCardPark>
                     <DivButtonContainer>
                         <Link href="./parking-info"><Button text={"Ver más"}/></Link>

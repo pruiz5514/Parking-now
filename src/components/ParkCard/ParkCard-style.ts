@@ -51,6 +51,9 @@ export const PCardPark = styled.p`
     font-size: 13px;
     margin-bottom: 7px;
     color: var(--white);
+    display: flex;
+    gap: 5px;
+    align-items: center;
 `
 export const PriceCardPark = styled.p`
     font-size: 16px;

@@ -50,10 +50,13 @@ export const MainSectionEsStyle = styled.section`
     /* flex-direction: column; */
     flex-wrap: wrap;
     gap: 20px;
-    align-items: center;
     width: 100%;
     min-height: calc(100vh - 100px - 100px);
     padding: 30px;
+
+    @media (min-width: 711px){
+        justify-content: center;
+    }
 `
 export const FilterButton = styled.button`
     display: flex;
