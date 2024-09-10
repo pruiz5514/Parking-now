@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainSign = styled.main`
+export const MainRegParking = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@ export const MainSign = styled.main`
     box-sizing: border-box;
     margin:0;
     padding: 20%;
-    border: 2px solid var(--blue-dark);
+    border: 2px solid var(--orange);
     
 `;
 export const SpanForm = styled.span`
@@ -30,10 +30,17 @@ export const SpanContent = styled.div`
 `;
 
 export const SelectAddress = styled.select`
+    width: 100%;
     border: 1px solid var(--orange);
-    border-radius:20px;
+    border-radius: 20px;
     padding: 5px;
     font-size: 12px;
     outline: none;
     color: var(--blue-dark);
+    box-sizing: border-box;
+
+    @media (max-width: 480px) {
+        padding: 5px;
+        font-size: 11px;
+    }
 `;

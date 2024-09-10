@@ -1,37 +1,48 @@
 "use client"
 
 import Input from "../../components/UI/Input/Input";
-import { HiCurrencyDollar } from "react-icons/hi";
 import Button from "../../components/UI/Button/Button";
-import { FormBody, FormContainer, FormContainerButton, FormFooter, FormHeader, H1Form, SelectAddress, SpanForm } from "../sign-up/Sign-up-style";
 import Link from "next/link";
 import Image from "next/image";
-import { MdDriveFileRenameOutline, MdOutlinePersonOutline } from "react-icons/md";
-import Select from "app/components/UI/Select/Select";
 import { Label } from "app/components/UI/Input/Input-style";
-import { GoImage } from "react-icons/go";
-import { FaCarSide, FaMotorcycle } from "react-icons/fa";
+import { FaDollarSign, FaImage, FaMapMarkerAlt, FaTag, FaThLarge, FaUser } from "react-icons/fa";
 import TextArea from "app/components/UI/TextArea/TextArea";
-import { HiMiniSquares2X2 } from "react-icons/hi2";
 import ToggleSwitch from "app/components/Switch/Switch";
 import Header from "app/components/Header/Header";
+import Form from "app/components/General-form/Form";
+import { MainRegParking, SelectAddress, SpanContent } from "./register-parking-style";
 
 const registerParking: React.FC = () => {
     return (
         <>
-        <Header>
-            <li> <a href="">Inicio</a> </li>
-            <li> <Button text={"Cerrar sesión"} /></li>
-        </Header>
-        <FormContainer>
-            <FormHeader>
-                <Link href ="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
-                <H1Form>Registro Parqueadero</H1Form>
-            </FormHeader>
-            <FormBody>
-                <Input label= "Nombre" id="userAddressEmailSignIn"  type="text" icon={MdOutlinePersonOutline} required={true}/>
-                <Label htmlFor="location-select">Ubicación</Label> 
-                <SelectAddress name={"location"} id={"location-select"}>
+            <Header>
+                <li> <a href="">Inicio</a> </li>
+                <li> <Button text={"Cerrar sesión"} /></li>
+            </Header>
+
+            <MainRegParking>
+                <Form
+                    headerContent={
+                        <>
+                            <Link href="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
+                        </>
+                    }
+                    title="Registro Parqueadero"
+                    footerContent={
+                        <>
+                            <SpanContent>
+                                <Label id="typeMotoParking">Moto </Label>
+                                <input id="typeMotoParking" type="checkbox" />
+                                <Label id="typeCarParking">Carro </Label>
+                                <input id="typeCarParking" type="checkbox" />
+                            </SpanContent>
+                            <Button text={"GUARDAR PARQUEADERO"} />
+                        </>
+                    }
+                >
+                    <Input label="Nombre" id="userAddressEmailSignIn" type="text" icon={FaUser} required={true} />
+                    <Label htmlFor="location-select">Ubicación</Label>
+                    <SelectAddress name={"location"} id={"location-select"}>
                         <option value="" selected disabled></option>
                         <option value="popular">Popular</option>
                         <option value="santa-cruz">Santa Cruz</option>
@@ -58,27 +69,17 @@ const registerParking: React.FC = () => {
                         <option value="caldas">Caldas</option>
                         <option value="girardota">Girardota</option>
                         <option value="barbosa">Barbosa</option>
-                </SelectAddress>
-                <Input label= "Dirección " id="userAddressParking"  type="text" icon={MdOutlinePersonOutline} placeholder="Cll 16 #55-129" required={true}/>
-                <Input label= "Imagen parqueadero " id="userImageParking"  type="url" icon={GoImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true}/>
-                <Input label= "Nombre parqueadero " id="nameParking"  type="text" icon={MdDriveFileRenameOutline} placeholder="La Colina" required={true}/>
-                <TextArea id="textareaDescriptionParking" label="Descripción Parqueadero"></TextArea>
-                <Input label= "Cantidad de celdas" id="amountCell"  type="number" icon={HiMiniSquares2X2}  required={true}/>
-                <Input label= "Precio por hora" id="price-hour"  type="number" icon={HiCurrencyDollar}  required={true}/>
+                    </SelectAddress>
+                    <Input label="Dirección " id="userAddressParking" type="text" icon={FaMapMarkerAlt} placeholder="Cll 16 #55-129" required={true} />
+                    <Input label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} />
+                    <Input label="Nombre parqueadero " id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} />
+                    <TextArea id="textareaDescriptionParking" label="Descripción Parqueadero"></TextArea>
+                    <Input label="Cantidad de celdas" id="amountCell" type="number" icon={FaThLarge} required={true} />
+                    <Input label="Precio por hora" id="price-hour" type="number" icon={FaDollarSign} required={true} />
 
-            <ToggleSwitch></ToggleSwitch>
-            </FormBody>
-            <FormContainerButton>
-                <label id="typeMotoParking">Moto </label>
-                <input id="typeMotoParking"  type="checkbox"  />
-                <label id="typeCarParking">Carro </label>
-                <input id="typeCarParking"  type="checkbox" />
-            </FormContainerButton>
-            
-            <FormContainerButton>
-                <Button text={"GUARDAR PARQUEADERO"}/>
-            </FormContainerButton>
-        </FormContainer>
+                    <ToggleSwitch></ToggleSwitch>
+                </Form>
+            </MainRegParking>
         </>
     );
 }

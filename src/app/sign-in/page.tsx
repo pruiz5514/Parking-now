@@ -1,36 +1,44 @@
 "use client"
 
 import Input from "../../components/UI/Input/Input";
-import { HiOutlineMail } from "react-icons/hi";
 import Button from "../../components/UI/Button/Button";
-import { FormBody, FormContainer, FormContainerButton, FormFooter, FormHeader, H1Form, SpanForm } from "../sign-up/Sign-up-style";
+import { MainSign, SpanContent, SpanForm } from "../sign-up/Sign-up-style";
 import Link from "next/link";
 import Image from "next/image";
-import { RiKey2Line } from "react-icons/ri";
+import Form from "app/components/General-form/Form";
+import { Label } from "app/components/UI/Input/Input-style";
+import { FaEnvelope, FaLock } from "react-icons/fa";
 
 const SignIn: React.FC = () => {
     return (
-        <FormContainer>
-            <FormHeader>
-                <Link href ="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
-                <H1Form>Iniciar Sesión</H1Form>
-            </FormHeader>
-            <FormBody>
-                <Input label= "Correo electrónico" id="userAddressEmailSignIn"  type="email" placeholder="pepito@micorreo.com" icon={HiOutlineMail} required={true}/>
-                <Input label= "Contraseña" id="userPasswordSignIn"  type="password" placeholder="Ingresa tu contraseña" icon={RiKey2Line} required={true}/>
-            </FormBody>
-            <FormContainerButton>
-                <Button text={"INGRESAR"}/>
-            </FormContainerButton>
-            <FormFooter>
-                <span>
-                    {"¿No tienes cuenta? "}
-                </span>
-                <Link href="/register">
-                   <SpanForm> {"Crea una cuenta"}</SpanForm> 
-                </Link>
-            </FormFooter>
-        </FormContainer>
+        <>
+            <MainSign>
+                <Form
+                    headerContent={
+                        <>
+                            <Link href="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
+                        </>
+                    }
+                    title="Iniciar Sesión"
+                    footerContent={
+                        <>
+                            <Button text={"INGRESAR"}/>
+                            <SpanContent>
+                                <Label>
+                                    {"¿No tienes cuenta? "}
+                                </Label>
+                                <Link href="/register">
+                                    <SpanForm> {"Crea una cuenta"}</SpanForm>
+                                </Link>
+                            </SpanContent>
+                        </>
+                    }
+                >
+                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} />
+                    <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" icon={FaLock} required={true} />
+                </Form>
+            </MainSign>
+        </>
     );
 }
 export default SignIn;
