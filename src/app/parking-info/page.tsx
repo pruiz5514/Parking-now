@@ -4,7 +4,7 @@ import Footer from "app/components/Footer/Footer";
 import Header from "app/components/Header/Header";
 import Button from "app/components/UI/Button/Button";
 import Link from "next/link";
-import { ParkingInfoContainer, ParkingInfoTitle, StarsContainer } from "./parking-info-style";
+import { ParkingInfoContainer, ParkingInfoTitle, ParkingInfoTitleContainer, StarsContainer } from "./parking-info-style";
 import { IoStar } from "react-icons/io5";
 import ParkingInfoCard from "app/components/ParkingInfoCard/ParkingInfoCard";
 
@@ -18,8 +18,11 @@ const ParkingInfo = ()=> {
             </Header>
 
             <ParkingInfoContainer>
-                <ParkingInfoTitle>Unidad residencial Río Campestre</ParkingInfoTitle>
-                <StarsContainer><IoStar/><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
+                <ParkingInfoTitleContainer>
+                    <ParkingInfoTitle>Unidad residencial Río Campestre</ParkingInfoTitle>
+                    <StarsContainer><IoStar/><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
+                </ParkingInfoTitleContainer>
+                
                 <ParkingInfoCard/>
             </ParkingInfoContainer>
 

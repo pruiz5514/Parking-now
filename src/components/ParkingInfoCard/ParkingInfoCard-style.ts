@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const ParkingInfoCardContainer = styled.article`
     width: 100%;
     min-width: 300px;
+    max-width: 1000px;
     height: auto;
-    background-color: var(--grey);
     border-radius: 12px;
     padding: 10px 10px 20px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
     @media (min-width: 630px){
         display: flex;
@@ -18,10 +19,10 @@ export const ParkingInfoCardImg = styled.div`
     position: relative;
     width: 100%;
     height: 200px;    
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     @media (min-width: 630px){
-        min-height: 300px;
+        min-height: 220px;
         height: 100%;
         width: 40%;
         max-width: 500px;
@@ -36,6 +37,7 @@ export const ParkingInfoCardText = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
+    color: var(--blue-dark);
     text-align: justify;
 
     @media (min-width: 630px){
@@ -46,6 +48,9 @@ export const ParkingInfoCardText = styled.div`
 `
 export const ParkingInfoCardP = styled.p`
     font-weight: bold;
+    display: flex;
+    gap: 5px;
+    align-items: center;
 `
 
 export const ParkingInfoCardPrice = styled.p`
@@ -53,8 +58,7 @@ export const ParkingInfoCardPrice = styled.p`
     font-size: 20px;
 `
 export const ParkingInfoCardButton = styled.div`
-    margin-top: 20px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 `

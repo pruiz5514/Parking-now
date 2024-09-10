@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const HeroStyled = styled.section`
     height: 700px;
-    background-image: url(https://images.pexels.com/photos/2402235/pexels-photo-2402235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9xy3iknFn34evsBFA4IqWrkhMEpyAyVqZMg&s);
     background-repeat: no-repeat;
     background-size: 100% 700px;
     display: flex;

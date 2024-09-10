@@ -58,7 +58,7 @@ const Booking = () => {
                             <Text>40.000</Text>
                         </ContainerAmountTotal>
                         <ContainerButton>
-                            <Link href=""><Button text={"RESERVA AHORA"}></Button></Link>
+                            <Link href=""><Button text={"Reservar ahora"}></Button></Link>
                         </ContainerButton>
                     </ContainerDeatails>
                 </ContainerDetailsBooking>
