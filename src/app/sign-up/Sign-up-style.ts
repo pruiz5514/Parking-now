@@ -5,12 +5,10 @@ export const MainSign = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    padding: 30px 0;
     box-sizing: border-box;
     margin:0;
-    padding: 20%;
-    border: 2px solid var(--blue-dark);
-    
+    min-height: 100vh;
 `;
 export const SpanForm = styled.span`
     margin-top: 0;

@@ -4,6 +4,7 @@ export const InputContainer = styled.article`
   display: flex;
   flex-direction: column;
   margin: 0.3rem;
+  width: 100%;
 
   @media (max-width: 480px) {
     margin: 0.2rem;
@@ -67,5 +68,6 @@ export const InputStyled = styled.input`
   @media (max-width: 480px) {
     padding: 5px 5px 5px 35px; /* Ajusta el padding para dispositivos móviles */
     font-size: 11px;
+    width: 100%;
   }
 `;

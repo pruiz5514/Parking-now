@@ -5,11 +5,7 @@ import Link from "next/link"
 import Button from "app/components/UI/Button/Button"
 import { MainStyle, Title, ContainerDataBooking, ContainerDetailsBooking, ContainerInfoContact, ContainerInfoParking, TitleInfo, ContainerTime, ContainerDeatails, Text, ContainerAmountTime, Containerhours, ContainerAmountTotal } from "./booking-style"
 import Input from "app/components/UI/Input/Input"
-import { MdOutlinePersonOutline } from "react-icons/md"
-import { LuPhoneCall } from "react-icons/lu"
-import { HiOutlineMail } from "react-icons/hi"
-import { FaAddressCard } from "react-icons/fa"
-import { RiHomeHeartLine } from "react-icons/ri"
+import { FaAddressCard, FaEnvelope, FaMap, FaPhone, FaUser } from "react-icons/fa"
 
 const Booking = () => {
     return (
@@ -23,15 +19,15 @@ const Booking = () => {
             <Title>Tu Reserva</Title>
             <ContainerInfoContact >
             <TitleInfo>Informacion del contacto</TitleInfo>
-            <Input label= "Nombre completo" id="userName"  type="text" placeholder="Ingresa tu nombre" icon={MdOutlinePersonOutline} required={true}/>
-            <Input label= "Número de contacto" id="userPhone"  type="number" placeholder="123 456 14 25" icon={LuPhoneCall} required={true}/>
-            <Input label= "Correo electrónico" id="userAddressEmail"  type="email" placeholder="pepito@micorreo.com" icon={HiOutlineMail} required={true}/>
+            <Input label= "Nombre completo" id="userName"  type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true}/>
+            <Input label= "Número de contacto" id="userPhone"  type="number" placeholder="123 456 14 25" icon={FaPhone} required={true}/>
+            <Input label= "Correo electrónico" id="userAddressEmail"  type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true}/>
             <Input label= "Placa" id="userIdVehicle"  type="text" placeholder="AXY78G" icon={FaAddressCard} required={true}/>
             </ContainerInfoContact>
 
             <ContainerInfoParking>
             <TitleInfo>Informacion del estacionamiento</TitleInfo>
-            <Input label= "Ubicación" id="userAddress"  type="text" placeholder=" mde cra 55 # 25-15 " icon={RiHomeHeartLine} required={true}/>
+            <Input label= "Ubicación" id="userAddress"  type="text" placeholder=" mde cra 55 # 25-15 " icon={FaMap} required={true}/>
             </ContainerInfoParking>   
             </ContainerDataBooking>
             

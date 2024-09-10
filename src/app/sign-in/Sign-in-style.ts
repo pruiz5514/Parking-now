@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const MainRegParking = styled.main`
+export const MainSignIn = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; 
     padding: 30px 0;
     box-sizing: border-box;
     margin:0;
+    min-height: 100vh;
 `;
 export const SpanForm = styled.span`
     margin-top: 0;
@@ -28,23 +28,10 @@ export const SpanContent = styled.div`
 `;
 
 export const SelectAddress = styled.select`
-    width: 100%;
     border: 1px solid var(--orange);
-    border-radius: 20px;
+    border-radius:20px;
     padding: 5px;
     font-size: 12px;
     outline: none;
     color: var(--blue-dark);
-    box-sizing: border-box;
-
-    @media (max-width: 480px) {
-        padding: 5px;
-        font-size: 11px;
-    }
-`;
-
-export const ContainerButton = styled.div`
-    margin-top:20px;
-    display: flex;
-    justify-content: center;
 `;
