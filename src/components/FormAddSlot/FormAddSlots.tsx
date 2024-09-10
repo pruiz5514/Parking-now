@@ -21,7 +21,7 @@ const FormAddSlots: React.FC = () => {
             title="Agregar Celdas"
             footerContent={
                 <>
-                    <Button text={"GUARDAR"} />
+                    <Button text={"Guardar"} />
                 </>
             }
         >
