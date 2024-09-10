@@ -1,7 +1,7 @@
 export interface IInput {
    label: string;
     type: string;
-    placeholder: string;
+    placeholder?: string;
     required?: boolean;
     id: string;
     value?: string;

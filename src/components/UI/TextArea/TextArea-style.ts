@@ -4,6 +4,7 @@ export const TextAreaContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
+  width:100%
 `;
 
 export const TextAreaStyled = styled.textarea`
@@ -15,4 +16,5 @@ export const TextAreaStyled = styled.textarea`
   font-size: 12px;
   color: var(--blue-dark);
   outline: none;
+  resize: none;
 `;

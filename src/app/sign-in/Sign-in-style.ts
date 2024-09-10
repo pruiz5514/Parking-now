@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainSign = styled.main`
+export const MainSignIn = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
