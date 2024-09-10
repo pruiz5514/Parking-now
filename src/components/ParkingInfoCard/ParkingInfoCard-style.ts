@@ -4,7 +4,7 @@ export const ParkingInfoCardContainer = styled.article`
     width: 100%;
     min-width: 300px;
     height: auto;
-    background-color: var(--blue);
+    background-color: var(--grey);
     border-radius: 12px;
     padding: 10px 10px 20px 10px;
 
@@ -36,7 +36,6 @@ export const ParkingInfoCardText = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    color: var(--white);
     text-align: justify;
 
     @media (min-width: 630px){

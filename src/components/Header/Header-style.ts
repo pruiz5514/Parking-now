@@ -5,6 +5,8 @@ export const HeaderStyle = styled.header`
     height: 100px;
     background-color: var(--blue-dark);
     display: flex;
+    position: fixed;
+    z-index: 100;
 `
 export const HeaderSection = styled.section`
     width: 30%;

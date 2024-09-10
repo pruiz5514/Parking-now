@@ -6,9 +6,14 @@ import Input from "../UI/Input/Input"
 import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa"
 import Form from "../General-form/Form"
 
-const FormContactUs: React.FC = () => {
+interface ContactProps {
+    id: string;
+};
+
+const FormContactUs: React.FC<ContactProps> = ({ id }) => {
     return (
-        <Form
+        <div id={id}>
+         <Form 
             title="CONTACTANOS"
             footerContent={
                 <>
@@ -21,6 +26,8 @@ const FormContactUs: React.FC = () => {
             <Input label="Correo electrónico" id="userAddressEmailContacUs" type="email" placeholder="Ingresa tu dirección de correo" icon={FaEnvelope} required={true} />
             <TextArea id="textareaMsnContactUs" label="Mensaje"></TextArea>
         </Form>
+        </div>
+       
     )
 }
 

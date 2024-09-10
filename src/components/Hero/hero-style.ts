@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
 export const HeroStyled = styled.section`
-    height: 550px;
+    height: 700px;
     background-image: url(https://images.pexels.com/photos/2402235/pexels-photo-2402235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     background-repeat: no-repeat;
-    background-size: 100% 550px;
+    background-size: 100% 700px;
     display: flex;
     align-items: center;
     justify-content: center;

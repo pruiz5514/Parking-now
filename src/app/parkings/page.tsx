@@ -18,9 +18,9 @@ const Parkings = () => {
     return(
         <>
             <Header>
-                <li><Link href={"/"}>Inicio</Link></li>
-                <li>Publicar parqueadero</li>
-                <li><Button text={"Cerrar sesión"}/></li>
+                <li><Link href="/">Inicio</Link></li>
+                <li><Link href="./register-parking">Publicar parqueadero</Link></li>
+                <li> <Link href="/sign-in"><Button text={"Cerrar sesión"}/></Link></li>
             </Header>
 
             <MainEsStyle>

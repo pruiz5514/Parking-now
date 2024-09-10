@@ -15,8 +15,8 @@ const registerParking: React.FC = () => {
     return (
         <>
             <Header>
-                <li> <a href="">Inicio</a> </li>
-                <li> <Button text={"Cerrar sesión"} /></li>
+                <li> <a href="/">Inicio</a> </li>
+                <li> <Link href="/sign-in"><Button text={"Cerrar sesión"}/></Link></li>
             </Header>
 
             <MainRegParking>

@@ -23,12 +23,12 @@ const SignIn: React.FC = () => {
                     title="Iniciar Sesión"
                     footerContent={
                         <>
-                            <Button text={"INGRESAR"}/>
                             <SpanContent>
+                            <Link href="./parkings"><Button text={"INGRESAR"}/></Link>
                                 <Label>
                                     {"¿No tienes cuenta? "}
                                 </Label>
-                                <Link href="/register">
+                                <Link href="./sign-up">
                                     <SpanForm> {"Crea una cuenta"}</SpanForm>
                                 </Link>
                             </SpanContent>

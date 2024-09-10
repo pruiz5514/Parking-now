@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { ParkingInfoCardButton, ParkingInfoCardContainer, ParkingInfoCardImage, ParkingInfoCardImg, ParkingInfoCardP, ParkingInfoCardPrice, ParkingInfoCardText } from "./ParkingInfoCard-style";
 import Button from "../UI/Button/Button";
+import Link from "next/link";
 
 const ParkingInfoCard = ()=>{
     return(
@@ -18,7 +18,7 @@ const ParkingInfoCard = ()=>{
                 <ParkingInfoCardPrice>$ 3000/Horas</ParkingInfoCardPrice>
 
                 <ParkingInfoCardButton> 
-                    <Button text={"Reservar"}/>
+                    <Link href="./booking"><Button text={"Reservar"}/></Link>
                 </ParkingInfoCardButton>
             </ParkingInfoCardText>
             
