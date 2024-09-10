@@ -4,7 +4,7 @@ import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
 import Link from "next/link";
 import Image from "next/image";
-import { InputContainer, Label } from "app/components/UI/Input/Input-style";
+import { InputContainer, Label } from "app/components/UI/Input/input-style";
 import { FaDollarSign, FaImage, FaMapMarkerAlt, FaTag, FaThLarge, FaUser } from "react-icons/fa";
 import TextArea from "app/components/UI/TextArea/TextArea";
 import Header from "app/components/Header/Header";

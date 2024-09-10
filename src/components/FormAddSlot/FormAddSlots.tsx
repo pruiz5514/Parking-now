@@ -3,7 +3,6 @@ import Button from "../UI/Button/Button"
 import Form from "../General-form/Form"
 import Input from "../UI/Input/Input";
 import { FaThLarge } from "react-icons/fa";
-import { FormContainerContactUs } from "../Contact-us/Contact-us-style";
 
 const FormAddSlots: React.FC = () => {
     const [numberofSlots, setnumberSlots] = useState(0);
