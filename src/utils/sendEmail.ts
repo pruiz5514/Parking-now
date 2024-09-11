@@ -1,15 +1,10 @@
 import { FormEvent, RefObject } from 'react';
 import emailjs from '@emailjs/browser';
 
-export const sendEmail = (
-    e: FormEvent<HTMLFormElement>,
-    formRef: RefObject<HTMLFormElement>,
-): void => {
-    e.preventDefault();
-
+export const sendEmail = (formRef: RefObject<HTMLFormElement>, service: string, template: string, pk: string): void => {
     if (formRef.current) {
 
-        emailjs.sendForm('service_ng578mi', 'template_ltv2rqu', formRef.current, 'u4XjTDKRIQ1ktfRyU')
+        emailjs.sendForm(service, template, formRef.current, pk)
             .then(
                 () => {
                     console.log('¡ÉXITO!');

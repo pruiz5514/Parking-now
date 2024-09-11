@@ -4,5 +4,5 @@ export interface IForm {
     children?: React.ReactNode
     footerContent?: React.ReactNode;
     onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
-    ref?: React.RefObject<HTMLFormElement>;
+    ref: React.RefObject<HTMLFormElement>;
 }

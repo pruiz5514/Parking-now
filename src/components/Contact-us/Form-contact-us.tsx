@@ -1,5 +1,6 @@
 "use client"
 
+import React, { forwardRef } from "react";
 import Button from "../UI/Button/Button"
 import TextArea from "../UI/TextArea/TextArea"
 import Input from "../UI/Input/Input"
@@ -9,12 +10,14 @@ import Form from "../General-form/Form"
 interface ContactProps {
     id: string;
     ref? : React.RefObject<HTMLFormElement>;
+    onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const FormContactUs: React.FC<ContactProps> = ({ id,ref }) => {
+const FormContactUs = forwardRef<HTMLFormElement, ContactProps>(
+    ({ id, onSubmit }, ref) => {
     return (
         <div id={id}>
-         <Form ref={ref}
+         <Form ref={ref} onSubmit={onSubmit}
             title="CONTACTANOS"
             footerContent={
                 <>
@@ -30,6 +33,6 @@ const FormContactUs: React.FC<ContactProps> = ({ id,ref }) => {
         </div>
        
     )
-}
+});
 
 export default FormContactUs;
