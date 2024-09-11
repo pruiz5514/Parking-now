@@ -18,7 +18,11 @@ export default function Home() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    sendEmail(formRef, 'service_z3c311w', 'template_lid1dqo', 'T21kkOiMTWkTwlvRn');
+    if(formRef.current){
+      sendEmail(formRef, 'service_z3c311w', 'template_lid1dqo', 'T21kkOiMTWkTwlvRn', "Mensaje enviado exitosamente");
+      formRef.current.reset();
+    }
+    
   }
   return (
     <>
