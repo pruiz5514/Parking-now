@@ -8,12 +8,13 @@ import Form from "../General-form/Form"
 
 interface ContactProps {
     id: string;
+    ref? : React.RefObject<HTMLFormElement>;
 };
 
-const FormContactUs: React.FC<ContactProps> = ({ id }) => {
+const FormContactUs: React.FC<ContactProps> = ({ id,ref }) => {
     return (
         <div id={id}>
-         <Form 
+         <Form ref={ref}
             title="CONTACTANOS"
             footerContent={
                 <>
@@ -21,10 +22,10 @@ const FormContactUs: React.FC<ContactProps> = ({ id }) => {
                 </>
             }
         >
-            <Input label="Nombre completo" id="userNameContacUs" type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true} />
-            <Input label="Número de teléfono" id="userPhoneContacUs" type="number" placeholder="Ingresa tu número de contacto" icon={FaPhone} required={true} />
-            <Input label="Correo electrónico" id="userAddressEmailContacUs" type="email" placeholder="Ingresa tu dirección de correo" icon={FaEnvelope} required={true} />
-            <TextArea id="textareaMsnContactUs" label="Mensaje"></TextArea>
+            <Input label="Nombre completo" id="userNameContacUs" type="text" placeholder="Ingresa tu nombre" icon={FaUser} name="name" required={true} />
+            <Input label="Número de teléfono" id="userPhoneContacUs" type="number" placeholder="Ingresa tu número de contacto" name="phone" icon={FaPhone} required={true} />
+            <Input label="Correo electrónico" id="userAddressEmailContacUs" type="email" placeholder="Ingresa tu dirección de correo" name="email" icon={FaEnvelope} required={true} />
+            <TextArea id="textareaMsnContactUs" label="Mensaje" name="message"></TextArea>
         </Form>
         </div>
        

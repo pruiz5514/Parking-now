@@ -1,7 +1,8 @@
-export interface ITextArea{
+export interface ITextArea {
     label: string;
     id: string;
     required?: boolean;
     value?: string;
-    onChange?: (event:React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    name?: string;
 }

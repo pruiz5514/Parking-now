@@ -10,8 +10,10 @@ import Button from "app/components/UI/Button/Button";
 import FormContactUs from "app/components/Contact-us/Form-contact-us";
 import Link from "next/link";
 import FormAddSlots from "app/components/FormAddSlot/FormAddSlots";
+import { useRef } from "react";
 
 export default function Home() {
+  const formRef = useRef<HTMLFormElement>(null);
   return (
     <>
       <Header>
@@ -25,7 +27,7 @@ export default function Home() {
       <Hero/>
       <Benefits id={"benefits"}/>
       <Baner id={"info"} />
-      <FormContactUs id={"contact"}/>
+      <FormContactUs id={"contact"} ref={formRef}/>
       <Footer/>
     </>
   );

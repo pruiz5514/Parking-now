@@ -1,11 +1,11 @@
 import { IForm } from "app/types/IForm";
-import { ArticleWrapper, FormBody, FormContainer, FormFooter, FormHeader, H1Form } from "./form-style";
+import { ArticleWrapper, FormBody, FormContainer, FormFooter, FormHeader, H1Form } from "./Form-style";
 
 
-const Form: React.FC<IForm> = ({ title, headerContent, children, footerContent, onSubmit }) => {
+const Form: React.FC<IForm> = ({ title, headerContent, children, footerContent, onSubmit, ref }) => {
     return (
         <ArticleWrapper>
-            <FormContainer onSubmit={onSubmit}>
+            <FormContainer ref={ref} onSubmit={onSubmit}>
                 <FormHeader>
                     {headerContent}
                     <H1Form>{title}</H1Form>

@@ -1,5 +1,5 @@
 export interface IInput {
-   label: string;
+    label: string;
     type: string;
     placeholder?: string;
     required?: boolean;
@@ -7,4 +7,5 @@ export interface IInput {
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     icon?: React.ElementType;
+    name?: string
 }
