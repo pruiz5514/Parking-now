@@ -29,7 +29,7 @@ export const InputWrapper = styled.div`
 
 export const IconContainer = styled.div`
   position: absolute;
-  left: 10px; /* Ajusta esta posición según sea necesario */
+  left: 10px; 
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--blue);
@@ -40,7 +40,7 @@ export const IconContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 480px) {
-    left: 10px; /* Mantén la misma posición en móviles */
+    left: 10px; 
     top: 50%;
     transform: translateY(-50%);
   }
@@ -57,16 +57,16 @@ export const SpanIcon = styled.span`
 
 export const InputStyled = styled.input`
   width: 100%;
-  padding: 5px 5px 5px 40px; /* Ajusta el padding para dejar espacio para el icono */
+  padding: 5px 5px 5px 40px; 
   border: 1px solid var(--orange);
   border-radius: 20px;
   font-size: 12px;
   outline: none;
   color: var(--blue-dark);
-  box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+  box-sizing: border-box; 
 
   @media (max-width: 480px) {
-    padding: 5px 5px 5px 35px; /* Ajusta el padding para dispositivos móviles */
+    padding: 5px 5px 5px 35px; 
     font-size: 11px;
     width: 100%;
   }

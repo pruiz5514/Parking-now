@@ -6,6 +6,7 @@ import Button from "app/components/UI/Button/Button"
 import { MainStyle, Title, ContainerDataBooking, ContainerDetailsBooking, ContainerInfoContact, ContainerInfoParking, TitleInfo, ContainerTime, ContainerDeatails, Text, ContainerAmountTime, Containerhours, ContainerAmountTotal, ContainerButton } from "./booking-style"
 import Input from "app/components/UI/Input/Input"
 import { FaAddressCard, FaEnvelope, FaMap, FaPhone, FaUser } from "react-icons/fa"
+import InputDateTime from "app/components/UI/InputDateTime/InputDateTime"
 
 const Booking = () => {
     return (
@@ -36,12 +37,12 @@ const Booking = () => {
                         <TitleInfo>Tiempo de parqueo</TitleInfo>
                         <div>
                             <Text>Hora de ingreso</Text>
-                            <input type="text" />
+                            <InputDateTime label="" id="userHourIn" type="datetime-local" required={true}/>
                         </div>
 
                         <div>
                             <Text>Hora de salida</Text>
-                            <input type="text" />
+                            <InputDateTime label="" id="userHourOut"type="datetime-local"  required={true} />
                         </div>
 
                         <ContainerAmountTime>

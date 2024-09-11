@@ -2,6 +2,7 @@ import { IModal } from "app/types/IModal";
 import { CloseButton, ModalContainer, Overlay } from "./modal-style";
 
 const Modal: React.FC<IModal> = ({ isOpen, onClose, children }) => {
+    if (!isOpen) return null;
     return(
         <Overlay isOpen={isOpen} onClick={onClose}>
             <ModalContainer onClick={(e) => e.stopPropagation()}>

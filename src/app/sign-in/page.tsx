@@ -6,7 +6,7 @@ import {  SpanContent, SpanForm } from "../sign-up/Sign-up-style";
 import Link from "next/link";
 import Image from "next/image";
 import Form from "app/components/General-form/Form";
-import { Label } from "app/components/UI/Input/input-style";
+import { Label } from "app/components/UI/Input/Input-style";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { MainSignIn } from "./Sign-in-style";
 
