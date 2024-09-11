@@ -34,5 +34,5 @@ const FormContactUs = forwardRef<HTMLFormElement, ContactProps>(
        
     )
 });
-
+FormContactUs.displayName = "FormContactUs";
 export default FormContactUs;
