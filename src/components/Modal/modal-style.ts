@@ -11,6 +11,7 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
   justify-content: center;
   align-items: center; 
   padding: 20px; 
+  min-height:100vh;
   `;
 
 export const ModalContainer = styled.div`
