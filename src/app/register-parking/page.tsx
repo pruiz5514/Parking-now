@@ -9,14 +9,14 @@ import { FaDollarSign, FaImage, FaMapMarkerAlt, FaTag, FaThLarge, FaUser } from 
 import TextArea from "app/components/UI/TextArea/TextArea";
 import Header from "app/components/Header/Header";
 import Form from "app/components/General-form/Form";
-import { ContainerButton, MainRegParking, SelectAddress } from "./register-parking-style";
+import { MainRegParking, SelectAddress } from "./register-parking-style";
 
 const registerParking: React.FC = () => {
     return (
         <>
             <Header>
-                <li> <a href="/">Inicio</a> </li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"}/></Link></li>
+                <li> <a href="./parkings">Inicio</a> </li>
+                <li> <Link href="/sign-in"><Button text={"Cerrar sesión"}/></Link></li>
             </Header>
 
             <MainRegParking>
@@ -28,9 +28,7 @@ const registerParking: React.FC = () => {
                     }
                     title="Registro Parqueadero"
                     footerContent={
-                        <ContainerButton>
                             <Button text={"Guardar parqueadero"} />
-                        </ContainerButton>
                     }
                 >
                     <Input label="Nombre" id="userAddressEmailSignIn" type="text" icon={FaUser} required={true} />

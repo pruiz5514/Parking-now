@@ -12,8 +12,8 @@ const Booking = () => {
     return (
         <>
             <Header>
-                <li><Link href="/">Inicio</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+                <li><Link href="./parkings">Inicio</Link></li>
+                <li> <Link href="/sign-in"><Button text={"Cerrar sesión"} /></Link></li>
             </Header>
             <MainStyle>
                 <ContainerDataBooking>

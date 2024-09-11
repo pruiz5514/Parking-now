@@ -30,7 +30,7 @@ export const SpanContent = styled.div`
 export const SelectAddress = styled.select`
     width: 100%;
     border: 1px solid var(--orange);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 5px;
     font-size: 12px;
     outline: none;
@@ -41,10 +41,4 @@ export const SelectAddress = styled.select`
         padding: 5px;
         font-size: 11px;
     }
-`;
-
-export const ContainerButton = styled.div`
-    margin-top:20px;
-    display: flex;
-    justify-content: center;
 `;

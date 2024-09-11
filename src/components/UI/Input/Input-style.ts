@@ -32,12 +32,10 @@ export const IconContainer = styled.div`
   left: 10px; 
   top: 50%;
   transform: translateY(-50%);
-  background-color: var(--blue);
-  padding: 5px;
-  border-radius: 50%;
-  display: flex;
+  /* padding: 5px; */
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 
   @media (max-width: 480px) {
     left: 10px; 
@@ -57,9 +55,10 @@ export const SpanIcon = styled.span`
 
 export const InputStyled = styled.input`
   width: 100%;
-  padding: 5px 5px 5px 40px; 
+  height: 32px;
+  padding-left: 30px;
   border: 1px solid var(--orange);
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 12px;
   outline: none;
   color: var(--blue-dark);
