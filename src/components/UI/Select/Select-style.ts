@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
-export const SelectStyle = styled.select`
+export const SelectAddress = styled.select`
     width: 100%;
-    max-width: 200px;
-    min-width: 100px;
-    height: 35px;
+    height: 32px;
+    border: 1px solid var(--orange);
     border-radius: 10px;
-    background-color: var(--gray);
-    padding: 0 10px;
-`
+    padding: 5px;
+    font-size: 12px;
+    outline: none;
+    color: var(--blue-dark);
+    box-sizing: border-box;
+
+    @media (max-width: 480px) {
+        padding: 5px;
+        font-size: 11px;
+    }
+`;

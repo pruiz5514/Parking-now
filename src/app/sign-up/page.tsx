@@ -6,8 +6,7 @@ import Input from "app/components/UI/Input/Input";
 import Button from "app/components/UI/Button/Button";
 import Form from "app/components/General-form/Form";
 import { FaEnvelope, FaHome, FaIdCard, FaLock, FaPhone, FaUser } from "react-icons/fa";
-import { MainSign, SpanContent, SpanForm } from "./Sign-up-style";
-import { Label } from "app/components/UI/Input/Input-style";
+import { MainSign } from "../../components/General-form/Form-style";
 
 const SignUp: React.FC = () => {
     return (
@@ -22,9 +21,7 @@ const SignUp: React.FC = () => {
                     title="Registro"
                     footerContent={
                         <>
-                            <SpanContent>
-                            <Link href="./sign-in"><Button text={"Crear cuenta"} /></Link>
-                            </SpanContent>
+                            <Button text={"Crear cuenta"} />
                         </>
                     }
                 >

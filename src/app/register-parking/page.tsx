@@ -9,14 +9,15 @@ import { FaDollarSign, FaImage, FaMapMarkerAlt, FaTag, FaThLarge, FaUser } from 
 import TextArea from "app/components/UI/TextArea/TextArea";
 import Header from "app/components/Header/Header";
 import Form from "app/components/General-form/Form";
-import { MainRegParking, SelectAddress } from "./register-parking-style";
+import { MainRegParking } from "./register-parking-style";
+import { SelectAddress } from "app/components/UI/Select/Select-style";
 
 const registerParking: React.FC = () => {
     return (
         <>
             <Header>
                 <li> <a href="./parkings">Inicio</a> </li>
-                <li> <Link href="/sign-in"><Button text={"Cerrar sesión"}/></Link></li>
+                <li> <Link href="/"><Button text={"Cerrar sesión"}/></Link></li>
             </Header>
 
             <MainRegParking>

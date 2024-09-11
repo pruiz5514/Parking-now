@@ -32,10 +32,6 @@ export const IconContainer = styled.div`
   left: 10px; 
   top: 50%;
   transform: translateY(-50%);
-  /* padding: 5px; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 
   @media (max-width: 480px) {
     left: 10px; 

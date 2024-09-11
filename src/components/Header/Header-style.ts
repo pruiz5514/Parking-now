@@ -46,16 +46,23 @@ export const BurgerButton = styled.button`
         display: none;
     }
 `
-
-export const HeaderAside = styled.aside<{ isOpen: boolean }>`
+export const HeaderAsideContainer = styled.div<{ isOpen: boolean }>`
     position: fixed;
     display: ${props => (props.isOpen ? 'flex' : 'none')};
     top: 0;
     left: 0;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,.6);
+    z-index: 50;
     width: 100%;
+`
+export const HeaderAside = styled.aside`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
     min-height: 100vh;
     background-color: var(--blue-dark);
-    z-index: 20;
     padding: 50px 30px;
 
     @media (min-width: 950px){
@@ -69,6 +76,7 @@ export const HeaderUlAside = styled.ul`
     color: var(--white);
     font-weight: bold;
     font-size: 16px;
+    padding-top: 32px;
 `
 export const CloseHeaderButton = styled.button`
     position: absolute;

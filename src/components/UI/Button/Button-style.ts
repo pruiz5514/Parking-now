@@ -7,4 +7,11 @@ export const ButtonStyle = styled.button`
     border-radius: 10px;
     font-weight: bold;
     font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+
+    :hover {
+        background-color: var(--white); /* Color de fondo al pasar el ratón */
+        color: var(--orange);
+    }
 `

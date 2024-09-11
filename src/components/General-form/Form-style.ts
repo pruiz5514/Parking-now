@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-export const ArticleWrapper = styled.article`
-  padding: 20px;
-  background-color: var(--white);
-  border-radius: 8px;
-  width: 100%;
-  
+export const MainSign = styled.main`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    box-sizing: border-box;
 `;
+
 
 export const FormContainer = styled.form`
 width: 100%;
@@ -25,10 +27,6 @@ height: auto;
 @media (max-width: 900px) {
   padding: 15px;
   max-width: 100%;
-}
-
-@media (max-width: 480px) {
-  padding: 10px;
 }
 `;
 
@@ -69,9 +67,5 @@ export const FormFooter = styled.div`
     justify-content: center;
     flex-direction: column;
     padding-top:10px;
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-    }
 `;
 

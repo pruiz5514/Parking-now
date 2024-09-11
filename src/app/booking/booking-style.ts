@@ -20,7 +20,11 @@ export const ContainerDataBooking = styled.section`
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 50px;
+    padding: 50px 0px;
+
+    @media (min-width: 576px){
+        padding-left: 35px;
+    }
 `
 
 export const Title = styled.h1`
@@ -62,27 +66,33 @@ export const Containerhours = styled.div`
 `
 
 export const ContainerDetailsBooking = styled.section`
-    width: 80%;
-    height: 600px;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 50px;
-    margin: 20px;
+    margin: 20px 0;
+
+    @media (min-width: 576px){
+        padding-right: 35px;
+    }
 `
 
 const commonContainersDetails = `
+    width: 100%;
     background-color: var(--grey);
     border-radius: 10px;
-    width: 60%;
-    height: 200px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
     height: 40%;
+
+     @media (min-width: 576px){
+        max-width: 390px;
+    }
 `
 
 export const ContainerTime = styled.div`${commonContainersDetails}`

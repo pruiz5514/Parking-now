@@ -5,19 +5,32 @@ export const MainEsStyle = styled.main`
     min-height: calc(100vh - 100px - 100px);
     display: flex;
 `
-export const AsideEsStye = styled.aside<{ isOpen: boolean }>`
+
+export const AsideStyleContainer = styled.div<{ isOpen: boolean }>`
     position: fixed;
     display: ${props => (props.isOpen ? 'flex' : 'none')};
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,.6);
+    z-index: 50;
+    width: 100%;
+`
+
+export const AsideEsStye = styled.aside`
+    display: flex;
+    position: fixed;
     flex-direction: column;
     z-index: 10;
     position: fixed;
     top: 0;
     left: 0;
     background-color: var(--white);
-    width: 100%;
+    width: 70%;
     height: 100vh;
-    padding: 30px;
+    padding: 80px 30px;
     gap: 50px;
+
     @media (min-width: 711px){
         display: flex;
         position: relative;
