@@ -1,5 +1,5 @@
 'use client'
-import { HeroStyled, Title, HeroContainer, HeroBackgroundOverlay } from "./Hero-style"
+import { HeroStyled, Title, HeroContainer, HeroBackgroundOverlay } from "./hero-style"
 
 const Hero = () => {
     return (
