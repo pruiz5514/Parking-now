@@ -10,7 +10,7 @@ export const ArticleWrapper = styled.article`
 
 export const FormContainer = styled.form`
 width: 100%;
-max-width: 530px; 
+max-width: 700px; 
 margin: 0 auto;
 padding: 20px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

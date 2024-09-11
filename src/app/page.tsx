@@ -10,8 +10,20 @@ import Button from "app/components/UI/Button/Button";
 import FormContactUs from "app/components/Contact-us/Form-contact-us";
 import Link from "next/link";
 import FormAddSlots from "app/components/FormAddSlot/FormAddSlots";
+import { FormEvent, useRef } from "react";
+import { sendEmail } from "app/utils/sendEmail";
 
 export default function Home() {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>)=>{
+    e.preventDefault();
+    if(formRef.current){
+      sendEmail(formRef, 'service_z3c311w', 'template_lid1dqo', 'T21kkOiMTWkTwlvRn', "Mensaje enviado exitosamente");
+      formRef.current.reset();
+    }
+    
+  }
   return (
     <>
       <Header>
@@ -25,7 +37,7 @@ export default function Home() {
       <Hero/>
       <Benefits id={"benefits"}/>
       <Baner id={"info"} />
-      <FormContactUs id={"contact"}/>
+      <FormContactUs id={"contact"} ref={formRef} onSubmit={handleSubmit}/>
       <Footer/>
     </>
   );
