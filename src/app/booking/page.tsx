@@ -37,12 +37,12 @@ const Booking = () => {
                         <TitleInfo>Tiempo de parqueo</TitleInfo>
                         <div>
                             <Text>Hora de ingreso</Text>
-                            <InputDateTime label="" id="userHourInt" type="datetime-local" required={true}/>
+                            <InputDateTime label="" id="userHourIn" type="datetime-local" required={true}/>
                         </div>
 
                         <div>
                             <Text>Hora de salida</Text>
-                            <input type="text" />
+                            <InputDateTime label="" id="userHourOut"type="datetime-local"  required={true} />
                         </div>
 
                         <ContainerAmountTime>

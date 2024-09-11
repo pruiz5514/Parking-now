@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Overlay = styled.div<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   position: fixed;
   top: 0;
   left: 0;
@@ -9,11 +9,10 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 15;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px; /* Asegura espacio en el top y bottom */
-  overflow-y: auto; /* Permite que el modal sea desplazable si es muy alto */
+  align-items: center; 
+  padding: 20px;
+  overflow: hidden; 
 `;
 
 export const ModalContainer = styled.div`
@@ -21,11 +20,14 @@ export const ModalContainer = styled.div`
   padding: 20px;
   border-radius: 8px;
   position: relative;
-  width: 80%;
+  width: 100%; 
   max-width: 500px;
-  max-height: 90vh; /* Limita la altura del modal */
-  overflow-y: auto; /* Permite desplazamiento dentro del modal */
+  max-height: 90vh;
+  overflow: hidden; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; 
 `;
 
 export const CloseButton = styled.button`
@@ -37,3 +39,4 @@ export const CloseButton = styled.button`
   font-size: 20px;
   cursor: pointer;
 `;
+

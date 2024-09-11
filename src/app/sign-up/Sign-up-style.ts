@@ -8,7 +8,7 @@ export const MainSign = styled.main`
     padding: 30px 0;
     box-sizing: border-box;
     margin:0;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 `;
 export const SpanForm = styled.span`
     margin-top: 0;
