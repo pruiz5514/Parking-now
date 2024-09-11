@@ -2,9 +2,9 @@
 import { IButton } from "app/types/IButton"
 import { ButtonStyle } from "./Button-style";
 
-const Button :React.FC<IButton> = ({text}) => {
+const Button :React.FC<IButton> = ({text,onClick }) => {
     return(
-        <ButtonStyle>{text}</ButtonStyle>
+        <ButtonStyle onClick={onClick}>{text}</ButtonStyle>
     )
 }
 

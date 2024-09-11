@@ -7,5 +7,7 @@ export interface IInput {
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     icon?: React.ElementType;
-    name?: string
+    name?: string;
+    min?:string;
+    max?:string;
 }

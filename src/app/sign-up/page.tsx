@@ -7,7 +7,7 @@ import Button from "app/components/UI/Button/Button";
 import Form from "app/components/General-form/Form";
 import { FaEnvelope, FaHome, FaIdCard, FaLock, FaPhone, FaUser } from "react-icons/fa";
 import { MainSign, SpanContent, SpanForm } from "./Sign-up-style";
-import { Label } from "app/components/UI/Input/input-style";
+import { Label } from "app/components/UI/Input/Input-style";
 
 const SignUp: React.FC = () => {
     return (
