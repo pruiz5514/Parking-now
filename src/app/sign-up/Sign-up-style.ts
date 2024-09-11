@@ -5,10 +5,8 @@ export const MainSign = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px 0;
     box-sizing: border-box;
     margin:0;
-    /* min-height: 100vh; */
 `;
 export const SpanForm = styled.span`
     margin-top: 0;
@@ -24,7 +22,6 @@ export const SpanContent = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    // border: 2px solid var(--blue-dark);
 `;
 
 export const SelectAddress = styled.select`

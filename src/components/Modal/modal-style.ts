@@ -6,14 +6,12 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 15;
   justify-content: center;
   align-items: center; 
-  padding: 20px;
-  overflow: hidden; 
-`;
+  padding: 20px; 
+  `;
 
 export const ModalContainer = styled.div`
   background: var(--white);
@@ -23,11 +21,11 @@ export const ModalContainer = styled.div`
   width: 100%; 
   max-width: 500px;
   max-height: 90vh;
-  overflow: hidden; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   display: flex;
   flex-direction: column; 
+  overflow-y: auto;
 `;
 
 export const CloseButton = styled.button`
