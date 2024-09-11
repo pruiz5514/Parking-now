@@ -1,4 +1,5 @@
 export interface IButton {
-    text: string,
+    type?: string
+    text: string
     // onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

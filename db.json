@@ -1,0 +1,30 @@
+{
+  "users": [],
+  "parkings": [
+    {
+      "id": 1,
+      "ownerId": 1,
+      "address": "Aviva Affinity",
+      "imageUrl": "",
+      "createdAt": 1726023287912,
+      "updatedAt": 1726023287912
+    },
+    {
+      "id": "fe7fef91-d383-4812-8b75-c7e8f0dbe72a",
+      "ownerId": 2,
+      "address": "cra 84f 3d 150",
+      "imageUrl": "",
+      "createdAt": 1726023287916,
+      "updatedAt": 1726023287916
+    },
+    {
+      "id": "60d6156f-a21f-43c8-9115-f75e1a1e7a2e",
+      "ownerId": 2,
+      "address": "CL 42 7079 Laureles",
+      "imageUrl": "",
+      "createdAt": 1726024098558,
+      "updatedAt": 1726024098558
+    }
+  ],
+  "parkingsToParkingLots": []
+}

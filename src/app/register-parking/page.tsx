@@ -4,7 +4,7 @@ import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
 import Link from "next/link";
 import Image from "next/image";
-import { InputContainer, Label } from "app/components/UI/Input/input-style";
+import { InputContainer, Label } from "app/components/UI/Input/Input-style";
 import { FaDollarSign, FaImage, FaMapMarkerAlt, FaTag, FaThLarge, FaUser } from "react-icons/fa";
 import TextArea from "app/components/UI/TextArea/TextArea";
 import Header from "app/components/Header/Header";
@@ -12,15 +12,34 @@ import Form from "app/components/General-form/Form";
 import { ContainerButton, MainRegParking, SelectAddress } from "./register-parking-style";
 
 const registerParking: React.FC = () => {
+
+    const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        try {
+            const response = await fetch('/api/parking', {
+                method: 'POST',
+                body: JSON.stringify({
+                    "ownerId": 2,
+                    "address": "CL 42 7079 Laureles",
+                    "imageUrl": ""
+                })
+            })
+            const data = await response.json()
+            console.log(data)
+        } catch (error) {
+            console.error(error)
+        }
+    }
     return (
         <>
             <Header>
                 <li> <a href="/">Inicio</a> </li>
-                <li> <Link href="/sign-in"><Button text={"Cerrar sesión"}/></Link></li>
+                <li> <Link href="/sign-in"><Button text={"Cerrar sesión"} /></Link></li>
             </Header>
 
             <MainRegParking>
                 <Form
+                    onSubmit={onFormSubmit}
                     headerContent={
                         <>
                             <Link href="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
@@ -29,7 +48,7 @@ const registerParking: React.FC = () => {
                     title="Registro Parqueadero"
                     footerContent={
                         <ContainerButton>
-                            <Button text={"Guardar parqueadero"} />
+                            <Button text={"Guardar parqueadero"} type="submit" />
                         </ContainerButton>
                     }
                 >
@@ -71,7 +90,7 @@ const registerParking: React.FC = () => {
                     <TextArea id="textareaDescriptionParking" label="Descripción Parqueadero"></TextArea>
                     <Input label="Cantidad de celdas" id="amountCell" type="number" icon={FaThLarge} required={true} />
                     <Input label="Precio por hora" id="price-hour" type="number" icon={FaDollarSign} required={true} />
-                    
+
                     <InputContainer>
                         <Label htmlFor="type-vehicle-select">Tipo de vehículo</Label>
                         <SelectAddress name={"location"} id={"type-vehicle-select"}>
