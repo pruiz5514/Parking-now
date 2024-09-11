@@ -2,18 +2,16 @@
 
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
-import {  SpanContent, SpanForm } from "../sign-up/Sign-up-style";
 import Link from "next/link";
 import Image from "next/image";
 import Form from "app/components/General-form/Form";
-import { Label } from "app/components/UI/Input/Input-style";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { MainSignIn } from "./Sign-in-style";
+import { MainSign } from "../../components/General-form/Form-style";
 
 const SignIn: React.FC = () => {
     return (
         <>
-            <MainSignIn>
+            <MainSign>
                 <Form
                     headerContent={
                         <>
@@ -22,17 +20,13 @@ const SignIn: React.FC = () => {
                     }
                     title="Iniciar Sesión"
                     footerContent={
-                        <>
-                            <SpanContent>
-                            <Link href="./parkings"><Button text={"Ingresar"}/></Link>
-                            </SpanContent>
-                        </>
+                        <Link href="./parkings"><Button text={"Ingresar"} /></Link>
                     }
                 >
                     <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} />
                     <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" icon={FaLock} required={true} />
                 </Form>
-            </MainSignIn>
+            </MainSign>
         </>
     );
 }

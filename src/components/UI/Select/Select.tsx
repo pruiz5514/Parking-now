@@ -1,12 +1,12 @@
 "use client"
 import { ISelect } from "app/types/ISelect";
-import { SelectStyle } from "./select-style";
+import { SelectAddress } from "./Select-style";
 
 const Select :React.FC<ISelect> = ({name, id, children}) => {
     return(
-        <SelectStyle name={name} id={id}>
+        <SelectAddress name={name} id={id}>
             {children}
-        </SelectStyle>
+        </SelectAddress>
     )
 }
 

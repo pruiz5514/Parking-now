@@ -12,7 +12,7 @@ const Booking = () => {
     return (
         <>
             <Header>
-                <li><Link href="/">Inicio</Link></li>
+                <li><Link href="./parkings">Inicio</Link></li>
                 <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
             </Header>
             <MainStyle>
@@ -59,7 +59,7 @@ const Booking = () => {
                             <Text>40.000</Text>
                         </ContainerAmountTotal>
                         <ContainerButton>
-                            <Link href="/"><Button text={"Reservar ahora"}></Button></Link>
+                            <Button text={"Reservar ahora"}></Button>
                         </ContainerButton>
                     </ContainerDeatails>
                 </ContainerDetailsBooking>
