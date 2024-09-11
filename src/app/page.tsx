@@ -7,13 +7,14 @@ import Hero from "app/components/Hero/Hero";
 import Benefits from "app/components/Benefits/Benefits";
 import Baner from "app/components/General-baner/Baner";
 import Button from "app/components/UI/Button/Button";
-import FormContactUs from "app/components/Contact-us/Form-contact-us";
+
 import Link from "next/link";
 import { useState, FormEvent, useRef } from "react";
 import { sendEmail } from "app/utils/sendEmail";
 import Modal from "app/components/Modal/Modal";
 import SignUp from "./sign-up/page";
 import SignIn from "./sign-in/page";
+import FormContactUs from "app/components/Contact-us/FormContactUs";
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
