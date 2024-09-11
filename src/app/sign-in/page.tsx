@@ -25,12 +25,6 @@ const SignIn: React.FC = () => {
                         <>
                             <SpanContent>
                             <Link href="./parkings"><Button text={"Ingresar"}/></Link>
-                                <Label>
-                                    {"¿No tienes cuenta? "}
-                                </Label>
-                                <Link href="./sign-up">
-                                    <SpanForm> {"Crea una cuenta"}</SpanForm>
-                                </Link>
                             </SpanContent>
                         </>
                     }

@@ -9,7 +9,6 @@ const Hero = () => {
             <HeroBackgroundOverlay/>
             <HeroContainer>
             <Title>Tu celda de parqueo a un click!!</Title>
-            <Link href="../sign-in"><Button text={"Iniciar sesión"} /></Link>
             </HeroContainer>
         </HeroStyled>
     )
