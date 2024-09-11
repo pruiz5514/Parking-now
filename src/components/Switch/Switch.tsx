@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Body, CheckedLabel, SwitchInput, SwitchLabel } from './switch-style';
+import { Body, CheckedLabel, SwitchInput, SwitchLabel } from './Switch-style';
 
 const ToggleSwitch: React.FC = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
