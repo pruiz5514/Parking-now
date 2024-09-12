@@ -29,7 +29,6 @@ export const HeaderUl = styled.ul`
     display: none;
     gap: 40px;
     color: var(--white);
-    font-weight: bold;
     font-size: 16px;
     align-items: center;
     @media (min-width: 950px){

@@ -15,7 +15,7 @@ const SignIn: React.FC = () => {
                 <Form
                     headerContent={
                         <>
-                            <Link href="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
+                            <Image src="/img/LOGO3.png" alt="logo-parkingNow" width={200} height={140}></Image>
                         </>
                     }
                     title="Iniciar Sesión"

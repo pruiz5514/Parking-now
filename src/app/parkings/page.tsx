@@ -59,18 +59,6 @@ const Parkings = () => {
                         </FormEsStyle>
 
                         <FormEsStyle>
-                            <H2EsStyle>Tipo de Parquadero</H2EsStyle>
-                            <DivEsStyle>
-                                <input type="checkbox" id="cubierto-checkbox" />
-                                <LabelEsStyle htmlFor="cubierto-checkbox" >Cubierto</LabelEsStyle>
-                            </DivEsStyle>
-                            <DivEsStyle>
-                                <input type="checkbox" id="descubierto-checkbox" />
-                                <LabelEsStyle htmlFor="descubierto-checkbox">Descubierto</LabelEsStyle>
-                            </DivEsStyle>
-                        </FormEsStyle>
-
-                        <FormEsStyle>
                             <H2EsStyle>Tipo de vehiculo</H2EsStyle>
                             <DivEsStyle>
                                 <input type="checkbox" id="automovil-checkbox" />
@@ -79,6 +67,18 @@ const Parkings = () => {
                             <DivEsStyle>
                                 <input type="checkbox" id="moto-checkbox" />
                                 <LabelEsStyle htmlFor="moto-checkbox">Moto</LabelEsStyle>
+                            </DivEsStyle>
+                        </FormEsStyle>
+
+                        <FormEsStyle>
+                            <H2EsStyle>Tipo de Parquadero</H2EsStyle>
+                            <DivEsStyle>
+                                <input type="checkbox" id="cubierto-checkbox" />
+                                <LabelEsStyle htmlFor="cubierto-checkbox" >Cubierto</LabelEsStyle>
+                            </DivEsStyle>
+                            <DivEsStyle>
+                                <input type="checkbox" id="descubierto-checkbox" />
+                                <LabelEsStyle htmlFor="descubierto-checkbox">Descubierto</LabelEsStyle>
                             </DivEsStyle>
                         </FormEsStyle>
 
