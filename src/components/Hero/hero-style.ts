@@ -28,19 +28,29 @@ export const HeroContainer = styled.div`
     gap: 10px;
     flex-direction: column;
     align-items: center;
-    padding: 0 50px;
+    /* padding: 0 50px; */
     z-index: 1;
 `
 
 export const TitleContainer = styled.div`
     text-align: center;
 
-    p { 
+    & > p { 
         color: var(--white);
         font-size: 20px;
         display: flex;
         gap: 5px;
         align-items: center;
+        justify-content: center;
+    }
+    
+    @media (min-width: 576px){
+        padding: 0 50px;
+
+        & > p { 
+        justify-content: start;
+    }
+    
     }
 `
 

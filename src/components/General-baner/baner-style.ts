@@ -27,7 +27,3 @@ export const Title = styled.h2`
     color: var(--white);
     text-align: center;
 `
-
-interface BentoGridProps {
-    images: string[];
-  }
