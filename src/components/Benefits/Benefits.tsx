@@ -18,7 +18,7 @@ const Benefits: React.FC<BenefitsProps> = ({ id }) => {
                     <p><CheckIconStyled />Ahorra tiempo y evita el estrés.</p>
                     <p><CheckIconStyled />Elige entre varias opciones de estacionamiento.</p>
                     <p><CheckIconStyled />Disfruta de seguridad y confianza.</p>
-                    <p><CheckIconStyled />Gestiona tus reservas fácilmente.</p>
+                    <p><CheckIconStyled />Gestiona tus reservas fácilmente. </p>
                 </div>
                 <div>
                     <Image src="/img/image1.png" alt="logo" width={300} height={300} />
