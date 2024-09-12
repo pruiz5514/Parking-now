@@ -47,19 +47,15 @@ export default function Home() {
         <li> <Button text="Iniciar sesión" onClick={openSignInModal} /> </li>
       </Header>
       <Hero />
-      <div>
       <Benefits id={"benefits"} />
       <Baner id={"info"} />
       <FormContactUs id={"contact"} ref={formRef} onSubmit={handleSubmit} />
-      </div>
       <Footer />
 
-      {/* Modal para Registro  */}
       <Modal isOpen={isSignUpOpen} onClose={closeModals}>
         <SignUp />
       </Modal>
 
-      {/* Modal para Inicio de Sesión */}
       <Modal isOpen={isSignInOpen} onClose={closeModals}>
         <SignIn />
       </Modal>
