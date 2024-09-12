@@ -23,13 +23,13 @@ const Parkings = () => {
             </Header>
 
             <MainEsStyle>
-                <AsideStyleContainer isOpen={asideState}>
-                    <AsideEsStye isOpen={asideState}>
+                <AsideStyleContainer $isOpen={asideState}>
+                    <AsideEsStye $isOpen={asideState}>
                         <CloseAsideButton onClick={() => dispatch(closeAside())}> <IoClose /> </CloseAsideButton>
                         <FormEsStyle>
                             <H2EsStyle>Ubicación</H2EsStyle>
-                            <Select name={"location"} id={"location-select"}>
-                                <option value="" selected disabled></option>
+                            <Select name={"location"} id={"location-select"} defaultValue={""}>
+                                <option value="" disabled></option>
                                 <option value="popular">Popular</option>
                                 <option value="santa-cruz">Santa Cruz</option>
                                 <option value="manrique">Manrique</option>
@@ -83,12 +83,15 @@ const Parkings = () => {
                         </FormEsStyle>
 
                     </AsideEsStye>
-                    <AsideBackground isOpen={asideState}>
+                    <AsideBackground $isOpen={asideState}>
                     </AsideBackground>
                 </AsideStyleContainer>
 
                 <MainSectionEsStyle>
-                    <FilterButton onClick={() => dispatch(openAside())}> Filtrar <HiOutlineAdjustmentsHorizontal /> </FilterButton>
+                    <FilterButton onClick={() => dispatch(openAside())}>
+                        Filtrar
+                        <HiOutlineAdjustmentsHorizontal />
+                    </FilterButton>
                     <ParkCard />
                     <ParkCard />
                     <ParkCard />

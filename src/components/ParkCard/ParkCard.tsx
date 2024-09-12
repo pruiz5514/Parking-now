@@ -18,7 +18,7 @@ const ParkCard = ()=>{
                     <PCardPark> <GiHomeGarage /> Parquadero cubierto</PCardPark>
                     <PriceCardPark>$ 3000/Hora</PriceCardPark>
                     <DivButtonContainer>
-                        <Link href="./parking-info"><Button text={"Ver más"}/></Link>
+                        <Link href="./parking-info" style={{ width: '100%' }}><Button text={"Ver más"}/></Link>
                     </DivButtonContainer>
                 </TextCardPark>
             </ArticleCardPark>

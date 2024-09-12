@@ -6,10 +6,10 @@ export const MainEsStyle = styled.main`
     display: flex;
 `
 
-export const AsideStyleContainer = styled.div<{ isOpen: boolean }>`
-    display: ${props => (props.isOpen ? 'flex' : 'none')};
-    position: ${props => (props.isOpen ? 'fixed' : 'none')};
-    z-index: ${props => (props.isOpen ? '10' : '0')};
+export const AsideStyleContainer = styled.div<{ $isOpen: boolean }>`
+    display: ${props => (props.$isOpen ? 'flex' : 'none')};
+    position: ${props => (props.$isOpen ? 'fixed' : 'none')};
+    z-index: ${props => (props.$isOpen ? '10' : '0')};
     min-height: 100vh;
     width: 100%;
 
@@ -20,8 +20,8 @@ export const AsideStyleContainer = styled.div<{ isOpen: boolean }>`
     }
 `
 
-export const AsideEsStye = styled.aside<{ isOpen: boolean }>`
-    display: ${props => (props.isOpen ? 'flex' : 'none')};
+export const AsideEsStye = styled.aside<{ $isOpen: boolean }>`
+    display: ${props => (props.$isOpen ? 'flex' : 'none')};
     position: fixed;
     flex-direction: column;
     position: fixed;
@@ -44,14 +44,14 @@ export const AsideEsStye = styled.aside<{ isOpen: boolean }>`
         z-index: 0;
     }
 `
-export const AsideBackground = styled.div<{ isOpen: boolean }>`
+export const AsideBackground = styled.div<{ $isOpen: boolean }>`
     position: fixed;
     top: 0;
     right: 0;
     width: 30%;
     min-height: 100vh;
     background-color: rgba(0,0,0,.6);
-    display: ${props => (props.isOpen ? 'flex' : 'none')};
+    display: ${props => (props.$isOpen ? 'flex' : 'none')};
     
     @media (min-width: 711px){
         display: none;
