@@ -10,8 +10,7 @@ export const ButtonStyle = styled.button`
     width: 100%;
     cursor: pointer;
 
-    :hover {
-        background-color: var(--white); /* Color de fondo al pasar el ratón */
-        color: var(--orange);
+    &:hover {
+        background-color: var(--orange-hover);
     }
 `

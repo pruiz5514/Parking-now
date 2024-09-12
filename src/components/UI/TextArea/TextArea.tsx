@@ -3,7 +3,7 @@ import { ITextArea } from "app/types/ITextArea";
 import { TextAreaContainer, TextAreaStyled } from "./TextArea-style";
 import { Label } from "../Input/Input-style";
 
-const TextArea: React.FC<ITextArea> = ({ label, id, required, value, onChange, name}) => {
+const TextArea: React.FC<ITextArea> = ({ label, id, required, value, onChange, name, maxlength}) => {
     return (
         <TextAreaContainer>
             <Label htmlFor={id}>{label} </Label>
@@ -11,6 +11,7 @@ const TextArea: React.FC<ITextArea> = ({ label, id, required, value, onChange, n
                 value={value} 
                 onChange={onChange}
                 name={name}
+                maxLength={maxlength}
                 {...(required && { required })} 
             />
         </TextAreaContainer>

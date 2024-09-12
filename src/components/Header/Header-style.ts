@@ -46,9 +46,9 @@ export const BurgerButton = styled.button`
         display: none;
     }
 `
-export const HeaderAsideContainer = styled.div<{ isOpen: boolean }>`
+export const HeaderAsideContainer = styled.div<{ $isOpen: boolean }>`
     position: fixed;
-    display: ${props => (props.isOpen ? 'flex' : 'none')};
+    display: ${props => (props.$isOpen ? 'flex' : 'none')};
     top: 0;
     left: 0;
     min-height: 100vh;

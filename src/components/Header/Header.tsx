@@ -21,7 +21,7 @@ const Header = ({ children }: PropsWithChildren) => {
                     <RxHamburgerMenu />
                 </BurgerButton>
 
-                <HeaderAsideContainer isOpen={isOpen}>
+                <HeaderAsideContainer $isOpen={isOpen}>
                     <HeaderAside>
                         <CloseHeaderButton onClick={() => setIsOpen(false)}>
                             <IoClose />

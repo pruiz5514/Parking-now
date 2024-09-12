@@ -12,7 +12,7 @@ const ReservedParking = ()=>{
                 <ReservedParkingText> ESTACIONAMIENTO RESERVADO CON EXITO!! </ReservedParkingText>
                 <Link href="/"><Button text={"VOLVER AL INICIO"} /></Link>
                 <ReservedParkingImg>
-                    <Image src="/img/NARANJA.png" alt="logo" width={190} height={190}/>
+                    <Image src="/img/LogoOrange.png" alt="logo" width={190} height={190}/>
                 </ReservedParkingImg>
             </ReservedParkingArticle>
         </ReservedParkingContainer>

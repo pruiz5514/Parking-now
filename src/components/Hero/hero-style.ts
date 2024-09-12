@@ -2,13 +2,18 @@ import styled from "styled-components"
 
 export const HeroStyled = styled.section`
     height: 700px;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9xy3iknFn34evsBFA4IqWrkhMEpyAyVqZMg&s);
+    background-image: url(https://i.pinimg.com/originals/54/0f/42/540f4282c839fce333587b706a77acc1.jpg);
     background-repeat: no-repeat;
     background-size: 100% 700px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+
+    @media (min-width: 576px){
+        justify-content: start;
+        height: 500px;
+    }
 `
 export const HeroBackgroundOverlay = styled.div`
     position: absolute;
@@ -26,8 +31,21 @@ export const HeroContainer = styled.div`
     padding: 0 50px;
     z-index: 1;
 `
-export const Title = styled.h1`
-    font-size: 60px;
-    color: var(--white);
+
+export const TitleContainer = styled.div`
     text-align: center;
+
+    p { 
+        color: var(--white);
+        font-size: 20px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+`
+
+export const Title = styled.h1`
+    font-size: 80px;
+    font-weight: bold;
+    color: var(--white);
 `

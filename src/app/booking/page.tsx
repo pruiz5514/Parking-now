@@ -37,12 +37,12 @@ const Booking = () => {
                         <TitleInfo>Tiempo de parqueo</TitleInfo>
                         <div>
                             <Text>Hora de ingreso</Text>
-                            <InputDateTime label="" id="userHourIn" type="datetime-local" required={true}/>
+                            <InputDateTime label="" id="userHourIn" type="datetime-local" required={true} />
                         </div>
 
                         <div>
                             <Text>Hora de salida</Text>
-                            <InputDateTime label="" id="userHourOut"type="datetime-local"  required={true} />
+                            <InputDateTime label="" id="userHourOut" type="datetime-local" required={true} />
                         </div>
 
                         <ContainerAmountTime>
@@ -59,7 +59,7 @@ const Booking = () => {
                             <Text>40.000</Text>
                         </ContainerAmountTotal>
                         <ContainerButton>
-                            <Button text={"Reservar ahora"}></Button>
+                            <Link href="/" style={{ width: '100%' }}><Button text={"Reservar ahora"}></Button></Link>
                         </ContainerButton>
                     </ContainerDeatails>
                 </ContainerDetailsBooking>
