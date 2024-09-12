@@ -24,7 +24,7 @@ const registerParking: React.FC = () => {
                 <Form
                     headerContent={
                         <>
-                            <Image src="/img/Logo3.png" alt="logo-parkingNow" width={200} height={140}></Image>
+                            <Image src="/img/LOGO3.png" alt="logo-parkingNow" width={200} height={140}></Image>
                         </>
                     }
                     title="Registro Parqueadero"

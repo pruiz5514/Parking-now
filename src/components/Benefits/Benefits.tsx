@@ -21,7 +21,7 @@ const Benefits: React.FC<BenefitsProps> = ({ id }) => {
                     <p><CheckIconStyled />Gestiona tus reservas fácilmente.</p>
                 </div>
                 <div>
-                    <Image src="/img/Image1.png" alt="logo" width={300} height={300} />
+                    <Image src="/img/image1.png" alt="logo" width={300} height={300} />
                 </div>
             </BenefitsList>
         </BenefitsStyled>

@@ -8,7 +8,7 @@ const Footer = ({ children }: PropsWithChildren) => {
     return (
         <FooterStyled>
             <ContainerLogo>
-                <Image src="/img/Logo3.png" alt="logo-principal" width={100} height={100} />
+                <Image src="/img/LOGO3.png" alt="logo-principal" width={100} height={100} />
                 <Title>Parking now - facil y rapido</Title>
             </ContainerLogo>
             <ContainerInfo>
