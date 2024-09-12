@@ -54,7 +54,7 @@ export default function Home() {
       </div>
       <Footer />
 
-      {/* Modal para Registro */}
+      {/* Modal para Registro  */}
       <Modal isOpen={isSignUpOpen} onClose={closeModals}>
         <SignUp />
       </Modal>
