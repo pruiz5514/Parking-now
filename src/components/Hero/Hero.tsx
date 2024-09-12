@@ -1,5 +1,5 @@
 'use client'
-import { HeroStyled, Title, HeroContainer, HeroBackgroundOverlay, TitleContainer } from "./Hero-style"
+import { HeroStyled, Title, HeroContainer, HeroBackgroundOverlay, TitleContainer } from "./hero-style"
 import { FaSearchLocation } from "react-icons/fa";
 
 
