@@ -37,7 +37,7 @@ export const FormHeader = styled.div`
 `;
 
 export const H1Form = styled.h2`
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     color: var(--blue);
     padding-left: 20px;

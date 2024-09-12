@@ -25,7 +25,6 @@ const FormContactUs = forwardRef<HTMLFormElement, ContactProps>(
                     <TextPurpose>El propósito de la aplicación <b>Parking Now</b> es optimizar la experiencia de estacionamiento al facilitar la búsqueda, reserva de espacios de parqueo de manera eficiente, segura y conveniente para los conductores, al mismo tiempo que maximiza la utilización y rentabilidad de los espacios de estacionamiento.
                     </TextPurpose>
                 </div>
-
                 <Form ref={ref} onSubmit={onSubmit}
                     title="CONTACTANOS"
                     footerContent={
