@@ -23,7 +23,7 @@ const RegisterSlots: React.FC = () => {
     return (
         <>
             <Header>
-                <li> <a href="./parkings">Inicio</a> </li>
+                <li> <a href="../parkings">Inicio</a> </li>
                 <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
             </Header>
             <MainRegParking>
