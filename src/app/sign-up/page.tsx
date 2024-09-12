@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link";
 import Image from "next/image";
 import Input from "app/components/UI/Input/Input";
 import Button from "app/components/UI/Button/Button";
@@ -15,7 +14,7 @@ const SignUp: React.FC = () => {
                 <Form
                     headerContent={
                         <>
-                            <Link href="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
+                            <Image src="/img/Logo3.png" alt="logo-parkingNow" width={200} height={140}></Image>
                         </>
                     }
                     title="Registro"

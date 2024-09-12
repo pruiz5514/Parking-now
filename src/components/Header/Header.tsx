@@ -13,14 +13,12 @@ const Header = ({ children }: PropsWithChildren) => {
     return (
         <HeaderStyle>
             <HeaderSection>
-                <Link href="./parkings"><Image src="/img/LOGO1.png" alt="logo-principal" width={140} height={140} /></Link>
+                <Link href="./parkings"><Image src="/img/Logo1.png" alt="logo-principal" width={140} height={140} /></Link>
             </HeaderSection>
-
             <HeaderNav>
                 <BurgerButton onClick={() => setIsOpen(true)}>
                     <RxHamburgerMenu />
                 </BurgerButton>
-
                 <HeaderAsideContainer $isOpen={isOpen}>
                     <HeaderAside>
                         <CloseHeaderButton onClick={() => setIsOpen(false)}>
@@ -31,7 +29,6 @@ const Header = ({ children }: PropsWithChildren) => {
                         </HeaderUlAside>
                     </HeaderAside>
                 </HeaderAsideContainer>
-                
                 <HeaderUl>
                     {children}
                 </HeaderUl>
