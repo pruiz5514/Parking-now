@@ -21,7 +21,7 @@ const Header = ({ children }: PropsWithChildren) => {
                     <RxHamburgerMenu />
                 </BurgerButton>
 
-                {/* <HeaderAsideContainer $isOpen={isOpen}>
+                <HeaderAsideContainer $isOpen={isOpen}>
                     <HeaderAside>
                         <CloseHeaderButton onClick={() => setIsOpen(false)}>
                             <IoClose />
@@ -30,7 +30,7 @@ const Header = ({ children }: PropsWithChildren) => {
                             {children}
                         </HeaderUlAside>
                     </HeaderAside>
-                </HeaderAsideContainer> */}
+                </HeaderAsideContainer>
                 
                 <HeaderUl>
                     {children}
