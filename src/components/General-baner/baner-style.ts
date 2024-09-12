@@ -27,3 +27,76 @@ export const Title = styled.h2`
     color: var(--white);
     text-align: center;
 `
+export const PpalSection = styled.section`
+  margin-block: 50px;
+  justify-content: space-between;
+`;
+
+export const Contenedor = styled.article`
+  gap: 10px;
+  display: flex;
+  width: 100%;
+
+`;
+
+export const Contenedor2 = styled(Contenedor)`
+  height: 200px;
+`;
+
+export const Info = styled.div`
+  width: 100%;
+  height: 100%;
+  @media(min-width: 576px){
+    display: flex;
+    width:70%;
+  }
+`;
+
+export const Imagen = styled.div`
+  width: 30%;
+  height: 100%;
+  display: none;
+
+  @media(min-width: 576px){
+    display: flex;
+  }
+`;
+
+export const StyledImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const Info2 = styled(Info)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const Img3 = styled.div`
+  height: 48%;
+  width: 100%;
+`;
+
+export const Inf4 = styled.div`
+  gap: 10px;
+  display: flex;
+  height: 48%;
+  width: 100%;
+`;
+
+export const ImgHalf = styled.div`
+  width: 50%;
+  height: 100%;
+`;
+
+export const ImgHalfStyled = styled(StyledImg)`
+  height: 100%;
+`;
+export const ImgHalfStylede = styled(StyledImg)`
+  height: 100%;
+  object-fit: cover;
+  object-position:10%  55%;
+
+`;
