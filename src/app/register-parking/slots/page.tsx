@@ -9,7 +9,7 @@ import Input from "app/components/UI/Input/Input";
 import { useState } from "react";
 import { MainRegParking } from "../register-parking-style";
 
-const registerSlots: React.FC = () => {
+const RegisterSlots: React.FC = () => {
     const [numberofSlots, setnumberSlots] = useState(0);
 
     const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,4 +48,4 @@ const registerSlots: React.FC = () => {
     )
 }
 
-export default registerSlots;
+export default RegisterSlots;
