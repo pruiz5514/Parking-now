@@ -48,22 +48,11 @@ export const TitleInfo = styled.h4`
     text-align: center;
 `
 
-const commonContainerAmountTimeAndTotal = `
+export const ContainerAmountTotal = styled.div`
    display: flex;
    justify-content: space-around;
 `
 
-export const ContainerAmountTime = styled.div`${commonContainerAmountTimeAndTotal}`
-
-export const ContainerAmountTotal = styled.div`${commonContainerAmountTimeAndTotal}`
-
-export const Containerhours = styled.div`
-   background-color: var(--blue-dark);
-   color: var(--white);
-   border-radius: 50%;
-   width: 30px;
-   text-align: center;
-`
 
 export const ContainerDetailsBooking = styled.section`
     width: 90%;

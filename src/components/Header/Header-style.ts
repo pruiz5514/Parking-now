@@ -73,7 +73,6 @@ export const HeaderUlAside = styled.ul`
     flex-direction: column;
     gap: 30px;
     color: var(--white);
-    font-weight: bold;
     font-size: 16px;
     padding-top: 32px;
 `
