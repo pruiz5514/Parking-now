@@ -80,7 +80,7 @@ const Booking = () => {
                             <Text>40.000</Text>
                         </ContainerAmountTotal>
                         <ContainerButton>
-                            <Link href="/" style={{ width: '100%' }}><Button text={"Reservar ahora"}></Button></Link>
+                            <Link href="/reserved-parking" style={{ width: '100%' }}><Button text={"Reservar ahora"}></Button></Link>
                         </ContainerButton>
                     </ContainerDeatails>
                 </ContainerDetailsBooking>
