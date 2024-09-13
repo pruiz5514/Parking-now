@@ -1,5 +1,5 @@
 export interface IForm {
-    title: string;
+    title?: string;
     headerContent?: React.ReactNode;
     children?: React.ReactNode
     footerContent?: React.ReactNode;
