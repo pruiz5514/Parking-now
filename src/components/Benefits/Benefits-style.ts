@@ -45,7 +45,7 @@ export const BenefitsList = styled.div`
 `
 
 export const Title = styled.h2`
-font-size: 40px;
+font-size: 35px;
 font-weight: bold;
 color: var(--blue);
 `

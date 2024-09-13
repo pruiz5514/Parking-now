@@ -26,17 +26,17 @@ const registerParking: React.FC = () => {
                 <Form
                     headerContent={
                         <>
-                            <Link href="/"><Image src="/img/LOGO3.png" alt="logo-parkingNow" width={280} height={140}></Image></Link>
+                            <Image src="/img/LOGO3.png" alt="logo-parkingNow" width={200} height={140}></Image>
                         </>
                     }
                     title="Registro Parqueadero"
                     footerContent={
-                            <Button text={"Guardar parqueadero"} />
+                        <Link href="./register-parking/slots" style={{ width: '100%' }}> <Button text={"Siguiente"} /></Link>
                     }
                 >
-                    <Input label="Nombre" id="userAddressEmailSignIn" type="text" icon={FaUser} required={true} />
+                    <Input label="Nombre de la propiedad" id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} />
                     <InputContainer>
-                        <Label htmlFor="location-select">Ubicación</Label>
+                        <Label htmlFor="location-select">Barrio o Municipio</Label>
                         <SelectAddress name={"location"} id={"location-select"}>
                             <option value="" selected disabled></option>
                             <option value="popular">Popular</option>
@@ -68,9 +68,7 @@ const registerParking: React.FC = () => {
                     </InputContainer>
                     <Input label="Dirección " id="userAddressParking" type="text" icon={FaMapMarkerAlt} placeholder="Cll 16 #55-129" required={true} />
                     <Input label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} />
-                    <Input label="Nombre parqueadero " id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} />
                     <TextArea id="textareaDescriptionParking" label="Descripción Parqueadero"></TextArea>
-                    <Input label="Cantidad de celdas" id="amountCell" type="number" icon={FaThLarge} required={true} />
                     <Input label="Precio por hora" id="price-hour" type="number" icon={FaDollarSign} required={true} />
                     
                     <InputContainer>

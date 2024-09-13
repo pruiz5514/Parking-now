@@ -3,7 +3,6 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Providers } from "app/redux/provider";
 
-
 const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "700","900"], });
 
 export const metadata: Metadata = {

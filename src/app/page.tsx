@@ -7,7 +7,6 @@ import Hero from "app/components/Hero/Hero";
 import Benefits from "app/components/Benefits/Benefits";
 import Baner from "app/components/General-baner/Baner";
 import Button from "app/components/UI/Button/Button";
-
 import Link from "next/link";
 import { useState, FormEvent, useRef } from "react";
 import { sendEmail } from "app/utils/sendEmail";

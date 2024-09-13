@@ -8,8 +8,8 @@ import { ParkingInfoContainer, ParkingInfoTitle, ParkingInfoTitleContainer, Star
 import { IoStar } from "react-icons/io5";
 import ParkingInfoCard from "app/components/ParkingInfoCard/ParkingInfoCard";
 
-const ParkingInfo = ()=> {
-    return(
+const ParkingInfo = () => {
+    return (
         <>
             <Header>
                 <li><Link href="/parkings">Inicio</Link></li>
@@ -21,13 +21,13 @@ const ParkingInfo = ()=> {
             <ParkingInfoContainer>
                 <ParkingInfoTitleContainer>
                     <ParkingInfoTitle>Unidad residencial Río Campestre</ParkingInfoTitle>
-                    <StarsContainer><IoStar/><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
+                    <StarsContainer><IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
                 </ParkingInfoTitleContainer>
-                
-                <ParkingInfoCard/>
+
+                <ParkingInfoCard />
             </ParkingInfoContainer>
 
-            <Footer/>
+            <Footer />
         </>
     )
 }
