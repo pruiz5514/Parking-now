@@ -5,7 +5,12 @@ import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiHomeGarage } from "react-icons/gi";
 
-const ParkCard = ()=>{
+interface ParkCardProps {
+    href: string; 
+    text: string;
+}
+
+const ParkCard: React.FC<ParkCardProps> = ({href, text})=>{
     return(
         <>
             <ArticleCardPark>
@@ -18,7 +23,7 @@ const ParkCard = ()=>{
                     <PCardPark> <GiHomeGarage /> Parquadero cubierto</PCardPark>
                     <PriceCardPark>$ 3000/Hora</PriceCardPark>
                     <DivButtonContainer>
-                        <Link href="./parking-info" style={{ width: '100%' }}><Button text={"Ver más"}/></Link>
+                        <Link href={href} style={{ width: '100%' }}><Button text={text}/></Link>
                     </DivButtonContainer>
                 </TextCardPark>
             </ArticleCardPark>

@@ -18,8 +18,10 @@ const Parkings = () => {
     return (
         <>
             <Header>
-                <li><Link href="./register-parking">Publicar parqueadero</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+                <li><Link href="/parkings">Inicio</Link></li>
+                <li><Link href="/register-parking">Publicar parqueadero</Link></li>
+                <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
+                <li> <Link href="/"><Button text={"Cerrar sesión"}/></Link></li>
             </Header>
 
             <MainEsStyle>
@@ -92,9 +94,9 @@ const Parkings = () => {
                         Filtrar
                         <HiOutlineAdjustmentsHorizontal />
                     </FilterButton>
-                    <ParkCard />
-                    <ParkCard />
-                    <ParkCard />
+                    <ParkCard href={"/parking-info"} text={"Ver más"}/>
+                    <ParkCard href={"/parking-info"} text={"Ver más"}/>
+                    <ParkCard href={"/parking-info"} text={"Ver más"}/>
                 </MainSectionEsStyle>
             </MainEsStyle>
 
