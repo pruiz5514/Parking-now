@@ -7,7 +7,7 @@ export const InputContainer = styled.article`
   margin-bottom: 0.3rem;
 
   @media (max-width: 480px) {
-    margin: 0.2rem;
+    margin-bottom: 0.2rem;
   }
 `;
 
