@@ -1,0 +1,6 @@
+.editParking-main{
+    min-height: calc(100vh - 100px - 100px);
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
