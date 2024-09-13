@@ -76,7 +76,6 @@ export const LabelEsStyle = styled.label`
 `
 export const MainSectionEsStyle = styled.section`
     display: flex;
-    /* flex-direction: column; */
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;

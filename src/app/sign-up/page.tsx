@@ -28,8 +28,8 @@ const SignUp: React.FC = () => {
                 >
                     <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true} />
                     <InputContainer>
-                        <Label htmlFor="type-vehicle-select">Tipo de documento</Label>
-                        <SelectAddress name={"location"} id={"type-vehicle-select"}>
+                        <Label htmlFor="type-document-id">Tipo de documento</Label>
+                        <SelectAddress name={"typeDocument"} id={"type-document-id"}>
                             <option value="" selected disabled></option>
                             <option value="cedula">Cédula</option>
                             <option value="pasaporte">Pasaporte</option>
