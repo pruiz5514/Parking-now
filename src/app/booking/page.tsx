@@ -30,7 +30,7 @@ const Booking = () => (
                 <ContainerInfoParking>
                     <TitleInfo>Información del estacionamiento</TitleInfo>
                     <Input label="Ubicación" id="userAddress" type="text" placeholder=" mde cra 55 # 25-15 " icon={FaMap} required={true} />
-                    <Link href="/" style={{ width: '100%' }}><Button text={"Reservar ahora"}></Button></Link>
+                    <Link href="/reserved-parking" style={{ width: '100%' }}><Button text={"Reservar ahora"}></Button></Link>
                 </ContainerInfoParking>
             </div>
 
