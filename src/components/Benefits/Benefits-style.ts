@@ -1,33 +1,21 @@
 import styled from "styled-components"
 import { FaCheck } from "react-icons/fa";
 
-export const BenefitsStyled = styled.section`
-    display: flex;
-    justify-content: center;
-    background-color: var(--grey);
-    border-radius: 5px;
-    margin: 50px 16px;
-
-    @media (min-width: 576px){
-        height: 320px;
-        margin: 50px 100px;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    
-`
-
 export const BenefitsList = styled.div`
-    width: 80%;
     display: flex;
     gap: 20px;
     flex-direction: column;
     align-items: center;
+    justify-content:center;
+    background-color: var(--grey);
+    border-radius: 5px;
+    margin: 50px 100px;
+    padding:20px;
 
     @media (min-width: 576px){
         flex-direction: row;
         justify-content: space-around;
+        text-align: center;
     }
 
     & > div {

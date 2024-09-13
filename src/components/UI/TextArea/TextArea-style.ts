@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const TextAreaContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
+  margin-bottom: 0.3rem;
   width:100%
 `;
 

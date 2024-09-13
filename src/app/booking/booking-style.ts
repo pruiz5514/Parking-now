@@ -34,8 +34,8 @@ export const Title = styled.h1`
 `
 
 const commonContainerInfoStyles = `
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `
 
 export const ContainerInfoContact = styled.section`${commonContainerInfoStyles}`
@@ -89,9 +89,10 @@ export const ContainerTime = styled.div`${commonContainersDetails}`
 export const ContainerDeatails = styled.div`${commonContainersDetails}`
 
 export const Text = styled.p`
-color: var(--blue-dark);
+    color: var(--blue-dark);
 `
 export const ContainerButton = styled.div`
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 `
