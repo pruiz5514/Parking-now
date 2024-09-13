@@ -14,6 +14,7 @@ import Modal from "app/components/Modal/Modal";
 import SignUp from "./sign-up/page";
 import SignIn from "./sign-in/page";
 import FormContactUs from "app/components/Contact-us/FormContactUs";
+import styled from "styled-components";
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);

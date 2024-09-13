@@ -3,10 +3,11 @@ import Header from "app/components/Header/Header"
 import Footer from "app/components/Footer/Footer"
 import Link from "next/link"
 import Button from "app/components/UI/Button/Button"
-import { MainStyle, Title, ContainerDataBooking, ContainerDetailsBooking, ContainerInfoContact, ContainerInfoParking, TitleInfo, ContainerTime, ContainerDeatails, Text, ContainerAmountTime, Containerhours, ContainerAmountTotal, ContainerButton } from "./booking-style"
+import { MainStyle, Title, ContainerDataBooking, ContainerDetailsBooking, ContainerInfoContact, ContainerInfoParking, TitleInfo, ContainerTime, ContainerDeatails, Text, ContainerAmountTotal, ContainerButton } from "./booking-style"
 import Input from "app/components/UI/Input/Input"
 import { FaAddressCard, FaEnvelope, FaMap, FaPhone, FaUser } from "react-icons/fa"
-import InputDateTime from "app/components/UI/InputDateTime/InputDateTime"
+import { InputContainer, Label } from "app/components/UI/Input/Input-style"
+import { SelectAddress } from "app/components/UI/Select/Select-style"
 
 const Booking = () => {
     return (
@@ -36,21 +37,39 @@ const Booking = () => {
 
                 <ContainerDetailsBooking>
                     <ContainerTime>
-                        <TitleInfo>Tiempo de parqueo</TitleInfo>
-                        <div>
-                            <Text>Hora de ingreso</Text>
-                            <InputDateTime label="" id="userHourIn" type="datetime-local" required={true} />
-                        </div>
+                        <TitleInfo>Cantidad de horas</TitleInfo>
+                        
+                        <InputContainer>
+                        <Label htmlFor="select-hour-parking">Seleccione la cantidad de horas que desea reservar</Label>
+                        <SelectAddress name={"location"} id={"select-hour-parking"}>
+                            <option value="" selected disabled></option>
+                            <option value="1">1 </option>
+                            <option value="2">2 </option>
+                            <option value="3">3 </option>
+                            <option value="4">4 </option>
+                            <option value="5">5 </option>
+                            <option value="6">6 </option>
+                            <option value="7">7 </option>
+                            <option value="8">8 </option>
+                            <option value="9">9 </option>
+                            <option value="10">10 </option>
+                            <option value="11">11 </option>
+                            <option value="12">12 </option>
+                            <option value="13">13 </option>
+                            <option value="14">14 </option>
+                            <option value="15">15 </option>
+                            <option value="16">16 </option>
+                            <option value="17">17 </option>
+                            <option value="18">18 </option>
+                            <option value="19">19 </option>
+                            <option value="20">20 </option>
+                            <option value="21">21 </option>
+                            <option value="22">22 </option>
+                            <option value="23">23 </option>
+                            <option value="24">24 </option>
+                        </SelectAddress>
+                    </InputContainer>
 
-                        <div>
-                            <Text>Hora de salida</Text>
-                            <InputDateTime label="" id="userHourOut" type="datetime-local" required={true} />
-                        </div>
-
-                        <ContainerAmountTime>
-                            <Text>Cantidad de horas:</Text>
-                            <Containerhours>5</Containerhours>
-                        </ContainerAmountTime>
                     </ContainerTime>
 
                     <ContainerDeatails>

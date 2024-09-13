@@ -26,5 +26,6 @@ export const FormContactStyled = styled.article`
     color: var(--blue-dark);
     font-size: 16px;
     padding: 20px;
+    text-align: justify;
     `
 
