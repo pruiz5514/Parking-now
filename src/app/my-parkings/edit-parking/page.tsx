@@ -90,11 +90,11 @@ const EditParking = ()=>{
                 </section>
 
                 <section>
-                    <button className="editSlotsTitle-container" onClick={()=> setIsOpen(false)}>
+                    <button className="editSlotsTitle-container" onClick={()=> setIsOpen(!isOpen)}>
                         <h2>Editar celdas</h2> <GoChevronDown />
                     </button>
 
-                    <article>
+                    <article style={{display:isOpen ? 'flex' : 'none'}}>
                         <Form
                                 footerContent={
                                     <>
