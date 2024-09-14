@@ -12,11 +12,18 @@ import { SelectAddress } from "app/components/UI/Select/Select-style";
 import TextArea from "app/components/UI/TextArea/TextArea";
 import Input from "app/components/UI/Input/Input";
 import { FaDollarSign, FaImage, FaMapMarkerAlt, FaTag, FaThLarge } from "react-icons/fa";
-import { GoChevronDown } from "react-icons/go";
+import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import { useState } from "react";
 
 const EditParking = ()=>{
     const [isOpen, setIsOpen] = useState(false);
+
+    let slotButtonIcon;
+    if(!isOpen){
+        slotButtonIcon = <GoChevronDown />
+    }else{
+        slotButtonIcon = <GoChevronUp />
+    }
     
     return(
         <>
@@ -91,7 +98,7 @@ const EditParking = ()=>{
 
                 <section>
                     <button className="editSlotsTitle-container" onClick={()=> setIsOpen(!isOpen)}>
-                        <h2>Editar celdas</h2> <GoChevronDown />
+                        <h2>Editar celdas </h2>  {slotButtonIcon}
                     </button>
 
                     <article style={{display:isOpen ? 'flex' : 'none'}}>
