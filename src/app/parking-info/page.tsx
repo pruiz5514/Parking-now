@@ -24,7 +24,7 @@ const ParkingInfo = () => {
                     <StarsContainer><IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
                 </ParkingInfoTitleContainer>
 
-                <ParkingInfoCard />
+                <ParkingInfoCard button={<Button text={"Ver más"}/>}/>
             </ParkingInfoContainer>
 
             <Footer />

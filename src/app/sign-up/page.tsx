@@ -40,7 +40,7 @@ const SignUp: React.FC = () => {
                     </InputContainer>
                     <Input label="Número de documento" id="userId" type="number" placeholder="1008001003" icon={FaIdCard} required={true} />
                     <Input label="Dirección de residencia" id="userAddressHome" type="text" placeholder=" mde cra 55 # 25-15 " icon={FaHome} required={true} />
-                    <Input label="Número de contacto" id="userPhone" type="number" placeholder="123 456 14 25" icon={FaPhone} required={true} />
+                    <Input label="Teléfono" id="userPhone" type="number" placeholder="123 456 14 25" icon={FaPhone} required={true} />
                     <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} />
                     <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" icon={FaLock} required={true} />
                     <Input label="Confirmar contraseña" id="userPasswordConfirm" type="password" placeholder="Ingresa de nuevo contraseña" icon={FaLock} required={true} />
