@@ -27,15 +27,7 @@ const EditParking = ()=>{
     
     return(
         <>
-            <Header>
-                <li><Link href="/parkings">Inicio</Link></li>
-                <li><Link href="/register-parking">Publicar parqueadero</Link></li>
-                <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
-                <li><Link href="/"><Button text={"Cerrar sesión"}/></Link></li>
-            </Header>
-
             <main className="editParking-main">
-
                 <section className="editParkingForm-container">
                     <Form
                             headerContent={
@@ -43,9 +35,9 @@ const EditParking = ()=>{
                                     <Image src="/img/LOGO3.png" alt="logo-parkingNow" width={200} height={140}></Image>
                                 </>
                             }
-                            title="Registro Parqueadero"
+                            title="Editar Parqueadero"
                             footerContent={
-                                <Link href="./register-parking/slots" style={{ width: '100%' }}> <Button text={"Siguiente"} /></Link>
+                                <Link href="./register-parking/slots" style={{ width: '100%' }}> <Button text={"Editar"} /></Link>
                             }
                         >
                             <Input label="Nombre de la propiedad" id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} />
@@ -105,7 +97,7 @@ const EditParking = ()=>{
                         <Form
                                 footerContent={
                                     <>
-                                        <Button text={"Guardar"} />
+                                        <Button text={"Editar"} />
                                     </>
                                 }
                             >
@@ -118,13 +110,7 @@ const EditParking = ()=>{
                     </article>
                     
                 </section>
-
-
             </main>
-
-
-
-            <Footer/>
         </>
     )
 };
