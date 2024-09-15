@@ -5,8 +5,13 @@ import Button from "../UI/Button/Button";
 import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiHomeGarage } from "react-icons/gi";
+import React from "react";
 
-const ParkingInfoCard = () => {
+interface ParkingInfoCardProps {
+    button?: React.ReactNode;
+}
+
+const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({button}) => {
     return (
         <ParkingInfoCardContainer>
             <ParkingInfoCardImg>
@@ -18,7 +23,7 @@ const ParkingInfoCard = () => {
                 <ParkingInfoCardP> <GiHomeGarage /> Parqueadero cubierto</ParkingInfoCardP>
                 <ParkingInfoCardButton>
                     <ParkingInfoCardPrice>$ 3000/Hora</ParkingInfoCardPrice>
-                    <Link href="./booking"><Button text={"Reservar"} /></Link>
+                    <Link href="./booking">{button}</Link>
                 </ParkingInfoCardButton>
             </ParkingInfoCardText>
 
