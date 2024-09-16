@@ -14,6 +14,7 @@ import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 import { useEffect, useState } from "react"
 import { ISlots } from "app/types/IParking"
 import { getSlots } from "app/services/slots"
+import { errorAlert } from "app/utils/alerts"
 
 
 
@@ -25,7 +26,13 @@ const Parkings = () => {
 
     useEffect(()=>{
         const fetchSlots = async()=>{
-            setSlots(await getSlots())
+            try{
+                setSlots(await getSlots())
+            }
+            catch(e){
+                console.log(e);
+                errorAlert("No se pudo obtener la información, intente mas tarde");
+            }
         }
         fetchSlots();
     },[])
@@ -111,9 +118,15 @@ const Parkings = () => {
                         Filtrar
                         <HiOutlineAdjustmentsHorizontal />
                     </FilterButton>
-                    {slots?.map((slot:ISlots) =>(
-                        <ParkCard key={slot.id}  href={"/parking-info"} text={"Ver más"} slot={slot}/>
-                    ))}
+                    {
+                        slots && slots.length > 0 ? (
+                            slots.map((slot: ISlots) => (
+                                <ParkCard key={slot.id} href={"/parking-info"} text={"Ver más"} slot={slot} />
+                            ))
+                        ) : (
+                            <p>No hay slots disponibles.</p> 
+                        )
+                    }
                     
                 </MainSectionEsStyle>
             </MainEsStyle>
