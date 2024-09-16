@@ -7,14 +7,27 @@ export const FormContactStyled = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     @media (min-width: 576px){
         margin: 50px 100px;
         flex-direction: row;
+        
+        & > div {
+            & > p {
+                gap: 4px;
+                font-size: 22px;
+            }
+        }
+    }
+    & > div {
+        display: flex;
+        flex-direction: column;
+        width:99%;
+
     }
 `;
 
-    export const Title = styled.h2`
+export const Title = styled.h2`
     font-size: 35px;
     font-weight: bold;
     color: var(--blue);
@@ -22,7 +35,7 @@ export const FormContactStyled = styled.article`
     text-align: center;
     `
 
-    export const TextPurpose = styled.p`
+export const TextPurpose = styled.p`
     color: var(--blue-dark);
     font-size: 16px;
     padding: 20px;
