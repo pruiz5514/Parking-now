@@ -6,14 +6,14 @@ export const ArticleCardPark = styled.article`
     width: 100%;
     max-width: 700px;
     min-width: 300px;
-    min-height: 150px;
+    min-height: 180px;
     background-color: var(--blue);
     border-radius: 12px;
     position: relative;
 
     @media (min-width: 711px){
         flex-direction: row;
-        height: 150px;
+        height: 180px;
     }
 `
 export const ImgContainerCardPark = styled.div`

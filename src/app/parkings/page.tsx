@@ -11,22 +11,26 @@ import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
 import { IoClose } from "react-icons/io5"
 import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
-import { getParkings } from "app/services/parkings"
 import { useEffect, useState } from "react"
-import { IParkings } from "app/types/IParking"
+import { ISlots } from "app/types/IParking"
+import { getSlots } from "app/services/slots"
+
+
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
     const dispatch = useAppDispatch();
 
-    const [parkings, setParking] = useState([]);
+    const [slots, setSlots] = useState([]);
 
     useEffect(()=>{
-        const fetchParking = async()=>{
-            setParking(await getParkings())
+        const fetchSlots = async()=>{
+            setSlots(await getSlots())
         }
-        fetchParking();
+        fetchSlots();
     },[])
+
+    console.log(slots)
     
     return (
         <>
@@ -107,8 +111,8 @@ const Parkings = () => {
                         Filtrar
                         <HiOutlineAdjustmentsHorizontal />
                     </FilterButton>
-                    {parkings?.map((parking:IParkings) =>(
-                        <ParkCard key={parking.id}  href={"/parking-info"} text={"Ver más"} parking={parking}/>
+                    {slots?.map((slot:ISlots) =>(
+                        <ParkCard key={slot.id}  href={"/parking-info"} text={"Ver más"} slot={slot}/>
                     ))}
                     
                 </MainSectionEsStyle>
