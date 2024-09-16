@@ -5,7 +5,7 @@ import Input from "app/components/UI/Input/Input";
 import Button from "app/components/UI/Button/Button";
 import Form from "app/components/General-form/Form";
 import { FaEnvelope, FaHome, FaIdCard, FaLock, FaPhone, FaUser } from "react-icons/fa";
-import { MainSign } from "../../components/General-form/Form-style";
+import { MainSign } from "../General-form/Form-style";
 import { InputContainer, Label } from "app/components/UI/Input/Input-style";
 import { SelectAddress } from "app/components/UI/Select/Select-style";
 
