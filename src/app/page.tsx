@@ -40,7 +40,7 @@ export default function Home() {
       <Header>
         <li> <Link href="/">Inicio</Link> </li>
         <li> <Link href="#benefits">Beneficios</Link> </li>
-        <li> <Link href="#contact">Contactanos</Link></li>
+        <li> <Link href="#contact">Contáctanos</Link></li>
         <li> <Button text="Registrate" onClick={openSignUpModal} /> </li>
         <li> <Button text="Iniciar sesión" onClick={openSignInModal} /> </li>
       </Header>
