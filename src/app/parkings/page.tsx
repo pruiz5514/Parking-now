@@ -11,10 +11,27 @@ import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
 import { IoClose } from "react-icons/io5"
 import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
+import { useEffect, useState } from "react"
+import { ISlots } from "app/types/IParking"
+import { getSlots } from "app/services/slots"
+
+
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
     const dispatch = useAppDispatch();
+
+    const [slots, setSlots] = useState([]);
+
+    useEffect(()=>{
+        const fetchSlots = async()=>{
+            setSlots(await getSlots())
+        }
+        fetchSlots();
+    },[])
+
+    console.log(slots)
+    
     return (
         <>
             <Header>
@@ -94,9 +111,10 @@ const Parkings = () => {
                         Filtrar
                         <HiOutlineAdjustmentsHorizontal />
                     </FilterButton>
-                    <ParkCard href={"/parking-info"} text={"Ver más"}/>
-                    <ParkCard href={"/parking-info"} text={"Ver más"}/>
-                    <ParkCard href={"/parking-info"} text={"Ver más"}/>
+                    {slots?.map((slot:ISlots) =>(
+                        <ParkCard key={slot.id}  href={"/parking-info"} text={"Ver más"} slot={slot}/>
+                    ))}
+                    
                 </MainSectionEsStyle>
             </MainEsStyle>
 
