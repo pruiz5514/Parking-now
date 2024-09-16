@@ -26,7 +26,7 @@ const FormContactUs = forwardRef<HTMLFormElement, ContactProps>(
                     </TextPurpose>
                 </div>
                 <Form ref={ref} onSubmit={onSubmit}
-                    title="CONTACTANOS"
+                    title="CONTÁCTANOS"
                     footerContent={
                         <>
                             <Button text={"Enviar"} />

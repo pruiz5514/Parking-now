@@ -9,13 +9,14 @@ export const BenefitsList = styled.div`
     justify-content:center;
     background-color: var(--grey);
     border-radius: 5px;
-    margin: 50px 100px;
+    margin: 50px 16px;
     padding:20px;
 
     @media (min-width: 576px){
         flex-direction: row;
         justify-content: space-around;
         text-align: center;
+        margin: 50px 100px;
     }
 
     & > div {
@@ -34,6 +35,7 @@ export const BenefitsList = styled.div`
 
 export const Title = styled.h2`
 font-size: 35px;
+text-align:center;
 font-weight: bold;
 color: var(--blue);
 `
