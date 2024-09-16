@@ -9,7 +9,7 @@ const Baner: React.FC<InfoProps> = ({ id }) => {
     return (
         <BanerStyled id={id}>
             <BanerBackgroundOverlay />
-            <Title>Encuentra tu espacio de estacionamiento sin complicaciones, facil y rápido</Title>
+            <Title>Encuentra tu espacio de estacionamiento sin complicaciones, fácil y rápido</Title>
             <Imagen>
                 <ImgHalfStyled src="https://i.pinimg.com/originals/6b/b3/4d/6bb34d037ad77b2097cb9712bf543cd2.jpg" alt="imagen1" />
             </Imagen>
