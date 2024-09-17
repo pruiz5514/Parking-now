@@ -22,7 +22,7 @@ const Parkings = () => {
     const userInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
     
-    console.log(userInformation.token);
+    // console.log(userInformation.token);
     const [slots, setSlots] = useState([]);
 
     useEffect(()=>{
