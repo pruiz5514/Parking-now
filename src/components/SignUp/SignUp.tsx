@@ -68,7 +68,6 @@ const SignUp: React.FC = () => {
                     email: values.email,
                     password: values.password,
                 }
-                console.log(newUser)
                 await createUser(newUser);
             }catch(e){
                 console.log(e);
