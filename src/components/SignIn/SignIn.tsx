@@ -17,6 +17,7 @@ const initialState = {
 }
 const SignIn: React.FC = () => {
     const [values, setValues] = useState<ILogin>(initialState);
+    const router = useRouter();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement |HTMLSelectElement>)=>{
         const {name, value} = event.target;
@@ -30,6 +31,7 @@ const SignIn: React.FC = () => {
         event.preventDefault();
         try{
             login(values);
+            router.push("/parkings")
         }catch(e){
             console.log(e);
             setValues(initialState);
@@ -51,7 +53,7 @@ const SignIn: React.FC = () => {
                     }
                     onSubmit={handleSubmit}
                 >
-                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" name={"email"} value={values.email} onChange={handleChange} icon={FaEnvelope}  required={true} />
+                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" name={"email"} value={values.email} onChange={handleChange} icon={FaEnvelope} required={true} />
                     <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" name={"password"} value={values.password} onChange={handleChange} icon={FaLock} required={true} />
                 </Form>
             </MainSign>

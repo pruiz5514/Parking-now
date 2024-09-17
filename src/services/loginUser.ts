@@ -10,6 +10,8 @@ export async function login(user: ILogin) {
         body: JSON.stringify(user)
     });
 
+    console.log(response.status)
+
     if (!response.ok) {
         if (response.status === 401) {
             errorAlert("Credenciales inválidas");
