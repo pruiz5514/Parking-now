@@ -1,12 +1,12 @@
 "use client"
 
-import Input from "../../components/UI/Input/Input";
-import Button from "../../components/UI/Button/Button";
+import Input from "../UI/Input/Input";
+import Button from "../UI/Button/Button";
 import Link from "next/link";
 import Image from "next/image";
 import Form from "app/components/General-form/Form";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { MainSign } from "../../components/General-form/Form-style";
+import { MainSign } from "../General-form/Form-style";
 
 const SignIn: React.FC = () => {
     return (
