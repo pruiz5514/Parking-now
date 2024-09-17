@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
@@ -9,7 +9,8 @@ import { MainSign } from "../General-form/Form-style";
 import { useState } from "react";
 import { ILogin } from "app/types/ILogin";
 import { login } from "app/services/loginUser";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
 
 const initialState = {
     email:'',
