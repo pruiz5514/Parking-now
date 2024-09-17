@@ -22,9 +22,13 @@ const initialState = {
     email: '',
     password: '',
     confirmPassword: ''
-}
+};
 
-const SignUp: React.FC = () => {
+interface SignUpProps {
+    onClose: () => void;
+  }
+
+const SignUp: React.FC<SignUpProps> = ({onClose}) => {
     
     const [values, setValues] = useState<IRegisterUserValidation>(initialState);
 
@@ -69,8 +73,10 @@ const SignUp: React.FC = () => {
                     password: values.password,
                 }
                 await createUser(newUser);
+                onClose();
             }catch(e){
                 console.log(e);
+                setValues(initialState);
             }
         }
     }
@@ -92,11 +98,11 @@ const SignUp: React.FC = () => {
                     }
                     onSubmit={handleSubmit}
                 >
-                    <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" name={"fullname"} onChange={handleChange}  icon={FaUser} required={true} />
+                    <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" name={"fullname"} onChange={handleChange}  icon={FaUser} required={true} value={values.fullname}/>
                     <InputContainer>
                         <Label htmlFor="type-document-id">Tipo de documento</Label>
                         <SelectAddress name={"document_type_id"} id={"type-document-id"} onChange={handleChange}>
-                            <option value={0} selected disabled></option>
+                            <option value={""} selected disabled></option>
                             <option value={1}>Cédula</option>
                             <option value={2}>Pasaporte</option>
                             <option value={3}>NIT</option>
@@ -104,13 +110,13 @@ const SignUp: React.FC = () => {
                             <option value={5}>Cédula de Extranjería</option>
                         </SelectAddress>
                     </InputContainer>
-                    <Input label="Número de documento" id="userId" type="number" placeholder="1008001003" name={"doc_number"} onChange={handleChange} icon={FaIdCard} required={true} />
-                    <Input label="Dirección de residencia" id="userAddressHome" type="text" placeholder=" mde cra 55 # 25-15 " name={"address"} onChange={handleChange} icon={FaHome} required={true} />
-                    <Input label="Teléfono" id="userPhone" type="number" placeholder="123 456 14 25" name={"phone_number"} onChange={handleChange} icon={FaPhone} required={true} />
-                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" name={"email"} onChange={handleChange} icon={FaEnvelope} required={true} />
-                    <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" name={"password"} onChange={passwordHandleChange} icon={FaLock} required={true} />
+                    <Input label="Número de documento" id="userId" type="number" placeholder="1008001003" name={"doc_number"} onChange={handleChange} icon={FaIdCard} required={true} value={values.doc_number}/>
+                    <Input label="Dirección de residencia" id="userAddressHome" type="text" placeholder=" mde cra 55 # 25-15 " name={"address"} onChange={handleChange} icon={FaHome} required={true} value={values.address}/>
+                    <Input label="Teléfono" id="userPhone" type="number" placeholder="123 456 14 25" name={"phone_number"} onChange={handleChange} icon={FaPhone} required={true} value={values.phone_number}/>
+                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" name={"email"} onChange={handleChange} icon={FaEnvelope} required={true} value={values.email}/>
+                    <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" name={"password"} onChange={passwordHandleChange} icon={FaLock} required={true} value={values.password}/>
                     {!passwordSecurity ? (<FormSpan >La contraseña debe tener al menos una minúscula, una mayúscula, un carácter especial y un número, y debe ser de al menos 8 dígitos.</FormSpan>):""}
-                    <Input label="Confirmar contraseña" id="userPasswordConfirm" type="password" placeholder="Ingresa de nuevo contraseña" name={"confirmPassword"} onChange={confirmPasswordHandleChange} icon={FaLock} required={true} />
+                    <Input label="Confirmar contraseña" id="userPasswordConfirm" type="password" placeholder="Ingresa de nuevo contraseña" name={"confirmPassword"} onChange={confirmPasswordHandleChange} icon={FaLock} required={true} value={values.confirmPassword}/>
                     {!confirmPassword ? (<FormSpan >Las contraseñas no coinciden.</FormSpan>):""}
                 </Form>
             </MainSign>
