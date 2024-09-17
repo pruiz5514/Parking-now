@@ -1,7 +1,5 @@
 "use client"
 
-import Footer from "app/components/Footer/Footer";
-import Header from "app/components/Header/Header";
 import Button from "app/components/UI/Button/Button";
 import Link from "next/link";
 import './editParking.css';
@@ -11,9 +9,10 @@ import { InputContainer, Label } from "app/components/UI/Input/Input-style";
 import { SelectAddress } from "app/components/UI/Select/Select-style";
 import TextArea from "app/components/UI/TextArea/TextArea";
 import Input from "app/components/UI/Input/Input";
-import { FaDollarSign, FaImage, FaMapMarkerAlt, FaTag, FaThLarge } from "react-icons/fa";
+import { FaImage, FaMapMarkerAlt, FaTag } from "react-icons/fa";
 import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import { useState } from "react";
+import Collapside from "app/components/Collapside/Collapside";
 
 const EditParking = ()=>{
     const [isOpen, setIsOpen] = useState(false);
@@ -75,41 +74,10 @@ const EditParking = ()=>{
                             <Input label="Dirección " id="userAddressParking" type="text" icon={FaMapMarkerAlt} placeholder="Cll 16 #55-129" required={true} />
                             <Input label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} />
                             <TextArea id="textareaDescriptionParking" label="Descripción Parqueadero"></TextArea>
-                            <Input label="Precio por hora" id="price-hour" type="number" icon={FaDollarSign} required={true} />
-                            
-                            <InputContainer>
-                                <Label htmlFor="type-vehicle-select">Tipo de vehículo</Label>
-                                <SelectAddress name={"location"} id={"type-vehicle-select"}>
-                                    <option value="" selected disabled></option>
-                                    <option value="carro">Carro</option>
-                                    <option value="moto">Moto</option>
-                                </SelectAddress>
-                            </InputContainer>
                     </Form>
                 </section>
 
-                <section>
-                    <button className="editSlotsTitle-container" onClick={()=> setIsOpen(!isOpen)}>
-                        <h2>Editar celdas </h2>  {slotButtonIcon}
-                    </button>
-
-                    <article style={{display:isOpen ? 'flex' : 'none'}}>
-                        <Form
-                                footerContent={
-                                    <>
-                                        <Button text={"Editar"} />
-                                    </>
-                                }
-                            >
-                                <Input label="¿Cuántas Celdas deseas agregar?" id="" type="number" icon={FaThLarge} required={true} />
-                                {
-                                    Array.from({ length: 2}, (_, index) => (
-                                        <Input key={index} label={`Celda ${index + 1}`} id={`slot-${index + 1}`} type="text" placeholder={`Ingrese el nombre de la celda ${index + 1}`} icon={FaThLarge} required={true} />
-                                    ))}
-                        </Form>
-                    </article>
-                    
-                </section>
+                <Collapside text={"Editar celda"}/>
             </main>
         </>
     )
