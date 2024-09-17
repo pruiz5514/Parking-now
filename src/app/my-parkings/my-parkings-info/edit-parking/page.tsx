@@ -77,7 +77,7 @@ const EditParking = ()=>{
                     </Form>
                 </section>
 
-                <Collapside></Collapside>
+                <Collapside text={"Editar celda"}/>
             </main>
         </>
     )
