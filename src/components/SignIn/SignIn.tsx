@@ -10,6 +10,8 @@ import { useState } from "react";
 import { ILogin } from "app/types/ILogin";
 import { login } from "app/services/loginUser";
 import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "app/redux/hooks";
+import { updateUserData } from "app/redux/features/userSlice";
 
 
 const initialState = {
@@ -17,8 +19,11 @@ const initialState = {
     password: ''
 }
 const SignIn: React.FC = () => {
+    const userInformation = useAppSelector(state => state.userReducer.userData);
+    const dispatch = useAppDispatch();
+
     const [values, setValues] = useState<ILogin>(initialState);
-    const router = useRouter();
+    const router = useRouter(); 
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement |HTMLSelectElement>)=>{
         const {name, value} = event.target;
@@ -28,10 +33,11 @@ const SignIn: React.FC = () => {
         })
     }
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
         try{
-            login(values);
+            const user = await login(values);
+            dispatch(updateUserData(user));
             router.push("/parkings")
         }catch(e){
             console.log(e);

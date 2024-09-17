@@ -17,16 +17,18 @@ import { getSlots } from "app/services/slots"
 import { errorAlert } from "app/utils/alerts"
 
 
-
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
+    const userInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
-
+    
+    console.log(userInformation.token);
     const [slots, setSlots] = useState([]);
 
     useEffect(()=>{
         const fetchSlots = async()=>{
             try{
+                
                 setSlots(await getSlots())
             }
             catch(e){
@@ -36,8 +38,6 @@ const Parkings = () => {
         }
         fetchSlots();
     },[])
-
-    console.log(slots)
     
     return (
         <>

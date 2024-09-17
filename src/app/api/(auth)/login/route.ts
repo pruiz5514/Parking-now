@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
     const user = await request.json()
 
-    const response = await fetch("https://backend-parkingnow.onrender.com/api/auth/login", {
+    const response = await fetch("https://backend-parkingnow-fuyg.onrender.com/api/auth/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'Application/json'
