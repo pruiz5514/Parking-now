@@ -62,3 +62,11 @@ export const FormFooter = styled.div`
     padding-top:10px;
 `;
 
+export const FormSpan = styled.p`
+  font-size: 14px;
+  color: var(--orange);
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+`
