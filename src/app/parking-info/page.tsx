@@ -7,8 +7,12 @@ import Link from "next/link";
 import { ParkingInfoContainer, ParkingInfoTitle, ParkingInfoTitleContainer, StarsContainer } from "./parking-info-style";
 import { IoStar } from "react-icons/io5";
 import ParkingInfoCard from "app/components/ParkingInfoCard/ParkingInfoCard";
+import { useRouter } from "next/navigation";
 
 const ParkingInfo = () => {
+    const router = useRouter()
+    router.push(`/parking-info/${data.data.id}/booking`)
+
     return (
         <>
             <Header>
