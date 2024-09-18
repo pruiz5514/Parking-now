@@ -1,5 +1,5 @@
 export interface ISlots {
     text: string
-    type: string
-    idParking: string
+    type?: string
+    idParking?: string
 }
