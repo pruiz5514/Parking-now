@@ -28,7 +28,7 @@ const ParkCard: React.FC<ParkCardProps> = ({href,text, slot})=>{
                     <PCardPark> {slot.vehicle_type_id === 1 ? (<><FaCarSide /> Automóvil</>) : (<><FaMotorcycle /> Moto</>)}</PCardPark>
                     <PriceCardPark>$ {slot.hour_price}</PriceCardPark>
                     <DivButtonContainer>
-                        <Link href={href} style={{ width: '100%' }}><Button text={text}/></Link>
+                        <Link href={`/parking-information/${slot.id}`} style={{ width: '100%' }}><Button text={text}/></Link>
                     </DivButtonContainer>
                 </TextCardPark>
             </ArticleCardPark>
