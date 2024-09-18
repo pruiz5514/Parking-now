@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 
 const ParkingInfo = () => {
     const router = useRouter()
-    router.push(`/parking-info/${data.data.id}/booking`)
 
     return (
         <>
