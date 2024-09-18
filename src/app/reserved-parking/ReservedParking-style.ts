@@ -27,11 +27,14 @@ export const ReservedParkingArticle = styled.article`
     align-items: center;
     padding: 30px;
 `
+export const ContainerCronometro = styled.p`
+    padding-bottom: 15px;
+`
+
 export const ReservedParkingText = styled.p`
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 30px;
 `
 export const ReservedParkingImg = styled.div`
     border-radius: 50%;

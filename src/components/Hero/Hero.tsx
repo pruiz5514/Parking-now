@@ -1,12 +1,17 @@
 'use client'
-import { HeroStyled, Title, HeroContainer, HeroBackgroundOverlay } from "./hero-style"
+import { HeroStyled, Title, HeroContainer, HeroBackgroundOverlay, TitleContainer } from "./hero-style"
+import { FaSearchLocation } from "react-icons/fa";
+
 
 const Hero = () => {
     return (
         <HeroStyled>
             <HeroBackgroundOverlay/>
             <HeroContainer>
-            <Title>Tu celda a un click!!</Title>
+                <TitleContainer>
+                <Title>PARKING NOW</Title>
+                <p><FaSearchLocation />Tu vehículo, seguro y cerca de ti. </p>
+                </TitleContainer>
             </HeroContainer>
         </HeroStyled>
     )

@@ -5,18 +5,18 @@ import { FormBody, FormContainer, FormFooter, FormHeader, H1Form } from "./Form-
 const Form = forwardRef<HTMLFormElement, IForm>(
   ({ title, headerContent, children, footerContent, onSubmit }, ref) => {
     return (
-        <FormContainer ref={ref} onSubmit={onSubmit}>
-          <FormHeader>
-            {headerContent}
-            <H1Form>{title}</H1Form>
-          </FormHeader>
-          <FormBody>
-            {children}
-          </FormBody>
-          <FormFooter>
-            {footerContent}
-          </FormFooter>
-        </FormContainer>
+      <FormContainer ref={ref} onSubmit={onSubmit}>
+        <FormHeader>
+          {headerContent}
+          <H1Form>{title}</H1Form>
+        </FormHeader>
+        <FormBody>
+          {children}
+        </FormBody>
+        <FormFooter>
+          {footerContent}
+        </FormFooter>
+      </FormContainer>
     );
   }
 );

@@ -15,7 +15,6 @@ width: 100%;
 max-width: 700px; 
 margin: 0 auto;
 padding: 20px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
 background-color: var(--grey);
 display: flex;
@@ -35,20 +34,15 @@ export const FormHeader = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
 `;
 
-export const H1Form = styled.h1`
-    margin-top: 0;
-    color: var(--blue);
-    font-size: 2.2rem;
+export const H1Form = styled.h2`
+    font-size: 35px;
     font-weight: bold;
+    color: var(--blue);
+    padding-left: 20px;
     text-align: center;
-    @media (max-width: 768px) {
-    font-size: 1.8rem;
-    }
 `;
-
 
 export const FormBody = styled.div`
   display: flex;
@@ -61,7 +55,6 @@ export const FormBody = styled.div`
   }
 `;
 
-
 export const FormFooter = styled.div`
     display: flex;
     justify-content: center;
@@ -69,3 +62,11 @@ export const FormFooter = styled.div`
     padding-top:10px;
 `;
 
+export const FormSpan = styled.p`
+  font-size: 14px;
+  color: var(--orange);
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+`

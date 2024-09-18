@@ -7,14 +7,14 @@ import Hero from "app/components/Hero/Hero";
 import Benefits from "app/components/Benefits/Benefits";
 import Baner from "app/components/General-baner/Baner";
 import Button from "app/components/UI/Button/Button";
-
 import Link from "next/link";
 import { useState, FormEvent, useRef } from "react";
 import { sendEmail } from "app/utils/sendEmail";
 import Modal from "app/components/Modal/Modal";
-import SignUp from "./sign-up/page";
-import SignIn from "./sign-in/page";
+
 import FormContactUs from "app/components/Contact-us/FormContactUs";
+import SignUp from "app/components/SignUp/SignUp";
+import SignIn from "app/components/SignIn/SignIn";
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -41,8 +41,7 @@ export default function Home() {
       <Header>
         <li> <Link href="/">Inicio</Link> </li>
         <li> <Link href="#benefits">Beneficios</Link> </li>
-        <li> <Link href="#info">Información</Link></li>
-        <li> <Link href="#contact">Contactanos</Link></li>
+        <li> <Link href="#contact">Contáctanos</Link></li>
         <li> <Button text="Registrate" onClick={openSignUpModal} /> </li>
         <li> <Button text="Iniciar sesión" onClick={openSignInModal} /> </li>
       </Header>
@@ -52,12 +51,10 @@ export default function Home() {
       <FormContactUs id={"contact"} ref={formRef} onSubmit={handleSubmit} />
       <Footer />
 
-      {/* Modal para Registro */}
       <Modal isOpen={isSignUpOpen} onClose={closeModals}>
-        <SignUp />
+        <SignUp onClose={closeModals}/>
       </Modal>
 
-      {/* Modal para Inicio de Sesión */}
       <Modal isOpen={isSignInOpen} onClose={closeModals}>
         <SignIn />
       </Modal>

@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const InputContainer = styled.article`
   display: flex;
   flex-direction: column;
-  margin: 0.3rem;
   width: 100%;
+  margin-bottom: 0.3rem;
 
   @media (max-width: 480px) {
-    margin: 0.2rem;
+    margin-bottom: 0.2rem;
   }
 `;
 

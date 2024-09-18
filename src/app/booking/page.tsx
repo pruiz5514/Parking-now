@@ -3,72 +3,44 @@ import Header from "app/components/Header/Header"
 import Footer from "app/components/Footer/Footer"
 import Link from "next/link"
 import Button from "app/components/UI/Button/Button"
-import { MainStyle, Title, ContainerDataBooking, ContainerDetailsBooking, ContainerInfoContact, ContainerInfoParking, TitleInfo, ContainerTime, ContainerDeatails, Text, ContainerAmountTime, Containerhours, ContainerAmountTotal, ContainerButton } from "./booking-style"
+import { MainStyle, Title, ContainerInfoContact, Span, ContainerInfoParking, TitleInfo, ContainerDeatails} from "./booking-style"
 import Input from "app/components/UI/Input/Input"
 import { FaAddressCard, FaEnvelope, FaMap, FaPhone, FaUser } from "react-icons/fa"
-import InputDateTime from "app/components/UI/InputDateTime/InputDateTime"
-
-const Booking = () => {
-    return (
-        <>
-            <Header>
-                <li><Link href="./parkings">Inicio</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
-            </Header>
-            <MainStyle>
-                <ContainerDataBooking>
-                    <Title>Tu Reserva</Title>
-                    <ContainerInfoContact >
-                        <TitleInfo>Informacion del contacto</TitleInfo>
-                        <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true} />
-                        <Input label="Número de contacto" id="userPhone" type="number" placeholder="123 456 14 25" icon={FaPhone} required={true} />
-                        <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} />
-                        <Input label="Placa" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} />
-                    </ContainerInfoContact>
-
-                    <ContainerInfoParking>
-                        <TitleInfo>Informacion del estacionamiento</TitleInfo>
-                        <Input label="Ubicación" id="userAddress" type="text" placeholder=" mde cra 55 # 25-15 " icon={FaMap} required={true} />
-                    </ContainerInfoParking>
-                </ContainerDataBooking>
-
-                <ContainerDetailsBooking>
-                    <ContainerTime>
-                        <TitleInfo>Tiempo de parqueo</TitleInfo>
-                        <div>
-                            <Text>Hora de ingreso</Text>
-                            <InputDateTime label="" id="userHourIn" type="datetime-local" required={true}/>
-                        </div>
-
-                        <div>
-                            <Text>Hora de salida</Text>
-                            <InputDateTime label="" id="userHourOut"type="datetime-local"  required={true} />
-                        </div>
-
-                        <ContainerAmountTime>
-                            <Text>Cantidad de horas:</Text>
-                            <Containerhours>5</Containerhours>
-                        </ContainerAmountTime>
-                    </ContainerTime>
-
-                    <ContainerDeatails>
-                        <TitleInfo>Detalles de la reserva</TitleInfo>
-                        <Text>1 estacionamiento * 5 horas</Text>
-                        <ContainerAmountTotal>
-                            <Text>Total a pagar:</Text>
-                            <Text>40.000</Text>
-                        </ContainerAmountTotal>
-                        <ContainerButton>
-                            <Button text={"Reservar ahora"}></Button>
-                        </ContainerButton>
-                    </ContainerDeatails>
-                </ContainerDetailsBooking>
 
 
-            </MainStyle>
-            <Footer />
-        </>
-    )
-}
+const Booking = () => (
+    <>
+        <Header>
+            <li><Link href="/parkings">Inicio</Link></li>
+            <li><Link href="/register-parking">Publicar parqueadero</Link></li>
+            <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
+            <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+        </Header>
+        <MainStyle>
+            <div>
+                <Title>Tu Reserva</Title>
+                <ContainerInfoContact>
+                    <TitleInfo>Información del contacto</TitleInfo>
+                    <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true} />
+                    <Input label="Teléfono" id="userPhone" type="number" placeholder="123 456 14 25" icon={FaPhone} required={true} />
+                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} />
+                    <Input label="Placa" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} />
+                </ContainerInfoContact>
+
+                <ContainerInfoParking>
+                    <TitleInfo>Información del estacionamiento</TitleInfo>
+                    <Input label="Ubicación" id="userAddress" type="text" placeholder=" mde cra 55 # 25-15 " icon={FaMap} required={true} />
+                    <Link href="/reserved-parking" style={{ width: '100%' }}><Button text={"Reservar ahora"}></Button></Link>
+                </ContainerInfoParking>
+            </div>
+
+            <ContainerDeatails>
+                <TitleInfo>Recuerda! Después de hacer la reserva, presiona el botón <Span>Iniciar</Span> para que comience el cobro del parqueadero. </TitleInfo>
+            </ContainerDeatails>
+
+        </MainStyle>
+        <Footer />
+    </>
+)
 
 export default Booking
