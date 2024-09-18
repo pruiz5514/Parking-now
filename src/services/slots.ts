@@ -1,5 +1,5 @@
 export async function getSlots(token: string) {
-    const response = await fetch("https://backend-parkingnow-fuyg.onrender.com/api/slots/available", {
+    const response = await fetch("api/slots", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
