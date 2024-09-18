@@ -3,7 +3,7 @@ export interface IRegisterParking {
     address:     string;
     description: string;
     image_url:   string;
-    commune_id:  number;
+    commune_id:  string | number;
     owner_id: string;
 }
 
