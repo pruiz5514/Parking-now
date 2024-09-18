@@ -11,25 +11,28 @@ import Header from "app/components/Header/Header";
 import Form from "app/components/General-form/Form";
 import { MainRegParking } from "./register-parking-style";
 import { SelectAddress } from "app/components/UI/Select/Select-style";
+import { createParking } from "app/services/registerParking";
+import { IRegisterParking } from "app/types/IRegisterParking";
+import { useRouter } from 'next/navigation'
+import { IUserInformation } from "app/types/IUserInformation";
+import { useAppSelector } from "app/redux/hooks";
 
 
-const registerParking: React.FC = () => {
-
+const RegisterParking: React.FC = () => {
+    const router = useRouter()
+    const userInformation:IUserInformation = useAppSelector(state => state.userReducer.userData);
+    const userToken = userInformation.token;
     const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
-        const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries()) 
-        formData.owner_id = '3f33ba0b-c4fe-4640-b655-7c5a99cbec10'
-
-        console.log(formData)
-
+        const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries())
+        formData.owner_id = '75127070-8380-4721-b2f5-677162a38a43'
         try {
-            const response = await fetch('/api/parkings', {
-                method: 'POST',
-                body: JSON.stringify(formData)
-            })
-            const data = await response.json()
-            console.log(data)
+            const data = await createParking(formData as unknown as IRegisterParking, userToken)
+            if(data) {
+                (event.target as HTMLFormElement).reset()
+                router.push(`/register-parking/${data.data.id}/slots`)
+            }
         } catch (error) {
             console.error(error)
         }
@@ -59,8 +62,8 @@ const registerParking: React.FC = () => {
                     <Input name="name" label="Nombre de la propiedad" id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} />
                     <InputContainer>
                         <Label htmlFor="location-select">Barrio o Municipio</Label>
-                        <SelectAddress name="commune_id" id="location-select">
-                            <option value={0} selected disabled></option>
+                        <SelectAddress name="commune_id" id="location-select" defaultValue={0}>
+                            <option value={0} disabled></option>
                             <option value={1}>Popular</option>
                             <option value={2}>Santa Cruz</option>
                             <option value={3}>Manrique</option>
@@ -96,4 +99,4 @@ const registerParking: React.FC = () => {
         </>
     );
 }
-export default registerParking;
+export default RegisterParking;
