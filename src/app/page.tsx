@@ -52,7 +52,7 @@ export default function Home() {
       <Footer />
 
       <Modal isOpen={isSignUpOpen} onClose={closeModals}>
-        <SignUp />
+        <SignUp onClose={closeModals}/>
       </Modal>
 
       <Modal isOpen={isSignInOpen} onClose={closeModals}>

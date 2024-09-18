@@ -15,19 +15,23 @@ import { useEffect, useState } from "react"
 import { ISlots } from "app/types/IParking"
 import { getSlots } from "app/services/slots"
 import { errorAlert } from "app/utils/alerts"
-
+import { IUserInformation } from "app/types/IUserInformation"
 
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
+    const userInformation:IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
-
+    
+    const userToken = userInformation.token;
+    
     const [slots, setSlots] = useState([]);
 
     useEffect(()=>{
         const fetchSlots = async()=>{
             try{
-                setSlots(await getSlots())
+                
+                setSlots(await getSlots(userToken))
             }
             catch(e){
                 console.log(e);
@@ -36,8 +40,6 @@ const Parkings = () => {
         }
         fetchSlots();
     },[])
-
-    console.log(slots)
     
     return (
         <>
