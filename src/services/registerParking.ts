@@ -1,16 +1,15 @@
 import { IRegisterParking } from "app/types/IRegisterParking";
 import { errorAlert, successAlert } from "app/utils/alerts";
 
-export async function createUser(parkings: IRegisterParking) {
-    const response = await fetch("/api/parkings", {
+export async function createParking(parking: IRegisterParking, token: string) {
+    const response = await fetch('/api/parking', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(parkings)
-    });
-
-    console.log(response.status);
+        body: JSON.stringify(parking)
+    })
 
     if (!response.ok) {
         const errorData = await response.json();
