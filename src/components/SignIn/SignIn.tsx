@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
@@ -8,10 +8,11 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import { MainSign } from "../General-form/Form-style";
 import { useState } from "react";
 import { ILogin } from "app/types/ILogin";
-import { login } from "app/services/loginUser";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "app/redux/hooks";
 import { updateUserData } from "app/redux/features/userSlice";
+import { login } from "app/services/loginUser";
+import Cookies from 'js-cookie';
 
 
 const initialState = {
@@ -24,6 +25,7 @@ const SignIn: React.FC = () => {
 
     const [values, setValues] = useState<ILogin>(initialState);
     const router = useRouter(); 
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement |HTMLSelectElement>)=>{
         const {name, value} = event.target;
@@ -38,6 +40,10 @@ const SignIn: React.FC = () => {
         try{
             const user = await login(values);
             dispatch(updateUserData(user));
+            Cookies.set("token", user.token, {
+                path: "/",
+                sameSite: "strict"
+            })
             router.push("/parkings")
         }catch(e){
             console.log(e);
