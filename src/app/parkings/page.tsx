@@ -16,12 +16,15 @@ import { ISlots } from "app/types/IParking"
 import { getSlots } from "app/services/slots"
 import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
+import Cookies from 'js-cookie';
 
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
     const userInformation:IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
+
+    const cookieToken = Cookies.get("token");
     
     const userToken = userInformation.token;
     
@@ -30,8 +33,9 @@ const Parkings = () => {
     useEffect(()=>{
         const fetchSlots = async()=>{
             try{
-                
-                setSlots(await getSlots(userToken))
+                if(cookieToken){
+                    setSlots(await getSlots(cookieToken))
+                }
             }
             catch(e){
                 console.log(e);

@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
@@ -8,12 +8,11 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import { MainSign } from "../General-form/Form-style";
 import { useState } from "react";
 import { ILogin } from "app/types/ILogin";
-
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "app/redux/hooks";
 import { updateUserData } from "app/redux/features/userSlice";
 import { login } from "app/services/loginUser";
-import { createCookies } from "app/actions/cookies";
+import Cookies from 'js-cookie';
 
 
 const initialState = {
@@ -41,7 +40,10 @@ const SignIn: React.FC = () => {
         try{
             const user = await login(values);
             dispatch(updateUserData(user));
-            await createCookies(user.token)
+            Cookies.set("token", user.token, {
+                path: "/",
+                sameSite: "strict"
+            })
             router.push("/parkings")
         }catch(e){
             console.log(e);
