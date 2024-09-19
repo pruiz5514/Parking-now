@@ -20,7 +20,7 @@ const TokenPassword = ()=>{
     
     const initialState = {
         password: '',
-        confirmPassword: token,
+        confirmPassword: '',
     };
     const [values, setValues] = useState(initialState);
     const [confirmPassword, setConfirmPassword] = useState(true);
