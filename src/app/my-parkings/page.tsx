@@ -1,10 +1,6 @@
 "use client"
 import ParkCard from "app/components/ParkCard/ParkCard";
 import "./myParkings.css"
-import Link from "next/link";
-import Header from "app/components/Header/Header";
-import Button from "app/components/UI/Button/Button";
-import Footer from "app/components/Footer/Footer";
 
 const MyParkings = ()=>{
     return(
