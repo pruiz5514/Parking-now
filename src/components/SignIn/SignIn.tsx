@@ -13,6 +13,8 @@ import { useAppDispatch, useAppSelector } from "app/redux/hooks";
 import { updateUserData } from "app/redux/features/userSlice";
 import { login } from "app/services/loginUser";
 import Cookies from 'js-cookie';
+import Link from "next/link";
+import { Label } from "../UI/Input/Input-style";
 
 
 const initialState = {
@@ -62,13 +64,18 @@ const SignIn: React.FC = () => {
                     }
                     title="Iniciar Sesión"
                     footerContent={
-                        <Button text={"Ingresar"}/>
+                        <div style={{display:'flex', flexDirection:'column', gap:'15px', alignItems:'center'}}>
+                            <Button text={"Ingresar"}/>
+                            <Link href="/forgot-password"><Label>Olvide la contraseña</Label></Link>
+                        </div>
+                        
                     }
                     onSubmit={handleSubmit}
                 >
                     <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" name={"email"} value={values.email} onChange={handleChange} icon={FaEnvelope} required={true} />
                     <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" name={"password"} value={values.password} onChange={handleChange} icon={FaLock} required={true} />
                 </Form>
+                
             </MainSign>
         </>
     );
