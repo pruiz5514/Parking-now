@@ -1,6 +1,5 @@
 "use client"
 import Header from "app/components/Header/Header"
-import Footer from "app/components/Footer/Footer"
 import Link from "next/link"
 import Button from "app/components/UI/Button/Button"
 import { MainStyle, Title, ContainerInfoContact, Span, ContainerInfoParking, TitleInfo, ContainerDeatails} from "./booking-style"
@@ -39,7 +38,6 @@ const Booking = () => (
             </ContainerDeatails>
 
         </MainStyle>
-        <Footer />
     </>
 )
 
