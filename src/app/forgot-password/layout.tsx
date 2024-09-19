@@ -7,10 +7,9 @@ const Layout = ({children}: {children:React.ReactNode})=>{
     return(
         <>
             <Header>
-                <li><Link href="/parkings">Inicio</Link></li>
+                <li><Link href="/">Inicio</Link></li>
             </Header>
             {children}
-            <Footer/>
         </>
 
     )

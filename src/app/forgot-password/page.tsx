@@ -39,7 +39,6 @@ const ForgotPassword = ()=>{
         }catch(e){
             console.log(e);
         }
-        
     }
 
     return(
@@ -62,13 +61,11 @@ const ForgotPassword = ()=>{
                             <Button text={"Enviar enlace"}/>
                     }
                 >
-                    <Input label="Correo electrónico" id="forgotPasswordEmail" type="email" placeholder="pepito@micorreo.com" name={"email"} onChange={handleChange} required={true} />
+                    <Input label="Correo electrónico" id="forgotPasswordEmail" type="email" placeholder="pepito@micorreo.com" value={values.email} name={"email"} onChange={handleChange} required={true} />
                     <Input id="forgotPasswordToken" type="hidden" name="token"/>
                 
                 </Form>
             </main>
-
-            <Footer/>
         </>
     )
 }
