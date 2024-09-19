@@ -3,7 +3,6 @@ import "./myParkingsInfo.css";
 import SlotsCard from "app/components/SlotsCard/SlotsCard";
 import Button from "app/components/UI/Button/Button";
 import Link from "next/link";
-import Footer from "app/components/Footer/Footer";
 
 
 const myParkingsInfo = ()=>{

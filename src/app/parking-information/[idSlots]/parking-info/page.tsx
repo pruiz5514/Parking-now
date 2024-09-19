@@ -1,6 +1,4 @@
 "use client"
-
-import Footer from "app/components/Footer/Footer";
 import Header from "app/components/Header/Header";
 import Button from "app/components/UI/Button/Button";
 import Link from "next/link";
@@ -54,8 +52,6 @@ const ParkingInfo :React.FC<{ params: { idSlots: string } }> = ({ params })  => 
 
                 {/* <ParkingInfoCard  key={slot.id} href={`/bookings/${slot.id}`} button={<Button text={"Ver más"}/>}/> */}
             </ParkingInfoContainer>
-
-            <Footer />
         </>
     )
 }

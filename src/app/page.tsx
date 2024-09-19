@@ -1,7 +1,6 @@
 "use client"
 
 import "./globals.css";
-import Footer from "app/components/Footer/Footer";
 import Header from "app/components/Header/Header";
 import Hero from "app/components/Hero/Hero";
 import Benefits from "app/components/Benefits/Benefits";
@@ -49,10 +48,8 @@ export default function Home() {
       <Benefits id={"benefits"} />
       <Baner id={"info"} />
       <FormContactUs id={"contact"} ref={formRef} onSubmit={handleSubmit} />
-      <Footer />
-
       <Modal isOpen={isSignUpOpen} onClose={closeModals}>
-        <SignUp onClose={closeModals}/>
+        <SignUp onClose={closeModals} />
       </Modal>
 
       <Modal isOpen={isSignInOpen} onClose={closeModals}>

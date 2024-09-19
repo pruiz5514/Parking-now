@@ -1,5 +1,4 @@
 "use client"
-import Footer from "app/components/Footer/Footer"
 import Header from "app/components/Header/Header"
 import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
@@ -21,37 +20,37 @@ import Cookies from 'js-cookie';
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
-    const userInformation:IUserInformation = useAppSelector(state => state.userReducer.userData);
+    const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
 
     const cookieToken = Cookies.get("token");
-    
+
     const userToken = userInformation.token;
-    
+
     const [slots, setSlots] = useState([]);
 
-    useEffect(()=>{
-        const fetchSlots = async()=>{
-            try{
-                if(cookieToken){
+    useEffect(() => {
+        const fetchSlots = async () => {
+            try {
+                if (cookieToken) {
                     setSlots(await getSlots(cookieToken))
                 }
             }
-            catch(e){
+            catch (e) {
                 console.log(e);
                 errorAlert("No se pudo obtener la información, intente mas tarde");
             }
         }
         fetchSlots();
-    },[])
-    
+    }, [])
+
     return (
         <>
             <Header>
                 <li><Link href="/parkings">Inicio</Link></li>
                 <li><Link href="/register-parking">Publicar parqueadero</Link></li>
                 <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"}/></Link></li>
+                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
             </Header>
 
             <MainEsStyle>
@@ -131,14 +130,12 @@ const Parkings = () => {
                                 <ParkCard key={slot.id} href={`/parking-information/${slot.id}/parking-info`} text={"Ver más"} slot={slot} />
                             ))
                         ) : (
-                            <p>No hay slots disponibles.</p> 
+                            <p>No hay slots disponibles.</p>
                         )
                     }
-                    
+
                 </MainSectionEsStyle>
             </MainEsStyle>
-
-            <Footer />
         </>
     )
 }

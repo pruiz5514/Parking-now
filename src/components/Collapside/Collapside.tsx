@@ -7,10 +7,13 @@ import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
 import { FaDollarSign, FaThLarge } from "react-icons/fa";
 import { CollapsideParkingTitle } from "./Collapside-style";
+import { ICollapside } from "app/types/ICollapside";
+import Cookies from 'js-cookie';
+import { createSlots } from "app/services/slots";
 import { ISlots } from "app/types/ISlots";
 
 
-const Collapside: React.FC<ISlots> = ({ text, type, idParking }) => {
+const Collapside: React.FC<ICollapside> = ({ text, type, idParking }) => {
     const [numberofSlots, setnumberSlots] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -23,29 +26,36 @@ const Collapside: React.FC<ISlots> = ({ text, type, idParking }) => {
         }
     };
 
-    const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         //  toma los datos de un formulario (disparado por un evento), los convierte en un objeto clave-valor, donde las claves son los nombres de los campos y los valores son sus respectivos valores.
         const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries())
-
         console.log('>>form', formData)
 
         const slotsToBeCreated = Object.keys(formData).filter(slot => slot.startsWith('slot-'))
-        
-        if (type === 'cubierto-carro') {
-            // Llamado al back para el caso cubierto-carro
-            const newSlots = slotsToBeCreated.map(slot => {
-                return {
-                    is_covered: true,
-                    vehicle_type_id: 1,
-                    hour_price: formData.hour_price,
-                    name: formData[slot],
-                    owner_id: '75127070-8380-4721-b2f5-677162a38a43',
-                    parking_id: idParking
-                }
-            })
 
-            // llamado al backend
+        const cookieToken = Cookies.get("token");
+
+        if (type === 'cubierto-carro') {
+            const newSlots = slotsToBeCreated.map(slot => ({
+                is_covered: true,
+                vehicle_type_id: 1,
+                hour_price: formData.hour_price,
+                name: formData[slot],
+                parking_id: idParking
+            }))
+            try {
+                console.log("hola");
+                if (cookieToken) {
+                    console.log("hola2");
+                    const data = await createSlots(newSlots as unknown as ISlots, cookieToken)
+                    if (data) {
+                        (event.target as HTMLFormElement).reset()
+                    }
+                }
+            } catch (error) {
+                console.error(error)
+            }
             console.log('>> newSlots', newSlots)
         }
 
@@ -56,14 +66,13 @@ const Collapside: React.FC<ISlots> = ({ text, type, idParking }) => {
                     vehicle_type_id: 1,
                     hour_price: formData.hour_price,
                     name: formData[slot],
-                    owner_id: '75127070-8380-4721-b2f5-677162a38a43',
                     parking_id: idParking
                 }
             })
 
             // llamado al backend
             console.log('>> newSlots2', newSlots2)
-            
+
         }
 
         if (type === 'cubierto-moto') {
@@ -74,7 +83,7 @@ const Collapside: React.FC<ISlots> = ({ text, type, idParking }) => {
                     vehicle_type_id: 2,
                     hour_price: formData.hour_price,
                     name: formData[slot],
-                    owner_id: '75127070-8380-4721-b2f5-677162a38a43',
+                    // owner_id: '75127070-8380-4721-b2f5-677162a38a43',
                     parking_id: idParking
                 }
             })
@@ -90,7 +99,6 @@ const Collapside: React.FC<ISlots> = ({ text, type, idParking }) => {
                     vehicle_type_id: 2,
                     hour_price: formData.hour_price,
                     name: formData[slot],
-                    owner_id: '75127070-8380-4721-b2f5-677162a38a43',
                     parking_id: idParking
                 }
             })
@@ -121,7 +129,7 @@ const Collapside: React.FC<ISlots> = ({ text, type, idParking }) => {
                         </>
                     }
                 >
-                    <Input name="hour_price" label="Precio por hora" id="price-hour" type="number" icon={FaDollarSign} required={true} />
+                    <Input name="hour_price" label="Precio por hora" id="price-hour" type="text" icon={FaDollarSign} required={true} />
                     <Input label="¿Cuántas Celdas deseas agregar?" id="" type="number" icon={FaThLarge} required={true} onChange={handleNumberChange} />
                     {
                         Array.from({ length: numberofSlots }, (_, index) => (
