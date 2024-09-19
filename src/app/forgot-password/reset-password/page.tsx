@@ -10,14 +10,18 @@ import { successAlert } from "app/utils/alerts";
 import { checkPassword, checkPasswordCoincidence } from "app/utils/signUp";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TokenPassword = ()=>{
     const router = useRouter(); 
-
     const searchParams = useSearchParams();
-    const token = searchParams.get("code");
+    const [token, setToken] = useState<string | null>(null);
     
+    useEffect(() => {
+        const tokenValue = searchParams.get("code");
+        setToken(tokenValue);
+    }, [searchParams]);
+
     const initialState = {
         password: '',
         confirmPassword: '',
