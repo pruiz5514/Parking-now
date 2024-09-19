@@ -4,7 +4,7 @@ import { FooterStyled, Title, ContainerLogo, ContainerSocialMedia, TitleCoppyRig
 import Image from "next/image";
 import Link from "next/link";
 
-const Footer = ({ children }: PropsWithChildren) => {
+const Footer = () => {
     return (
         <FooterStyled>
             <ContainerLogo>

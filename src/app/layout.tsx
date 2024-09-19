@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Providers } from "app/redux/provider";
+import Footer from "app/components/Footer/Footer";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "700","900"], });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Providers>
           {children}
+          <Footer/>
         </Providers>
       </body>
     </html>
