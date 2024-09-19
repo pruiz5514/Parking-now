@@ -7,33 +7,54 @@ import { IoStar } from "react-icons/io5";
 import ParkingInfoCard from "app/components/ParkingInfoCard/ParkingInfoCard";
 import Cookies from 'js-cookie';
 import { useEffect, useState } from "react";
-import { getSlotById } from "app/services/slots";
+import { getSlotById, getSlots } from "app/services/slots";
 import { errorAlert } from "app/utils/alerts";
+import { ISlots } from "app/types/IParking";
 
 
-const ParkingInfo :React.FC<{ params: { idSlots: string } }> = ({ params })  => {
-    // const router = useRouter();
+const ParkingInfo: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
     const { idSlots } = params;
-    console.log("idslot",idSlots);
-    
+    console.log("idslot", idSlots);
+    const [slots, setSlots] = useState([]);
     const cookieToken = Cookies.get("token");
+    
 
-    const [slot, setSlots] = useState([]);
+    
+    // const cookieToken = Cookies.get("token");
 
-    useEffect(()=>{
-        const fetchSlotById = async()=>{
-            try{
-                if(cookieToken){
-                    setSlots(await getSlotById(cookieToken,idSlots));
-                }
-            }
-            catch(e){
-                console.log(e);
-                errorAlert("No se pudo obtener la información del slot, intente mas tarde");
-            }
-        }
-        fetchSlotById();
-    },[])
+    // const [slotbyid, setSlot] = useState([]);
+
+    // useEffect(()=>{
+    //     const fetchSlotById = async()=>{
+    //         try{
+    //             if(cookieToken){
+    //                 const slotData = await getSlotById(cookieToken, idSlot);
+    //                 setSlot(slotData);
+    //             }
+    //         }
+    //         catch(e){
+    //             console.log(e);
+    //             errorAlert("No se pudo obtener la información del slot, intente mas tarde");
+    //         }
+    //     }
+    //     fetchSlotById();
+    // },[])
+
+    // const karina = async () => {
+    //     try {
+    //         if (cookieToken) {
+    //             const slotData = await getSlotById(cookieToken, idSlots);
+    //             console.log("hola", slotData);
+    //         }
+    //     }
+    //     catch (e) {
+    //         console.log(e);
+    //         errorAlert("No se pudo obtener la información del slot, intente mas tarde");
+    //     }
+    // }
+    // karina()
+
+
 
     return (
         <>
@@ -41,7 +62,7 @@ const ParkingInfo :React.FC<{ params: { idSlots: string } }> = ({ params })  => 
                 <li><Link href="/parkings">Inicio</Link></li>
                 <li><Link href="/register-parking">Publicar parqueadero</Link></li>
                 <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"}/></Link></li>
+                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
             </Header>
 
             <ParkingInfoContainer>
@@ -50,7 +71,7 @@ const ParkingInfo :React.FC<{ params: { idSlots: string } }> = ({ params })  => 
                     <StarsContainer><IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
                 </ParkingInfoTitleContainer>
 
-                {/* <ParkingInfoCard  key={slot.id} href={`/bookings/${slot.id}`} button={<Button text={"Ver más"}/>}/> */}
+                {/* <ParkingInfoCard slot ={slotbyid} href={`/bookings}`} button={<Button text={"Ver más"}/>}/> */}
             </ParkingInfoContainer>
         </>
     )

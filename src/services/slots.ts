@@ -4,7 +4,7 @@ import { errorAlert, successAlert } from "app/utils/alerts";
 
 export async function getSlots(token: string) {
 
-    const response = await fetch("api/slots", {
+    const response = await fetch("/api/slots", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -21,22 +21,23 @@ export async function getSlots(token: string) {
 }
 
 
-export async function getSlotById(token: string, id:string) {
+export async function getSlotById(token: string, id: string) {
 
-    const response = await fetch(`api/slotById/${id}`, {
+    const response = await fetch(`/api/slots/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
     });
-    const data = await response.json();
-
+    
     if (!response.ok) {
         throw Error("No se pudo obtener la información, intente mas tarde")
     }
+    const data = await response.json();
     return data.data;
 }
+
 
 export async function createSlots(slots: ISlots, token: string) {
     const response = await fetch('/api/slots', {

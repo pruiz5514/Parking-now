@@ -12,9 +12,10 @@ interface ParkingInfoCardProps {
     button?: React.ReactNode;
     slot: ISlots;
     href: string; 
+    idSlot?: string
 }
 
-const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({button, slot, href}) => {
+const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({button, slot, href, idSlot}) => {
     return (
         <ParkingInfoCardContainer>
             <ParkingInfoCardImg>
