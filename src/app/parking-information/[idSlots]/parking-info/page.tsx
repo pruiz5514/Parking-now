@@ -7,8 +7,36 @@ import Link from "next/link";
 import { ParkingInfoContainer, ParkingInfoTitle, ParkingInfoTitleContainer, StarsContainer } from "./parking-info-style";
 import { IoStar } from "react-icons/io5";
 import ParkingInfoCard from "app/components/ParkingInfoCard/ParkingInfoCard";
+import Cookies from 'js-cookie';
+import { useEffect, useState } from "react";
+import { getSlotById } from "app/services/slots";
+import { errorAlert } from "app/utils/alerts";
 
-const ParkingInfo = () => {
+
+const ParkingInfo :React.FC<{ params: { idSlots: string } }> = ({ params })  => {
+    // const router = useRouter();
+    const { idSlots } = params;
+    console.log("idslot",idSlots);
+    
+    const cookieToken = Cookies.get("token");
+
+    const [slot, setSlots] = useState([]);
+
+    useEffect(()=>{
+        const fetchSlotById = async()=>{
+            try{
+                if(cookieToken){
+                    setSlots(await getSlotById(cookieToken,idSlots));
+                }
+            }
+            catch(e){
+                console.log(e);
+                errorAlert("No se pudo obtener la información del slot, intente mas tarde");
+            }
+        }
+        fetchSlotById();
+    },[])
+
     return (
         <>
             <Header>
@@ -24,7 +52,7 @@ const ParkingInfo = () => {
                     <StarsContainer><IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
                 </ParkingInfoTitleContainer>
 
-                <ParkingInfoCard key={slot.id}  button={<Button text={"Ver más"}/>}/>
+                {/* <ParkingInfoCard  key={slot.id} href={`/bookings/${slot.id}`} button={<Button text={"Ver más"}/>}/> */}
             </ParkingInfoContainer>
 
             <Footer />
