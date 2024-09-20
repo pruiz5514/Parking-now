@@ -70,3 +70,11 @@ export const FormSpan = styled.p`
     font-size: 12px;
   }
 `
+
+export const signUpFooter = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+`
