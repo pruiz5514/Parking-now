@@ -1,34 +1,45 @@
 "use client";
-
 import { ParkingInfoCardButton, ParkingInfoCardContainer, ParkingInfoCardImage, ParkingInfoCardImg, ParkingInfoCardP, ParkingInfoCardPrice, ParkingInfoCardText } from "./ParkingInfoCard-style";
 import Button from "../UI/Button/Button";
 import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiHomeGarage } from "react-icons/gi";
 import React from "react";
+import { ISlots } from "app/types/IParking";
 
 interface ParkingInfoCardProps {
-    button?: React.ReactNode;
+  button?: React.ReactNode;
+  slot: ISlots;
+  href: string;
 }
 
-const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({button}) => {
-    return (
-        <ParkingInfoCardContainer>
-            <ParkingInfoCardImg>
-                <ParkingInfoCardImage alt="Parking" style={{ borderRadius: '12px' }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8iuO1ZC9QClTFd3AGgHhzrPqBQJezDT1Wg&s" />
-            </ParkingInfoCardImg>
-            <ParkingInfoCardText>
-                <p>Ubicado en una zona segura y de fácil acceso, este parqueadero cuenta con vigilancia 24/7 y cámaras de seguridad, brindando tranquilidad y protección para tu vehículo. Se encuentra dentro de una moderna unidad residencial que ofrece acceso controlado, permitiéndote entrar y salir con facilidad a través de un sistema de portería con vigilancia.</p>
-                <ParkingInfoCardP> <FaLocationDot /> Barrio Robledo</ParkingInfoCardP>
-                <ParkingInfoCardP> <GiHomeGarage /> Parqueadero cubierto</ParkingInfoCardP>
-                <ParkingInfoCardButton>
-                    <ParkingInfoCardPrice>$ 3000/Hora</ParkingInfoCardPrice>
-                    <Link href="./booking">{button}</Link>
-                </ParkingInfoCardButton>
-            </ParkingInfoCardText>
-
-        </ParkingInfoCardContainer>
-    )
+const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({button, slot, href}) => {
+  return (
+    <ParkingInfoCardContainer>
+      <ParkingInfoCardImg>
+        <ParkingInfoCardImage 
+          alt={slot.name} 
+          style={{ borderRadius: '12px' }} 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTud3ZSGczSxU0tQb4oTlLZPjD6g-Z-Y6rCbw&s" 
+        />
+      </ParkingInfoCardImg>
+      <ParkingInfoCardText>
+        <p>{slot.name}</p>
+        {slot.property && slot.property.commune && (
+          <ParkingInfoCardP>
+            <FaLocationDot /> {slot.property.commune.name}
+          </ParkingInfoCardP>
+        )}
+        <ParkingInfoCardP>
+          <GiHomeGarage /> {slot.is_covered ? 'Parqueadero cubierto' : 'Parqueadero descubierto'}
+        </ParkingInfoCardP>
+        <ParkingInfoCardButton>
+          <ParkingInfoCardPrice>$ {slot.hour_price} /Hora</ParkingInfoCardPrice>
+          <Link href={href}>{button}</Link>
+        </ParkingInfoCardButton>
+      </ParkingInfoCardText>
+    </ParkingInfoCardContainer>
+  );
 }
 
 export default ParkingInfoCard;
