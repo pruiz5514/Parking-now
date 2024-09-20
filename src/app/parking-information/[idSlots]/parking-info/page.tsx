@@ -21,7 +21,7 @@ const ParkingInfo: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
       try {
         if (cookieToken) {
           const slotData = await getSlotById(cookieToken, idSlots);
-          console.log(slotData);
+          console.log("answer Apigetslotbyis",slotData);
           setSlot(slotData);
         }
       } catch (e) {
