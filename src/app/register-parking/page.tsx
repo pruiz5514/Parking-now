@@ -9,7 +9,7 @@ import TextArea from "app/components/UI/TextArea/TextArea";
 import Form from "app/components/General-form/Form";
 import { MainRegParking } from "./register-parking-style";
 import { SelectAddress } from "app/components/UI/Select/Select-style";
-import { createParking } from "app/services/registerParking";
+import { createParking } from "app/services/parkings";
 import { IRegisterParking } from "app/types/IRegisterParking";
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie';
