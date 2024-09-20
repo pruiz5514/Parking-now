@@ -17,7 +17,6 @@ import { useSearchParams } from 'next/navigation'
 const EditParking = () => {
     const searchParams = useSearchParams()
 
-
     console.log(searchParams.get('parkingId'))
 
     const [isOpen, setIsOpen] = useState(false);

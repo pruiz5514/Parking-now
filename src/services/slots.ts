@@ -1,4 +1,3 @@
-// import { IRegisterParking } from "app/types/IRegisterParking";
 import { ISlots } from "app/types/ISlots";
 import { errorAlert, successAlert } from "app/utils/alerts";
 import Cookies from 'js-cookie';

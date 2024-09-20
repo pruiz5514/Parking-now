@@ -3,9 +3,9 @@
 import Link from "next/link";
 import "./my-parkings.css"
 import Button from "app/components/UI/Button/Button";
-import { fetchMayParkings } from "app/services/fetchMyParkings";
 import { useEffect, useState } from "react";
 import { Property } from "app/types/IParking";
+import { getMyParkings } from "app/services/parkings";
 
 
 const MyParkings = () => {
@@ -13,7 +13,7 @@ const MyParkings = () => {
 
     useEffect(() => {
         const getParkings = async () => {
-            const myParkings = await fetchMayParkings()
+            const myParkings = await getMyParkings()
             setParkings(myParkings.data)
         }
         getParkings()
