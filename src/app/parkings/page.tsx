@@ -16,7 +16,7 @@ import { getSlots } from "app/services/slots"
 import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
-
+import { filterSlots } from "app/services/filterSlots"
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
@@ -58,6 +58,22 @@ const Parkings = () => {
         }
         fetchSlots();
     }, [])
+
+
+    useEffect(()=>{
+        const fetchFilterSlots = async()=>{
+            if(cookieToken){
+                if(commune) setSlots(await filterSlots(cookieToken,`commune=${commune}`));
+                if(vehicle) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}`));
+                if(slotType) setSlots(await filterSlots(cookieToken,`isCovered=${slotType}`));
+                if(commune && vehicle) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}`));
+                if(commune && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&isCovered=${slotType}`));
+                if(vehicle && slotType) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}&isCovered=${slotType}`));
+                if(commune && vehicle && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}&isCovered=${slotType}`));
+            }
+        }
+        fetchFilterSlots();
+    },[commune, vehicle, slotType])
 
     return (
         <>
@@ -107,11 +123,11 @@ const Parkings = () => {
                         <FormEsStyle>
                             <H2EsStyle>Tipo de vehiculo</H2EsStyle>
                             <DivEsStyle>
-                                <input type="radio" id="automovil-radio" name="tipo-vehiculo" value="automovil" onChange={vehicleHandleChange}/>
+                                <input type="radio" id="automovil-radio" name="tipo-vehiculo" value={1} onChange={vehicleHandleChange}/>
                                 <LabelEsStyle htmlFor="automovil-radio">Automóvil</LabelEsStyle>
                             </DivEsStyle>
                             <DivEsStyle>
-                                <input type="radio" id="moto-radio" name="tipo-vehiculo" value="automovil" onChange={vehicleHandleChange}/>
+                                <input type="radio" id="moto-radio" name="tipo-vehiculo" value={2} onChange={vehicleHandleChange}/>
                                 <LabelEsStyle htmlFor="moto-radio">Moto</LabelEsStyle>
                             </DivEsStyle>
                         </FormEsStyle>
@@ -119,11 +135,11 @@ const Parkings = () => {
                         <FormEsStyle>
                             <H2EsStyle>Tipo de Parquadero</H2EsStyle>
                             <DivEsStyle>
-                                <input type="radio" id="cubierto-radio" name="tipo-celda" value="cubierto" onChange={slotTypeHandleChange}/>
+                                <input type="radio" id="cubierto-radio" name="tipo-celda" value={1} onChange={slotTypeHandleChange}/>
                                 <LabelEsStyle htmlFor="cubierto-radio" >Cubierto</LabelEsStyle>
                             </DivEsStyle>
                             <DivEsStyle>
-                                <input type="radio" id="descubierto-radio" name="tipo-celda" value="descubierto" onChange={slotTypeHandleChange}/>
+                                <input type="radio" id="descubierto-radio" name="tipo-celda" value="false" onChange={slotTypeHandleChange}/>
                                 <LabelEsStyle htmlFor="descubierto-radio">Descubierto</LabelEsStyle>
                             </DivEsStyle>
                         </FormEsStyle>

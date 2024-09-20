@@ -1,9 +1,9 @@
 import { ISlots } from "app/types/ISlots";
 import { errorAlert, successAlert } from "app/utils/alerts";
 
-export async function filterSlots(token: string) {
+export async function filterSlots(token: string, params:string) {
 
-    const response = await fetch("api/slots", {
+    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/slots/available?${params}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
