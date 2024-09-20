@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from "react";
 import Header from "app/components/Header/Header";
 import Button from "app/components/UI/Button/Button";
 import Link from "next/link";
@@ -6,75 +7,58 @@ import { ParkingInfoContainer, ParkingInfoTitle, ParkingInfoTitleContainer, Star
 import { IoStar } from "react-icons/io5";
 import ParkingInfoCard from "app/components/ParkingInfoCard/ParkingInfoCard";
 import Cookies from 'js-cookie';
-import { useEffect, useState } from "react";
-import { getSlotById, getSlots } from "app/services/slots";
+import { getSlotById } from "app/services/slots";
 import { errorAlert } from "app/utils/alerts";
 import { ISlots } from "app/types/IParking";
 
-
 const ParkingInfo: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
-    const { idSlots } = params;
-    console.log("idslot", idSlots);
-    const [slots, setSlots] = useState([]);
-    const cookieToken = Cookies.get("token");
-    
+  const { idSlots } = params;
+  const [slot, setSlot] = useState<ISlots | null>(null);
+  const cookieToken = Cookies.get("token");
 
-    
-    // const cookieToken = Cookies.get("token");
+  useEffect(() => {
+    const fetchSlot = async () => {
+      try {
+        if (cookieToken) {
+          const slotData = await getSlotById(cookieToken, idSlots);
+          console.log(slotData);
+          setSlot(slotData);
+        }
+      } catch (e) {
+        console.error(e);
+        errorAlert("No se pudo obtener la información, intente mas tarde");
+      }
+    };
+    fetchSlot();
+  }, [idSlots, cookieToken]);
 
-    // const [slotbyid, setSlot] = useState([]);
+  if (!slot) {
+    return <div>Loading...</div>;
+  }
 
-    // useEffect(()=>{
-    //     const fetchSlotById = async()=>{
-    //         try{
-    //             if(cookieToken){
-    //                 const slotData = await getSlotById(cookieToken, idSlot);
-    //                 setSlot(slotData);
-    //             }
-    //         }
-    //         catch(e){
-    //             console.log(e);
-    //             errorAlert("No se pudo obtener la información del slot, intente mas tarde");
-    //         }
-    //     }
-    //     fetchSlotById();
-    // },[])
+  return (
+    <>
+      <Header>
+        <li><Link href="/parkings">Inicio</Link></li>
+        <li><Link href="/register-parking">Publicar parqueadero</Link></li>
+        <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
+        <li><Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+      </Header>
 
-    // const karina = async () => {
-    //     try {
-    //         if (cookieToken) {
-    //             const slotData = await getSlotById(cookieToken, idSlots);
-    //             console.log("hola", slotData);
-    //         }
-    //     }
-    //     catch (e) {
-    //         console.log(e);
-    //         errorAlert("No se pudo obtener la información del slot, intente mas tarde");
-    //     }
-    // }
-    // karina()
+      <ParkingInfoContainer>
+        <ParkingInfoTitleContainer>
+          <ParkingInfoTitle>{slot.name}</ParkingInfoTitle>
+          <StarsContainer><IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
+        </ParkingInfoTitleContainer>
 
-
-
-    return (
-        <>
-            <Header>
-                <li><Link href="/parkings">Inicio</Link></li>
-                <li><Link href="/register-parking">Publicar parqueadero</Link></li>
-                <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
-            </Header>
-
-            <ParkingInfoContainer>
-                <ParkingInfoTitleContainer>
-                    <ParkingInfoTitle>Unidad residencial Río Campestre</ParkingInfoTitle>
-                    <StarsContainer><IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
-                </ParkingInfoTitleContainer>
-
-                {/* <ParkingInfoCard slot ={slotbyid} href={`/bookings}`} button={<Button text={"Ver más"}/>}/> */}
-            </ParkingInfoContainer>
-        </>
-    )
+        <ParkingInfoCard 
+          href={`/parking-information/${idSlots}/booking`} 
+          button={<Button text={"Ver más"}/>}
+          slot={slot}
+        />
+      </ParkingInfoContainer>
+    </>
+  );
 }
 
 export default ParkingInfo;

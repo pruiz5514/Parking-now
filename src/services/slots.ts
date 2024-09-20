@@ -21,7 +21,7 @@ export async function getSlots(token: string) {
 }
 
 
-export async function getSlotById(token: string, id: string) {
+export async function getSlotById(token: string, id: string){
 
     const response = await fetch(`/api/slots/${id}`, {
         method: 'GET',
@@ -31,10 +31,10 @@ export async function getSlotById(token: string, id: string) {
         },
     });
     
-    if (!response.ok) {
-        throw Error("No se pudo obtener la información, intente mas tarde")
-    }
     const data = await response.json();
+    if (!response.ok) {
+        throw Error("No se pudo obtener la información de la celda, intente mas tarde")
+    }
     return data.data;
 }
 
