@@ -42,10 +42,7 @@ const Parkings = () => {
 
     const slotTypeHandleChange =(event: React.ChangeEvent<HTMLInputElement>) => {
         setSlotType(event.target.value);
-    };
-
-    console.log(commune, vehicle, slotType);
-    
+    };    
 
     useEffect(() => {
         const fetchSlots = async () => {
@@ -79,31 +76,31 @@ const Parkings = () => {
                             <H2EsStyle>Ubicación</H2EsStyle>
                             <Select name={"location"} id={"location-select"} defaultValue={""} onChange={communeHandleChange} >
                                 <option value="" disabled></option>
-                                <option value="popular">Popular</option>
-                                <option value="santa-cruz">Santa Cruz</option>
-                                <option value="manrique">Manrique</option>
-                                <option value="aranjuez">Aranjuez</option>
-                                <option value="castilla">Castilla</option>
-                                <option value="doce-de-octubre">Doce de Octubre</option>
-                                <option value="robledo">Robledo</option>
-                                <option value="villa-hermosa">Villa Hermosa</option>
-                                <option value="buenos-aires">Buenos Aires</option>
-                                <option value="la-candelaria">La Candelaria</option>
-                                <option value="laureles-estadio">Laureles-Estadio</option>
-                                <option value="la-america">La América</option>
-                                <option value="san-javier">San Javier</option>
-                                <option value="el-poblado">El Poblado</option>
-                                <option value="guayabal">Guayabal</option>
-                                <option value="belen">Belén</option>
-                                <option value="copacabana">Copacabana</option>
-                                <option value="bello">Bello</option>
-                                <option value="itagui">Itagüí</option>
-                                <option value="sabaneta">Sabaneta</option>
-                                <option value="envigado">Envigado</option>
-                                <option value="la-estrella">La Estrella</option>
-                                <option value="caldas">Caldas</option>
-                                <option value="girardota">Girardota</option>
-                                <option value="barbosa">Barbosa</option>
+                                <option value={1}>Popular</option>
+                                <option value={2}>Santa Cruz</option>
+                                <option value={3}>Manrique</option>
+                                <option value={4}>Aranjuez</option>
+                                <option value={5}>Castilla</option>
+                                <option value={6}>Doce de Octubre</option>
+                                <option value={7}>Robledo</option>
+                                <option value={8}>Villa Hermosa</option>
+                                <option value={9}>Buenos Aires</option>
+                                <option value={10}>La Candelaria</option>
+                                <option value={11}>Laureles-Estadio</option>
+                                <option value={12}>La América</option>
+                                <option value={13}>San Javier</option>
+                                <option value={14}>El Poblado</option>
+                                <option value={15}>Guayabal</option>
+                                <option value={16}>Belén</option>
+                                <option value={17}>Copacabana</option>
+                                <option value={18}>Bello</option>
+                                <option value={19}>Itagüí</option>
+                                <option value={20}>Sabaneta</option>
+                                <option value={21}>Envigado</option>
+                                <option value={22}>La Estrella</option>
+                                <option value={23}>Caldas</option>
+                                <option value={24}>Girardota</option>
+                                <option value={25}>Barbosa</option>
                             </Select>
                         </FormEsStyle>
 
