@@ -2,8 +2,8 @@ import { ISlots } from "app/types/ISlots";
 import { errorAlert, successAlert } from "app/utils/alerts";
 
 export async function filterSlots(token: string, params: string) {
-
-    const response = await fetch(`/api/filterSlots?${params}`, {
+    const queryString = new URLSearchParams({ params })
+    const response = await fetch(`/api/filterSlots?${queryString}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
