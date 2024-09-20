@@ -15,9 +15,9 @@ import { useState } from "react";
 import { useSearchParams } from 'next/navigation'
 
 const EditParking = () => {
-    const searchParams = useSearchParams()
+    // const searchParams = useSearchParams()
 
-    console.log(searchParams.get('parkingId'))
+    // console.log(searchParams.get('parkingId'))
 
     const [isOpen, setIsOpen] = useState(false);
 
