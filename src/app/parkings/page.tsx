@@ -28,6 +28,24 @@ const Parkings = () => {
     const userToken = userInformation.token;
 
     const [slots, setSlots] = useState([]);
+    const [commune, setCommune] = useState("");
+    const [vehicle, setVehicle] = useState("");
+    const [slotType, setSlotType] = useState("");
+
+    const communeHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setCommune(event.target.value);
+    };
+
+    const vehicleHandleChange =(event: React.ChangeEvent<HTMLInputElement>) => {
+        setVehicle(event.target.value);
+    };
+
+    const slotTypeHandleChange =(event: React.ChangeEvent<HTMLInputElement>) => {
+        setSlotType(event.target.value);
+    };
+
+    console.log(commune, vehicle, slotType);
+    
 
     useEffect(() => {
         const fetchSlots = async () => {
@@ -59,7 +77,7 @@ const Parkings = () => {
                         <CloseAsideButton onClick={() => dispatch(closeAside())}> <IoClose /> </CloseAsideButton>
                         <FormEsStyle>
                             <H2EsStyle>Ubicación</H2EsStyle>
-                            <Select name={"location"} id={"location-select"} defaultValue={""}>
+                            <Select name={"location"} id={"location-select"} defaultValue={""} onChange={communeHandleChange} >
                                 <option value="" disabled></option>
                                 <option value="popular">Popular</option>
                                 <option value="santa-cruz">Santa Cruz</option>
@@ -92,24 +110,24 @@ const Parkings = () => {
                         <FormEsStyle>
                             <H2EsStyle>Tipo de vehiculo</H2EsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="automovil-checkbox" />
-                                <LabelEsStyle htmlFor="automovil-checkbox">Automóvil</LabelEsStyle>
+                                <input type="radio" id="automovil-radio" name="tipo-vehiculo" value="automovil" onChange={vehicleHandleChange}/>
+                                <LabelEsStyle htmlFor="automovil-radio">Automóvil</LabelEsStyle>
                             </DivEsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="moto-checkbox" />
-                                <LabelEsStyle htmlFor="moto-checkbox">Moto</LabelEsStyle>
+                                <input type="radio" id="moto-radio" name="tipo-vehiculo" value="automovil" onChange={vehicleHandleChange}/>
+                                <LabelEsStyle htmlFor="moto-radio">Moto</LabelEsStyle>
                             </DivEsStyle>
                         </FormEsStyle>
 
                         <FormEsStyle>
                             <H2EsStyle>Tipo de Parquadero</H2EsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="cubierto-checkbox" />
-                                <LabelEsStyle htmlFor="cubierto-checkbox" >Cubierto</LabelEsStyle>
+                                <input type="radio" id="cubierto-radio" name="tipo-celda" value="cubierto" onChange={slotTypeHandleChange}/>
+                                <LabelEsStyle htmlFor="cubierto-radio" >Cubierto</LabelEsStyle>
                             </DivEsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="descubierto-checkbox" />
-                                <LabelEsStyle htmlFor="descubierto-checkbox">Descubierto</LabelEsStyle>
+                                <input type="radio" id="descubierto-radio" name="tipo-celda" value="descubierto" onChange={slotTypeHandleChange}/>
+                                <LabelEsStyle htmlFor="descubierto-radio">Descubierto</LabelEsStyle>
                             </DivEsStyle>
                         </FormEsStyle>
 
