@@ -46,3 +46,20 @@ export async function createSlots(slots: ISlots[]) {
     const data = await response.json();
     return data;
 }
+
+export async function getSlotById(token: string, id: string) {
+
+    const response = await fetch(`/api/slots/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+        throw Error("No se pudo obtener la información de la celda, intente mas tarde")
+    }
+    return data.data;
+}
