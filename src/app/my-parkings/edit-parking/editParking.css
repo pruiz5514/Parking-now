@@ -1,11 +1,30 @@
-.editParking-main{
+.editParking-main {
     min-height: calc(100vh - 100px - 100px);
     width: 90%;
     margin: 0 auto;
     padding: 40px 0;
 }
 
-.editParkingForm-container{
+.editParkingForm-container {
     margin-bottom: 30px;
 }
 
+.container-slots {
+    border: 1px solid red;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-slot {
+    border: 1px solid red;
+    width: 80px;
+    height: 80px;
+}
+
+.container-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
