@@ -81,6 +81,7 @@ export const MainSectionEsStyle = styled.section`
     width: 100%;
     min-height: calc(100vh - 100px - 100px);
     padding: 30px;
+    align-items: start;
 
     @media (min-width: 711px){
         justify-content: center;

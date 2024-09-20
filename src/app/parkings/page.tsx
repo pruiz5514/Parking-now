@@ -63,13 +63,17 @@ const Parkings = () => {
     useEffect(()=>{
         const fetchFilterSlots = async()=>{
             if(cookieToken){
-                if(commune) setSlots(await filterSlots(cookieToken,`commune=${commune}`));
-                if(vehicle) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}`));
-                if(slotType) setSlots(await filterSlots(cookieToken,`isCovered=${slotType}`));
-                if(commune && vehicle) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}`));
-                if(commune && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&isCovered=${slotType}`));
-                if(vehicle && slotType) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}&isCovered=${slotType}`));
-                if(commune && vehicle && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}&isCovered=${slotType}`));
+                try{
+                    if(commune) setSlots(await filterSlots(cookieToken,`commune=${commune}`));
+                    if(vehicle) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}`));
+                    if(slotType) setSlots(await filterSlots(cookieToken,`isCovered=${slotType}`));
+                    if(commune && vehicle) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}`));
+                    if(commune && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&isCovered=${slotType}`));
+                    if(vehicle && slotType) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}&isCovered=${slotType}`));
+                    if(commune && vehicle && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}&isCovered=${slotType}`));
+                }catch(e){
+                    console.log(e);
+                }
             }
         }
         fetchFilterSlots();
