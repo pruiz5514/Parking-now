@@ -126,7 +126,8 @@ const Parkings = () => {
                     {
                         slots && slots.length > 0 ? (
                             slots.map((slot: ISlots) => (
-                                <ParkCard key={slot.id} href={"/parking-info"} text={"Ver más"} slot={slot} />
+                                
+                                <ParkCard key={slot.id} href={`/parking-information/${slot.id}/parking-info`} text={"Ver más"} slot={slot} />
                             ))
                         ) : (
                             <p>No hay slots disponibles.</p>
