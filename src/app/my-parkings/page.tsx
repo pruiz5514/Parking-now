@@ -29,7 +29,7 @@ const MyParkings = () => {
                             <div>
                                 <h3 className="my-parkings-title">{parking.name}</h3>
                                 <img className="my-parking-image" alt="propiedad" src={parking.image_url} />
-                                <Link href={`/my-parkings/edit-parking?parkingId=${parking.id}`}><Button text={"Editar"} /> </Link>
+                                {/* <Link href={`/my-parkings/edit-parking?parkingId=${parking.id}`}><Button text={"Editar"} /> </Link> */}
                             </div>
                         </article>)
                     })}
