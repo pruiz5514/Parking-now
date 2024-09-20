@@ -16,7 +16,7 @@ import { getSlots } from "app/services/slots"
 import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
-
+import { filterSlots } from "app/services/filterSlots"
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
@@ -28,6 +28,21 @@ const Parkings = () => {
     const userToken = userInformation.token;
 
     const [slots, setSlots] = useState([]);
+    const [commune, setCommune] = useState("");
+    const [vehicle, setVehicle] = useState("");
+    const [slotType, setSlotType] = useState("");
+
+    const communeHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setCommune(event.target.value);
+    };
+
+    const vehicleHandleChange =(event: React.ChangeEvent<HTMLInputElement>) => {
+        setVehicle(event.target.value);
+    };
+
+    const slotTypeHandleChange =(event: React.ChangeEvent<HTMLInputElement>) => {
+        setSlotType(event.target.value);
+    };    
 
     useEffect(() => {
         const fetchSlots = async () => {
@@ -44,6 +59,26 @@ const Parkings = () => {
         fetchSlots();
     }, [])
 
+
+    useEffect(()=>{
+        const fetchFilterSlots = async()=>{
+            if(cookieToken){
+                try{
+                    if(commune) setSlots(await filterSlots(cookieToken,`commune=${commune}`));
+                    if(vehicle) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}`));
+                    if(slotType) setSlots(await filterSlots(cookieToken,`isCovered=${slotType}`));
+                    if(commune && vehicle) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}`));
+                    if(commune && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&isCovered=${slotType}`));
+                    if(vehicle && slotType) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}&isCovered=${slotType}`));
+                    if(commune && vehicle && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}&isCovered=${slotType}`));
+                }catch(e){
+                    console.log(e);
+                }
+            }
+        }
+        fetchFilterSlots();
+    },[commune, vehicle, slotType])
+
     return (
         <>
             <Header>
@@ -59,57 +94,57 @@ const Parkings = () => {
                         <CloseAsideButton onClick={() => dispatch(closeAside())}> <IoClose /> </CloseAsideButton>
                         <FormEsStyle>
                             <H2EsStyle>Ubicación</H2EsStyle>
-                            <Select name={"location"} id={"location-select"} defaultValue={""}>
+                            <Select name={"location"} id={"location-select"} defaultValue={""} onChange={communeHandleChange} >
                                 <option value="" disabled></option>
-                                <option value="popular">Popular</option>
-                                <option value="santa-cruz">Santa Cruz</option>
-                                <option value="manrique">Manrique</option>
-                                <option value="aranjuez">Aranjuez</option>
-                                <option value="castilla">Castilla</option>
-                                <option value="doce-de-octubre">Doce de Octubre</option>
-                                <option value="robledo">Robledo</option>
-                                <option value="villa-hermosa">Villa Hermosa</option>
-                                <option value="buenos-aires">Buenos Aires</option>
-                                <option value="la-candelaria">La Candelaria</option>
-                                <option value="laureles-estadio">Laureles-Estadio</option>
-                                <option value="la-america">La América</option>
-                                <option value="san-javier">San Javier</option>
-                                <option value="el-poblado">El Poblado</option>
-                                <option value="guayabal">Guayabal</option>
-                                <option value="belen">Belén</option>
-                                <option value="copacabana">Copacabana</option>
-                                <option value="bello">Bello</option>
-                                <option value="itagui">Itagüí</option>
-                                <option value="sabaneta">Sabaneta</option>
-                                <option value="envigado">Envigado</option>
-                                <option value="la-estrella">La Estrella</option>
-                                <option value="caldas">Caldas</option>
-                                <option value="girardota">Girardota</option>
-                                <option value="barbosa">Barbosa</option>
+                                <option value={1}>Popular</option>
+                                <option value={2}>Santa Cruz</option>
+                                <option value={3}>Manrique</option>
+                                <option value={4}>Aranjuez</option>
+                                <option value={5}>Castilla</option>
+                                <option value={6}>Doce de Octubre</option>
+                                <option value={7}>Robledo</option>
+                                <option value={8}>Villa Hermosa</option>
+                                <option value={9}>Buenos Aires</option>
+                                <option value={10}>La Candelaria</option>
+                                <option value={11}>Laureles-Estadio</option>
+                                <option value={12}>La América</option>
+                                <option value={13}>San Javier</option>
+                                <option value={14}>El Poblado</option>
+                                <option value={15}>Guayabal</option>
+                                <option value={16}>Belén</option>
+                                <option value={17}>Copacabana</option>
+                                <option value={18}>Bello</option>
+                                <option value={19}>Itagüí</option>
+                                <option value={20}>Sabaneta</option>
+                                <option value={21}>Envigado</option>
+                                <option value={22}>La Estrella</option>
+                                <option value={23}>Caldas</option>
+                                <option value={24}>Girardota</option>
+                                <option value={25}>Barbosa</option>
                             </Select>
                         </FormEsStyle>
 
                         <FormEsStyle>
                             <H2EsStyle>Tipo de vehiculo</H2EsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="automovil-checkbox" />
-                                <LabelEsStyle htmlFor="automovil-checkbox">Automóvil</LabelEsStyle>
+                                <input type="radio" id="automovil-radio" name="tipo-vehiculo" value={1} onChange={vehicleHandleChange}/>
+                                <LabelEsStyle htmlFor="automovil-radio">Automóvil</LabelEsStyle>
                             </DivEsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="moto-checkbox" />
-                                <LabelEsStyle htmlFor="moto-checkbox">Moto</LabelEsStyle>
+                                <input type="radio" id="moto-radio" name="tipo-vehiculo" value={2} onChange={vehicleHandleChange}/>
+                                <LabelEsStyle htmlFor="moto-radio">Moto</LabelEsStyle>
                             </DivEsStyle>
                         </FormEsStyle>
 
                         <FormEsStyle>
                             <H2EsStyle>Tipo de Parquadero</H2EsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="cubierto-checkbox" />
-                                <LabelEsStyle htmlFor="cubierto-checkbox" >Cubierto</LabelEsStyle>
+                                <input type="radio" id="cubierto-radio" name="tipo-celda" value={1} onChange={slotTypeHandleChange}/>
+                                <LabelEsStyle htmlFor="cubierto-radio" >Cubierto</LabelEsStyle>
                             </DivEsStyle>
                             <DivEsStyle>
-                                <input type="checkbox" id="descubierto-checkbox" />
-                                <LabelEsStyle htmlFor="descubierto-checkbox">Descubierto</LabelEsStyle>
+                                <input type="radio" id="descubierto-radio" name="tipo-celda" value="false" onChange={slotTypeHandleChange}/>
+                                <LabelEsStyle htmlFor="descubierto-radio">Descubierto</LabelEsStyle>
                             </DivEsStyle>
                         </FormEsStyle>
 
