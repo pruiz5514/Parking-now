@@ -19,16 +19,17 @@ const Booking = () => (
             <div>
                 <Title>Tu Reserva</Title>
                 <ContainerInfoContact>
-                    <TitleInfo>Información del contacto</TitleInfo>
-                    <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true} />
+                    <TitleInfo>Ingresa la placa del vehículo </TitleInfo>
+                    <label htmlFor="">dirección de la propiedad byid</label>
+                    {/* <Input readOnly label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true} />
                     <Input label="Teléfono" id="userPhone" type="number" placeholder="123 456 14 25" icon={FaPhone} required={true} />
-                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} />
-                    <Input label="Placa" name= "vehicle_plate" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} />
+                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} /> */}
+                    <Input name= "vehicle_plate" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} />
                 </ContainerInfoContact>
 
                 <ContainerInfoParking>
-                    <TitleInfo>Información del estacionamiento</TitleInfo>
-                    <Input label="Ubicación" id="userAddress" type="text" placeholder=" mde cra 55 # 25-15 " icon={FaMap} required={true} />
+                    {/* <TitleInfo>Información del estacionamiento</TitleInfo> */}
+                    {/* <Input label="Ubicación" id="userAddress" type="text" placeholder=" mde cra 55 # 25-15 " icon={FaMap} required={true} /> */}
                     <Link href="/reserved-parking" style={{ width: '100%' }}><Button text={"Reservar ahora"}></Button></Link>
                 </ContainerInfoParking>
             </div>

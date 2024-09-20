@@ -16,6 +16,8 @@ export const MainStyle = styled.main`
 export const Title = styled.h2`
     font-size: 35px;
     font-weight: bold;
+    display: flex;
+    justify-content:center;
     color: var(--blue-dark);
 `
 

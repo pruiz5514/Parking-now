@@ -23,6 +23,7 @@ export async function createBooking(booking: IBooking, token: string) {
     else {
         successAlert("Su reseva se ha activado exitosamente")
     }
+    
 
     const data = await response.json();
     return data;

@@ -12,23 +12,21 @@ interface ParkingInfoCardProps {
   href: string;
 }
 
-const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({button, slot, href}) => {
+const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({ button, slot, href }) => {
   return (
     <ParkingInfoCardContainer>
       <ParkingInfoCardImg>
-        <ParkingInfoCardImage 
-          alt={slot.name} 
-          style={{ borderRadius: '12px' }} 
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTud3ZSGczSxU0tQb4oTlLZPjD6g-Z-Y6rCbw&s" 
+        <ParkingInfoCardImage
+          alt={slot.name}
+          style={{ borderRadius: '12px' }}
+          src={slot.property.image_url}
         />
       </ParkingInfoCardImg>
       <ParkingInfoCardText>
-        <p>{slot.name}</p>
-        {slot.property && slot.property.commune && (
-          <ParkingInfoCardP>
-            <FaLocationDot /> {slot.property.commune.name}
-          </ParkingInfoCardP>
-        )}
+        <p>{slot.property.description}</p>
+        <ParkingInfoCardP>
+          <FaLocationDot /> {slot.property.commune.name}
+        </ParkingInfoCardP>
         <ParkingInfoCardP>
           <GiHomeGarage /> {slot.is_covered ? 'Parqueadero cubierto' : 'Parqueadero descubierto'}
         </ParkingInfoCardP>
