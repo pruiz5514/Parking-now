@@ -1,10 +1,7 @@
 "use client"
 
-import Header from "app/components/Header/Header";
-import Button from "app/components/UI/Button/Button";
-import Link from "next/link";
 import Collapside from "app/components/Collapside/Collapside";
-import './slots.css';
+import './register-slots.css';
 
 const RegisterSlots: React.FC<{ params: { idParking: string } }> = ({ params }) => {
     const { idParking } = params

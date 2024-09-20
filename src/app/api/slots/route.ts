@@ -20,10 +20,7 @@ export async function POST(request: Request) {
     const slots = await request.json();
     const token = request.headers.get('Authorization');
 
-    slots.hour_price = parseInt(slots.hour_price)
-    slots.vehicle_type_id = parseInt(slots.vehicle_type_id)
-
-    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/slots', {
+    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/slots/createMany', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

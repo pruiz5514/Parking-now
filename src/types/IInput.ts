@@ -10,4 +10,5 @@ export interface IInput {
     name?: string;
     min?: string;
     max?: string;
+    key?: string | number
 }

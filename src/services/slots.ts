@@ -1,6 +1,7 @@
 // import { IRegisterParking } from "app/types/IRegisterParking";
 import { ISlots } from "app/types/ISlots";
 import { errorAlert, successAlert } from "app/utils/alerts";
+import Cookies from 'js-cookie';
 
 export async function getSlots(token: string) {
 
@@ -19,12 +20,12 @@ export async function getSlots(token: string) {
     return data.data;
 }
 
-export async function createSlots(slots: ISlots, token: string) {
+export async function createSlots(slots: ISlots[]) {
     const response = await fetch('/api/slots', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${Cookies.get('token')}`
         },
         body: JSON.stringify(slots)
     })

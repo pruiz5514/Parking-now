@@ -2,12 +2,10 @@
 
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
-import Link from "next/link";
 import Image from "next/image";
 import { InputContainer, Label } from "app/components/UI/Input/Input-style";
 import { FaImage, FaMapMarkerAlt, FaTag } from "react-icons/fa";
 import TextArea from "app/components/UI/TextArea/TextArea";
-import Header from "app/components/Header/Header";
 import Form from "app/components/General-form/Form";
 import { MainRegParking } from "./register-parking-style";
 import { SelectAddress } from "app/components/UI/Select/Select-style";
@@ -31,7 +29,7 @@ const RegisterParking: React.FC = () => {
                 const data = await createParking(formData as unknown as IRegisterParking, cookieToken)
                 if(data) {
                     (event.target as HTMLFormElement).reset()
-                    router.push(`/register-parking/${data.data.id}/slots`)
+                    router.push(`/register-parking/${data.data.id}/register-slots`)
                 }
             }
         } catch (error) {

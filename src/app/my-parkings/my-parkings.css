@@ -1,0 +1,45 @@
+.my-parkings-main {
+    min-height: calc(100vh - 100px - 100px);
+    padding: 40px 0;
+}
+
+.title {
+    font-size: 30px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.my-parkings-section {
+    width: 350px;
+    height: auto;
+    border-radius: 12px;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 0 0 10px rgba(26, 17, 17, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-parking-image {
+    width: 300px;
+    height: 250px;
+    padding: 10px 0;
+
+}
+
+.my-parkings-title { 
+    font-size: 20px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    text-align: center;
+}
