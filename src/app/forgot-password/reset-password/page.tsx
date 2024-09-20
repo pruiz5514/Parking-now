@@ -10,18 +10,14 @@ import { successAlert } from "app/utils/alerts";
 import { checkPassword, checkPasswordCoincidence } from "app/utils/signUp";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useState } from "react";
+import SearchParams from "./search-param";
 
 const TokenPassword = ()=>{
     const router = useRouter(); 
-    const searchParams = useSearchParams();
-    const [token, setToken] = useState<string | null>(null);
-    
-    useEffect(() => {
-        const tokenValue = searchParams.get("code");
-        setToken(tokenValue);
-    }, [searchParams]);
 
+    const [token, setToken] = useState('');
+    
     const initialState = {
         password: '',
         confirmPassword: '',
@@ -63,6 +59,7 @@ const TokenPassword = ()=>{
             try{
                 const response = await resetPassword(body); 
                 successAlert("Se actualizo la contraseña exitosamente");
+                setValues(initialState);
                 router.push("/");                
             }catch(e){
                 console.log(e);
@@ -72,7 +69,9 @@ const TokenPassword = ()=>{
     return(
         <>
             <main className='reset-password__main'>
-
+            <Suspense fallback={<p>Obteniendo informacion</p>}>
+                <SearchParams setToken={setToken} /> 
+            </Suspense>
                 <Form
                     onSubmit={handleSubmit}
                     headerContent={
