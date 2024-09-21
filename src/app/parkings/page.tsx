@@ -17,6 +17,7 @@ import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
 import { filterSlots } from "app/services/filterSlots"
+import Spinner from "app/components/Spinner/Spinner"
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
@@ -81,6 +82,7 @@ const Parkings = () => {
 
     return (
         <>
+            <Spinner/>
             <Header>
                 <li><Link href="/parkings">Inicio</Link></li>
                 <li><Link href="/register-parking">Publicar parqueadero</Link></li>
