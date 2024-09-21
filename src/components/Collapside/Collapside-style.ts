@@ -13,5 +13,5 @@ export const CollapsideParkingTitle = styled.main`
     font-size: 20px;
     font-weight: bold;
     color: var(--blue);
-    padding: 0 20px;
+    padding:  20px;
 `;

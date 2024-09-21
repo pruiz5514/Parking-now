@@ -1,6 +1,5 @@
 "use client"
 import Header from "app/components/Header/Header"
-import Footer from "app/components/Footer/Footer"
 import Link from "next/link"
 import Button from "app/components/UI/Button/Button"
 import { MainStyle, Title, ContainerInfoContact, Span, ContainerInfoParking, TitleInfo, ContainerDeatails} from "./booking-style"
@@ -24,7 +23,7 @@ const Booking = () => (
                     <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" icon={FaUser} required={true} />
                     <Input label="Teléfono" id="userPhone" type="number" placeholder="123 456 14 25" icon={FaPhone} required={true} />
                     <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" icon={FaEnvelope} required={true} />
-                    <Input label="Placa" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} />
+                    <Input label="Placa" name= "vehicle_plate" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} />
                 </ContainerInfoContact>
 
                 <ContainerInfoParking>
@@ -39,7 +38,6 @@ const Booking = () => (
             </ContainerDeatails>
 
         </MainStyle>
-        <Footer />
     </>
 )
 

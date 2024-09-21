@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { ArticleCardPark, DivButtonContainer, H2CardPark, ImgCardPark, ImgContainerCardPark, PCardPark, PriceCardPark, TextCardPark } from "./ParkCard-style"
 import Button from "../UI/Button/Button";
 import Link from "next/link";
@@ -19,7 +18,8 @@ const ParkCard: React.FC<ParkCardProps> = ({href,text, slot})=>{
         <>
             <ArticleCardPark>
                 <ImgContainerCardPark>
-                    <ImgCardPark src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTud3ZSGczSxU0tQb4oTlLZPjD6g-Z-Y6rCbw&s" alt="Unidad"/>
+                    <ImgCardPark src={slot.property.image_url} alt={slot.property.name}/>
+               
                 </ImgContainerCardPark>
                 <TextCardPark>
                     <H2CardPark>{slot.property.name}</H2CardPark>
@@ -28,7 +28,7 @@ const ParkCard: React.FC<ParkCardProps> = ({href,text, slot})=>{
                     <PCardPark> {slot.vehicle_type_id === 1 ? (<><FaCarSide /> Automóvil</>) : (<><FaMotorcycle /> Moto</>)}</PCardPark>
                     <PriceCardPark>$ {slot.hour_price}</PriceCardPark>
                     <DivButtonContainer>
-                        <Link href={`/parking-information/${slot.id}`} style={{ width: '100%' }}><Button text={text}/></Link>
+                        <Link href={href} style={{ width: '100%' }}><Button text={text}/></Link>
                     </DivButtonContainer>
                 </TextCardPark>
             </ArticleCardPark>

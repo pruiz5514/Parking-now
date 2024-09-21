@@ -1,0 +1,31 @@
+.spinner-container{
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo con algo de transparencia */
+    backdrop-filter: blur(30px); 
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img{
+    position: absolute;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(300deg); 
+  }
+  100% {
+    transform: rotate(360deg); 
+  }
+}

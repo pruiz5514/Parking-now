@@ -1,5 +1,6 @@
 import { IRegisterParking } from "app/types/IRegisterParking";
 import { errorAlert, successAlert } from "app/utils/alerts";
+import Cookies from "js-cookie";
 
 export async function createParking(parking: IRegisterParking, token: string) {
     const response = await fetch('/api/parking', {
@@ -25,5 +26,21 @@ export async function createParking(parking: IRegisterParking, token: string) {
     }
 
     const data = await response.json();
+    return data;
+}
+
+export async function getMyParkings() {
+    const token = Cookies.get('token')
+    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/properties', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+    if (!response.ok) {
+            throw new Error('Hubo un error trayendo las propiedades')
+        }
+    const data = await response.json()
     return data;
 }

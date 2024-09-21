@@ -3,4 +3,5 @@ export interface ISelect {
     id: string
     defaultValue: string
     children: React.ReactNode,
+    onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }

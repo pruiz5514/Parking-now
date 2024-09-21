@@ -2,36 +2,35 @@
 
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
-import Link from "next/link";
 import Image from "next/image";
 import { InputContainer, Label } from "app/components/UI/Input/Input-style";
 import { FaImage, FaMapMarkerAlt, FaTag } from "react-icons/fa";
 import TextArea from "app/components/UI/TextArea/TextArea";
-import Header from "app/components/Header/Header";
 import Form from "app/components/General-form/Form";
 import { MainRegParking } from "./register-parking-style";
 import { SelectAddress } from "app/components/UI/Select/Select-style";
-import { createParking } from "app/services/registerParking";
+import { createParking } from "app/services/parkings";
 import { IRegisterParking } from "app/types/IRegisterParking";
 import { useRouter } from 'next/navigation'
-import { IUserInformation } from "app/types/IUserInformation";
-import { useAppSelector } from "app/redux/hooks";
+import Cookies from 'js-cookie';
 
 
 const RegisterParking: React.FC = () => {
     const router = useRouter()
-    const userInformation:IUserInformation = useAppSelector(state => state.userReducer.userData);
-    const userToken = userInformation.token;
+    const cookieToken = Cookies.get("token");
+    
+
     const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
         const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries())
-        formData.owner_id = '75127070-8380-4721-b2f5-677162a38a43'
         try {
-            const data = await createParking(formData as unknown as IRegisterParking, userToken)
-            if(data) {
-                (event.target as HTMLFormElement).reset()
-                router.push(`/register-parking/${data.data.id}/slots`)
+            if(cookieToken){
+                const data = await createParking(formData as unknown as IRegisterParking, cookieToken)
+                if(data) {
+                    (event.target as HTMLFormElement).reset()
+                    router.push(`/register-parking/${data.data.id}/register-slots`)
+                }
             }
         } catch (error) {
             console.error(error)
@@ -40,13 +39,6 @@ const RegisterParking: React.FC = () => {
 
     return (
         <>
-            <Header>
-                <li><Link href="/parkings">Inicio</Link></li>
-                <li><Link href="/register-parking">Publicar parqueadero</Link></li>
-                <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
-            </Header>
-
             <MainRegParking>
                 <Form onSubmit={onFormSubmit}
                     headerContent={
