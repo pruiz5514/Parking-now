@@ -4,7 +4,7 @@ import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
 import '../globals.css'
 import Link from "next/link"
-import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle } from "./parkings-style"
+import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle, ParkingCardsContainer } from "./parkings-style"
 import ParkCard from "app/components/ParkCard/ParkCard"
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
 import { IoClose } from "react-icons/io5"
@@ -17,7 +17,6 @@ import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
 import { filterSlots } from "app/services/filterSlots"
-import Spinner from "app/components/Spinner/Spinner"
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
@@ -61,24 +60,27 @@ const Parkings = () => {
     }, [])
 
 
-    useEffect(()=>{
-        const fetchFilterSlots = async()=>{
-            if(cookieToken){
-                try{
-                    if(commune) setSlots(await filterSlots(cookieToken,`commune=${commune}`));
-                    if(vehicle) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}`));
-                    if(slotType) setSlots(await filterSlots(cookieToken,`isCovered=${slotType}`));
-                    if(commune && vehicle) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}`));
-                    if(commune && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&isCovered=${slotType}`));
-                    if(vehicle && slotType) setSlots(await filterSlots(cookieToken,`vehicleType=${vehicle}&isCovered=${slotType}`));
-                    if(commune && vehicle && slotType) setSlots(await filterSlots(cookieToken,`commune=${commune}&vehicleType=${vehicle}&isCovered=${slotType}`));
-                }catch(e){
+    useEffect(() => {
+        const fetchFilterSlots = async () => {
+            if (cookieToken) {
+                try {
+                    let filterQueries = [];
+                    if (commune) filterQueries.push(`commune=${commune}`);
+                    if (vehicle) filterQueries.push(`vehicleType=${vehicle}`);
+                    if (slotType) filterQueries.push(`isCovered=${slotType}`);
+
+                    if (filterQueries.length > 0) {
+                        const queryString = filterQueries.join("&");
+                        const filteredSlots = await filterSlots(cookieToken, queryString);
+                        setSlots(filteredSlots);
+                    } 
+                } catch (e) {
                     console.log(e);
                 }
             }
-        }
+        };
         fetchFilterSlots();
-    },[commune, vehicle, slotType])
+    }, [commune, vehicle, slotType, cookieToken]);
 
     return (
         <>
@@ -150,8 +152,7 @@ const Parkings = () => {
                         </FormEsStyle>
 
                     </AsideEsStye>
-                    <AsideBackground $isOpen={asideState}>
-                    </AsideBackground>
+                    <AsideBackground $isOpen={asideState} onClick={() => dispatch((closeAside()))}/>
                 </AsideStyleContainer>
 
                 <MainSectionEsStyle>
@@ -159,16 +160,18 @@ const Parkings = () => {
                         Filtrar
                         <HiOutlineAdjustmentsHorizontal />
                     </FilterButton>
-                    {
-                        slots && slots.length > 0 ? (
-                            slots.map((slot: ISlots) => (
-                                
-                                <ParkCard key={slot.id} href={`/parking-information/${slot.id}/parking-info`} text={"Ver más"} slot={slot} />
-                            ))
-                        ) : (
-                            <p>No hay slots disponibles.</p>
-                        )
-                    }
+                    <ParkingCardsContainer>
+                        {
+                            slots && slots.length > 0 ? (
+                                slots.map((slot: ISlots) => (
+                                    
+                                    <ParkCard key={slot.id} href={`/parking-information/${slot.id}/parking-info`} text={"Ver más"} slot={slot} />
+                                ))
+                            ) : (
+                                <p>No hay slots disponibles.</p>
+                            )
+                        }
+                    </ParkingCardsContainer>
 
                 </MainSectionEsStyle>
             </MainEsStyle>

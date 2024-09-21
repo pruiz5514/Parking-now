@@ -87,6 +87,7 @@ export const MainSectionEsStyle = styled.section`
         justify-content: center;
     }
 `
+
 export const FilterButton = styled.button`
     display: flex;
     border: none;
@@ -111,3 +112,18 @@ export const CloseAsideButton = styled.button`
         display: none;
     }
 `
+
+export const ParkingCardsContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    align-items: start;
+    padding-bottom: 30px;
+
+    @media (min-width: 711px){
+        justify-content: center;
+        height: auto;
+    }
+` 
