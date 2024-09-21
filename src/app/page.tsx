@@ -10,11 +10,9 @@ import Link from "next/link";
 import { useState, FormEvent, useRef } from "react";
 import { sendEmail } from "app/utils/sendEmail";
 import Modal from "app/components/Modal/Modal";
-
 import FormContactUs from "app/components/Contact-us/FormContactUs";
 import SignUp from "app/components/SignUp/SignUp";
 import SignIn from "app/components/SignIn/SignIn";
-import Spinner from "app/components/Spinner/Spinner";
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);

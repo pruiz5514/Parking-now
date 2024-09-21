@@ -82,7 +82,6 @@ const Parkings = () => {
 
     return (
         <>
-            <Spinner/>
             <Header>
                 <li><Link href="/parkings">Inicio</Link></li>
                 <li><Link href="/register-parking">Publicar parqueadero</Link></li>
