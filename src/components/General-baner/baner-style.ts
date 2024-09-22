@@ -5,8 +5,8 @@ export const BanerStyled = styled.section`
     display: flex;
     justify-content: center;
     position: relative;
-    gap: 10px;
-    height: 200px;
+    /* gap: 10px; */
+    height: 300px;
     align-items: center;
 `;
 
@@ -21,10 +21,15 @@ export const BanerBackgroundOverlay = styled.div`
 
 export const Title = styled.h2`
   position: absolute;
-  font-size: 25px;
+  font-size: 35px;
+  font-weight: bold;
   color: var(--white);
   text-align: center;
-
+  text-shadow: 
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
   @media(min-width: 576px){
       font-size: 35px;
   }
@@ -63,14 +68,14 @@ export const Info2 = styled(Info)`
 `;
 
 export const Img3 = styled.div`
-  height: 48%;
+  height: 50%;
   width: 100%;
 `;
 
 export const Inf4 = styled.div`
-  gap: 10px;
+  /* gap: 10px; */
   display: flex;
-  height: 48%;
+  height: 50%;
   width: 100%;
 `;
 
@@ -86,5 +91,5 @@ export const ImgHalfStyled = styled(StyledImg)`
 export const ImgHalfStylede = styled(StyledImg)`
   height: 100%;
   object-fit: cover;
-  object-position:10%  55%;
+  object-position:10%  41%;
 `;
