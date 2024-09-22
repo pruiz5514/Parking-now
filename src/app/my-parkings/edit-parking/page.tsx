@@ -2,7 +2,7 @@
 
 import Button from "app/components/UI/Button/Button";
 import Link from "next/link";
-import './editParking.css';
+import './edit-parking.css';
 import Form from "app/components/General-form/Form";
 import Image from "next/image";
 import { InputContainer, Label } from "app/components/UI/Input/Input-style";
@@ -10,29 +10,49 @@ import { SelectAddress } from "app/components/UI/Select/Select-style";
 import TextArea from "app/components/UI/TextArea/TextArea";
 import Input from "app/components/UI/Input/Input";
 import { FaImage, FaMapMarkerAlt, FaTag } from "react-icons/fa";
-import { GoChevronDown, GoChevronUp } from "react-icons/go";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation'
+import { getParkingById, updateParking } from 'app/services/parkings'
+import { IRegisterParking } from "app/types/IRegisterParking";
+import Spinner from 'app/components/Spinner/Spinner'
 
 const EditParking = () => {
-    // const searchParams = useSearchParams()
+    const [loading, setLoading] = useState(true)
+    const [parking, setParking] = useState<IRegisterParking>()
+    const searchParams = useSearchParams()
+    const parkingId = searchParams.get('parkingId')
 
-    // console.log(searchParams.get('parkingId'))
+    const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    let slotButtonIcon;
-    if (!isOpen) {
-        slotButtonIcon = <GoChevronDown />
-    } else {
-        slotButtonIcon = <GoChevronUp />
+        const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries())
+        try {
+            const data = await updateParking(parkingId!, formData as unknown as IRegisterParking)
+            if (data) {
+                (event.target as HTMLFormElement).reset()
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
+
+    useEffect(() => {
+        if (parkingId === null) return
+        const fetchData = async () => {
+            const parking = await getParkingById(parkingId)
+            setParking(parking.data[0])
+            setLoading(false)
+        }
+        fetchData()
+    }, [parkingId])
+
+    if (loading) return <Spinner />
 
     return (
         <>
-            <main className="editParking-main">
-                <section className="editParkingForm-container">
-                    <Form
+            <main className="edit-parking-main">
+                <section className="edit-parkingForm-container">
+                    <Form onSubmit={onFormSubmit}
                         headerContent={
                             <>
                                 <Image src="/img/LOGO3.png" alt="logo-parkingNow" width={200} height={140}></Image>
@@ -40,44 +60,44 @@ const EditParking = () => {
                         }
                         title="Editar Parqueadero"
                         footerContent={
-                            <Link href="./register-parking/slots" style={{ width: '100%' }}> <Button text={"Guardar"} /></Link>
+                            <Button text={"Guardar"} type="submit" />
                         }
                     >
-                        <Input label="Nombre de la propiedad" id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} />
+                        <Input name="name" label="Nombre de la propiedad" id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} defaultValue={parking?.name} />
                         <InputContainer>
                             <Label htmlFor="location-select">Barrio o Municipio</Label>
-                            <SelectAddress name={"location"} id={"location-select"}>
-                                <option value="" selected disabled></option>
-                                <option value="popular">Popular</option>
-                                <option value="santa-cruz">Santa Cruz</option>
-                                <option value="manrique">Manrique</option>
-                                <option value="aranjuez">Aranjuez</option>
-                                <option value="castilla">Castilla</option>
-                                <option value="doce-de-octubre">Doce de Octubre</option>
-                                <option value="robledo">Robledo</option>
-                                <option value="villa-hermosa">Villa Hermosa</option>
-                                <option value="buenos-aires">Buenos Aires</option>
-                                <option value="la-candelaria">La Candelaria</option>
-                                <option value="laureles-estadio">Laureles-Estadio</option>
-                                <option value="la-america">La América</option>
-                                <option value="san-javier">San Javier</option>
-                                <option value="el-poblado">El Poblado</option>
-                                <option value="guayabal">Guayabal</option>
-                                <option value="belen">Belén</option>
-                                <option value="copacabana">Copacabana</option>
-                                <option value="bello">Bello</option>
-                                <option value="itagui">Itagüí</option>
-                                <option value="sabaneta">Sabaneta</option>
-                                <option value="envigado">Envigado</option>
-                                <option value="la-estrella">La Estrella</option>
-                                <option value="caldas">Caldas</option>
-                                <option value="girardota">Girardota</option>
-                                <option value="barbosa">Barbosa</option>
+                            <SelectAddress name="commune_id" id="location-select" defaultValue={parking?.commune_id}>
+                                <option value={0} disabled></option>
+                                <option value={1}>Popular</option>
+                                <option value={2}>Santa Cruz</option>
+                                <option value={3}>Manrique</option>
+                                <option value={4}>Aranjuez</option>
+                                <option value={5}>Castilla</option>
+                                <option value={6}>Doce de Octubre</option>
+                                <option value={7}>Robledo</option>
+                                <option value={8}>Villa Hermosa</option>
+                                <option value={9}>Buenos Aires</option>
+                                <option value={10}>La Candelaria</option>
+                                <option value={11}>Laureles-Estadio</option>
+                                <option value={12}>La América</option>
+                                <option value={13}>San Javier</option>
+                                <option value={14}>El Poblado</option>
+                                <option value={15}>Guayabal</option>
+                                <option value={16}>Belén</option>
+                                <option value={17}>Copacabana</option>
+                                <option value={18}>Bello</option>
+                                <option value={19}>Itagüí</option>
+                                <option value={20}>Sabaneta</option>
+                                <option value={21}>Envigado</option>
+                                <option value={22}>La Estrella</option>
+                                <option value={23}>Caldas</option>
+                                <option value={24}>Girardota</option>
+                                <option value={25}>Barbosa</option>
                             </SelectAddress>
                         </InputContainer>
-                        <Input label="Dirección " id="userAddressParking" type="text" icon={FaMapMarkerAlt} placeholder="Cll 16 #55-129" required={true} />
-                        <Input label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} />
-                        <TextArea id="textareaDescriptionParking" label="Descripción Parqueadero"></TextArea>
+                        <Input name="address" label="Dirección " id="userAddressParking" type="text" icon={FaMapMarkerAlt} placeholder="Cll 16 #55-129" required={true} defaultValue={parking?.address} />
+                        <Input name="image_url" label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} defaultValue={parking?.image_url} />
+                        <TextArea name="description" id="textareaDescriptionParking" label="Descripción Parqueadero" defaultValue={parking?.description} ></TextArea>
                     </Form>
                 </section>
 
@@ -97,7 +117,7 @@ const EditParking = () => {
                 </section>
 
                 <div className="container-button">
-                    <Link href="./register-parking/slots" style={{ width: '500px' }}> <Button text={"Agregar Celda"} /></Link>
+                    <Link href="/register-parking" style={{ width: '650px' }}> <Button text={"Agregar Celda"} /></Link>
                 </div>
             </main>
         </>

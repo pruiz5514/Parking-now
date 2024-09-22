@@ -6,6 +6,7 @@ import Button from "app/components/UI/Button/Button";
 import { useEffect, useState } from "react";
 import { Property } from "app/types/IParking";
 import { getMyParkings } from "app/services/parkings";
+import { IoClose } from "react-icons/io5";
 
 
 const MyParkings = () => {
@@ -26,10 +27,11 @@ const MyParkings = () => {
                 <section className="container-card">
                     {parkings.map(parking => {
                         return (<article key={parking.id} className="my-parkings-section">
+                            <button className="button-delete" > <IoClose /> </button>
                             <div>
                                 <h3 className="my-parkings-title">{parking.name}</h3>
                                 <img className="my-parking-image" alt="propiedad" src={parking.image_url} />
-                                {/* <Link href={`/my-parkings/edit-parking?parkingId=${parking.id}`}><Button text={"Editar"} /> </Link> */}
+                                <Link href={`/my-parkings/edit-parking?parkingId=${parking.id}`}><Button text={"Editar"} /> </Link>
                             </div>
                         </article>)
                     })}
