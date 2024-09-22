@@ -1,5 +1,6 @@
 export interface IButton {
-    text: string,
+    text: string;
     onClick?: () => void;
+    type?: string; 
     disabled?: boolean;
 }

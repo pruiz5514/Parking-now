@@ -1,0 +1,52 @@
+.edit-parking-main {
+    min-height: calc(100vh - 100px - 100px);
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.edit-parkingForm-container {
+    margin-bottom: 30px;
+}
+
+.container-slots {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-auto-rows: auto; 
+    gap: 16px; 
+}
+
+.container-slot {
+    width: 100%;
+    min-height: 150px;
+    color: var(--blue-dark);
+    padding: 30px 10px 10px  10px;
+    background-color: var(--grey);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.container-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-delete {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media (min-width: 576px){
+    .container-slots {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
