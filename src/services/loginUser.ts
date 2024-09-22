@@ -12,8 +12,10 @@ export async function login(user: ILogin) {
 
     console.log(response.status)
 
+    const data = await response.json();
+
     if (!response.ok) {
-        if (response.status === 401) {
+        if (data.message === "Invalid credentials") {
             errorAlert("Credenciales inválidas");
             throw Error("Credenciales inválidas");
         }
@@ -24,6 +26,6 @@ export async function login(user: ILogin) {
     };
 
 
-    const data = await response.json();
+
     return data.data;
 }

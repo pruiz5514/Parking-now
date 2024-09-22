@@ -47,6 +47,9 @@ const SignIn: React.FC = () => {
                 sameSite: "strict"
             })
             router.push("/parkings")
+            if(values.email === "admin@example.com"){
+                sessionStorage.setItem("admin", values.email);
+            }
         }catch(e){
             console.log(e);
             setValues(initialState);

@@ -27,6 +27,8 @@ const Parkings = () => {
 
     const userToken = userInformation.token;
 
+    const admin = sessionStorage.getItem("admin");
+
     const [slots, setSlots] = useState([]);
     const [commune, setCommune] = useState("");
     const [vehicle, setVehicle] = useState("");
@@ -85,10 +87,21 @@ const Parkings = () => {
     return (
         <>
             <Header>
-                <li><Link href="/parkings">Inicio</Link></li>
-                <li><Link href="/register-parking">Publicar parqueadero</Link></li>
-                <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
-                <li> <Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+                {admin !== "admin@example.com" ? (
+                <>
+                    <li><Link href="/parkings">Inicio</Link></li>
+                    <li><Link href="/register-parking">Publicar parqueadero</Link></li>
+                    <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
+                    <li><Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+                </>
+                ): (
+                <>
+                    <li><Link href="/parkings">Inicio</Link></li>
+                    <li><Link href="/users">Usuarios</Link></li>
+                    <li><Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+                </>
+                )}        
+                
             </Header>
 
             <MainEsStyle>
