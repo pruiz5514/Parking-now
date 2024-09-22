@@ -75,7 +75,7 @@ const SignIn: React.FC = () => {
                     }
                     onSubmit={handleSubmit}
                 >
-                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="pepito@micorreo.com" name={"email"} value={values.email} onChange={handleChange} icon={FaEnvelope} required={true} />
+                    <Input label="Correo electrónico" id="userAddressEmail" type="email" placeholder="juan@parkingnow.com" name={"email"} value={values.email} onChange={handleChange} icon={FaEnvelope} required={true} />
                     <Input label="Contraseña" id="userPassword" type="password" placeholder="Ingresa tu contraseña" name={"password"} value={values.password} onChange={handleChange} icon={FaLock} required={true} />
                 </Form>
                 

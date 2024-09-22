@@ -11,33 +11,43 @@ import Tr from 'app/components/UI/Table/Tr';
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import { getUsers } from 'app/services/users';
+import { deleteUserById, getUsers } from 'app/services/users';
 import { IUsers } from 'app/types/IUsers';
 import TableContaier from 'app/components/UI/Table/TableContainer';
 import Spinner from 'app/components/Spinner/Spinner';
+import { confirmAlert } from 'app/utils/alerts';
 
-const UsersPage = () => {
+const User = () => {
   const [users, setUsers] = useState<IUsers[]>([]);
   const [loading, setLoading] = useState(true); 
 
   const cookieToken = Cookies.get("token");
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        if (cookieToken) {
-          const fetchedUsers = await getUsers(cookieToken);
-          setUsers(fetchedUsers);
-        }
-      } catch (e) {
-        console.log(e);
-      } finally {
-        setLoading(false);
+  const fetchUsers = async () => {
+    setLoading(true);
+    try {
+      if (cookieToken) {
+        const fetchedUsers = await getUsers(cookieToken);
+        setUsers(fetchedUsers);
       }
-    };
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchUsers();
+  useEffect(() => {
+    fetchUsers();  
   }, []);
+
+  const deleteUser = async (event: React.MouseEvent<HTMLButtonElement>) =>{
+        const id = String(event.currentTarget.getAttribute("user-id"));
+        if(cookieToken){
+            confirmAlert(deleteUserById,cookieToken, id, fetchUsers)
+        }
+         
+  }
 
   return (
     <>
@@ -77,7 +87,7 @@ const UsersPage = () => {
                     <Td>{user.doc_number}</Td>
                     <Td>
                       <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600  mr-2">Editar</button>
-                      <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Eliminar</button>
+                      <button user-id={user.id} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" onClick={deleteUser}>Eliminar</button>
                     </Td>
                   </Tr>
                 ))}
@@ -92,4 +102,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default User;
