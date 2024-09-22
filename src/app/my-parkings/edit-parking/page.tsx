@@ -14,11 +14,17 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation'
 import { getParkingById, updateParking } from 'app/services/parkings'
 import { IRegisterParking } from "app/types/IRegisterParking";
+import { IParkingResponse } from "app/types/IParking";
 import Spinner from 'app/components/Spinner/Spinner'
+import { FaMotorcycle, FaCar } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+import { deleteSlot } from "app/services/slots";
+import { errorAlert, successAlert, confirmAlert } from "app/utils/alerts";
+
 
 const EditParking = () => {
     const [loading, setLoading] = useState(true)
-    const [parking, setParking] = useState<IRegisterParking>()
+    const [parking, setParking] = useState<IParkingResponse>()
     const searchParams = useSearchParams()
     const parkingId = searchParams.get('parkingId')
 
@@ -27,13 +33,28 @@ const EditParking = () => {
 
         const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries())
         try {
-            const data = await updateParking(parkingId!, formData as unknown as IRegisterParking)
-            if (data) {
-                (event.target as HTMLFormElement).reset()
-            }
+            updateParking(parkingId!, formData as unknown as IRegisterParking)
         } catch (error) {
             console.error(error)
         }
+    }
+
+    const onDeleteSlot = async (idSlot: string) => {
+        try {
+            const response = await deleteSlot(idSlot)
+            if (response) {
+                successAlert("Celda elimida")
+                const parking = await getParkingById(parkingId!)
+                setParking(parking.data[0])
+            }
+        } catch (error) {
+            console.error(error)
+            errorAlert("Hubo un error eliminando la celda")
+        }
+    }
+
+    const onDeleteClick = (idSlot: string) => {
+        confirmAlert('Esta seguro que desea eliminar la celda?', () => onDeleteSlot(idSlot))
     }
 
     useEffect(() => {
@@ -42,6 +63,7 @@ const EditParking = () => {
             const parking = await getParkingById(parkingId)
             setParking(parking.data[0])
             setLoading(false)
+            console.log(parking);
         }
         fetchData()
     }, [parkingId])
@@ -102,22 +124,20 @@ const EditParking = () => {
                 </section>
 
                 <section className="container-slots">
-                    <div className="container-slot">
-                        celdas
-                    </div>
-                    <div className="container-slot">
-                        celdas
-                    </div>
-                    <div className="container-slot">
-                        celdas
-                    </div>
-                    <div className="container-slot">
-                        celdas
-                    </div>
+                    {parking?.slots.map(slot => (
+                        <div className="container-slot" key={slot.id}>
+                            <button className="button-delete" onClick={() => onDeleteClick(slot.id)} > <IoClose /> </button>
+                            <p>{slot.name}</p>
+                            <p>{slot.is_covered ? <FaCar /> : <FaMotorcycle />}</p>
+                            <p>{slot.is_covered ? 'Cubierto' : 'Descubierto'}</p>
+                            <p>{slot.is_available ? 'Disponible' : 'Ocupado'}</p>
+                        </div>
+                    ))}
+
                 </section>
 
                 <div className="container-button">
-                    <Link href="/register-parking" style={{ width: '650px' }}> <Button text={"Agregar Celda"} /></Link>
+                    <Link href={`/register-parking/${parkingId}/register-slots`} style={{ width: '650px' }}> <Button text={"Agregar Celda"} /></Link>
                 </div>
             </main>
         </>

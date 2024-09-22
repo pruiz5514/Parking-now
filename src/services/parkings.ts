@@ -88,3 +88,20 @@ export async function updateParking(id: string, parking: IRegisterParking ) {
     const data = await response.json();
     return data;
 }
+
+export async function deleteParking( id: string) {
+
+    const response = await fetch(`/api/parking/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${Cookies.get('token')}`
+        },
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+        throw Error("No se pudo eliminar propiedad, intente nuevamente")
+    }
+    return data.success;
+}
