@@ -4,14 +4,14 @@ import Link from "next/link";
 import "./my-parkings.css"
 import Button from "app/components/UI/Button/Button";
 import { useEffect, useState } from "react";
-import { Property } from "app/types/IParking";
+import { IParkingResponse } from "app/types/IParking";
 import { deleteParking, getMyParkings } from "app/services/parkings";
 import { IoClose } from "react-icons/io5";
 import { confirmAlert, errorAlert, successAlert } from "app/utils/alerts";
 
 
 const MyParkings = () => {
-    const [parkings, setParkings] = useState<Property[]>([])
+    const [parkings, setParkings] = useState<IParkingResponse[]>([])
 
     const onDeleteSlot = async (idParking: string) => {
         try {
