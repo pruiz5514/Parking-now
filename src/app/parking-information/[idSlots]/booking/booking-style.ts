@@ -17,6 +17,8 @@ export const Title = styled.h2`
     font-size: 35px;
     font-weight: bold;
     color: var(--blue-dark);
+    text-align: center;
+    margin-bottom: 5px;
 `
 
 const commonContainerInfoStyles = `
@@ -27,7 +29,7 @@ const commonContainerInfoStyles = `
 
 export const ContainerInfoContact = styled.section`${commonContainerInfoStyles}`
 
-export const ContainerInfoParking = styled.section`${commonContainerInfoStyles}`
+// export const ContainerInfoParking = styled.section`${commonContainerInfoStyles}`
 
 export const TitleInfo = styled.h3`
     color: var(--blue-dark);

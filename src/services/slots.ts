@@ -14,7 +14,7 @@ export async function getSlots(token: string) {
     const data = await response.json();
 
     if (!response.ok) {
-        throw Error("No se pudo obtener la información, intente mas tarde")
+        throw Error("No se pudo obtener la información, intente nuevamente")
     }
     return data.data;
 }
@@ -34,8 +34,8 @@ export async function createSlots(slots: ISlots[]) {
         console.error('Error message:', errorData.message);
 
         if (response.status !== 201) {
-            errorAlert("No se puedo crear la celda, por favor intente mas tarde");
-            throw Error("No se puedo crear la celda, por favor intente mas tarde");
+            errorAlert("No se puedo crear la celda, por favor intente nuevamente");
+            throw Error("No se puedo crear la celda, por favor intente nuevamente");
         }
     }
     else {
@@ -58,7 +58,24 @@ export async function getSlotById(token: string, id: string) {
 
     const data = await response.json();
     if (!response.ok) {
-        throw Error("No se pudo obtener la información de la celda, intente mas tarde")
+        throw Error("No se pudo obtener la información de la celda, intente nuevamente")
     }
     return data.data;
+}
+
+export async function deleteSlot( id: string) {
+
+    const response = await fetch(`/api/slots/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${Cookies.get('token')}`
+        },
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+        throw Error("No se pudo eliminar la celda, intente nuevamente")
+    }
+    return data.success;
 }

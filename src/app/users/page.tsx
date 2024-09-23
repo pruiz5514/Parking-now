@@ -14,7 +14,7 @@ import { deleteUserById, getUsers } from 'app/services/users';
 import { IUsers } from 'app/types/IUsers';
 import TableContaier from 'app/components/UI/Table/TableContainer';
 import Spinner from 'app/components/Spinner/Spinner';
-import { confirmAlert } from 'app/utils/alerts';
+import { deleteUserAlert } from 'app/utils/alerts';
 import { useRouter } from 'next/navigation';
 
 
@@ -46,7 +46,7 @@ const User = () => {
   const deleteUser = async (event: React.MouseEvent<HTMLButtonElement>) =>{
     const id = String(event.currentTarget.getAttribute("user-id"));
     if(cookieToken){
-        confirmAlert(deleteUserById,cookieToken, id, fetchUsers)
+      deleteUserAlert(deleteUserById,cookieToken, id, fetchUsers)
     }
   }
 

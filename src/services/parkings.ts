@@ -31,7 +31,7 @@ export async function createParking(parking: IRegisterParking, token: string) {
 
 export async function getMyParkings() {
     const token = Cookies.get('token')
-    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/properties', {
+    const response = await fetch('/api/parking', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,4 +43,65 @@ export async function getMyParkings() {
         }
     const data = await response.json()
     return data;
+}
+
+export async function getParkingById(id: string) {
+    const token = Cookies.get('token')
+    const response = await fetch(`/api/parking/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+    if (!response.ok) {
+            throw new Error('Hubo un error trayendo la propiedad')
+        }
+    const data = await response.json()
+    return data;
+}
+
+export async function updateParking(id: string, parking: IRegisterParking ) {
+    const token = Cookies.get('token')
+    const response = await fetch(`/api/parking/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(parking)
+    })
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error message:', errorData.message);
+
+        if (response.status !== 201) {
+            errorAlert("No se puede actualizar parqueadero, por favor intente mas tarde");
+            throw Error("No se puede actualizar parqueadero, por favor intente mas tarde");
+        }
+    }
+    else {
+        successAlert("Parquedero actualizado exitosamente")
+    }
+
+    const data = await response.json();
+    return data;
+}
+
+export async function deleteParking( id: string) {
+
+    const response = await fetch(`/api/parking/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${Cookies.get('token')}`
+        },
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+        throw Error("No se pudo eliminar propiedad, intente nuevamente")
+    }
+    return data.success;
 }

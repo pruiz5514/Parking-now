@@ -5,7 +5,8 @@ export function errorAlert(text: string) {
     title: 'Error!',
     text: text,
     icon: 'error',
-    confirmButtonText: 'Ok'
+    confirmButtonText: 'Ok',
+    confirmButtonColor: "#F66B0E"
   })
 }
 
@@ -14,11 +15,27 @@ export function successAlert(text: string) {
     title: 'Exito!',
     text: text,
     icon: 'success',
-    confirmButtonText: 'Ok'
+    confirmButtonText: 'Ok',
+    confirmButtonColor: "#F66B0E"
   })
 }
 
-export function confirmAlert(
+export function confirmAlert(title: string, onConfirm: () => void) {
+  Swal.fire({
+    title: title,
+    showCancelButton: true,
+    confirmButtonText: "Eliminar",
+    cancelButtonText: "Cancelar",
+    confirmButtonColor: "#F66B0E",
+    cancelButtonColor: "#112B3C"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      onConfirm()
+    }
+  });
+}
+
+export function deleteUserAlert(
   deleteUserById: (cookieToken: string, id: string) => void,
   cookieToken: string,
   id: string,
