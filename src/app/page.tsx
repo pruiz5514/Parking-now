@@ -13,6 +13,7 @@ import Modal from "app/components/Modal/Modal";
 import FormContactUs from "app/components/Contact-us/FormContactUs";
 import SignUp from "app/components/SignUp/SignUp";
 import SignIn from "app/components/SignIn/SignIn";
+import { ButtonStyle } from "app/components/UI/Button/Button-style";
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -38,7 +39,7 @@ export default function Home() {
     <>
       <Header>
         <li> <Link href="/">Inicio</Link> </li>
-        <li> <Link href="#benefits">Beneficios</Link> </li>
+        <li> <Link href="#benefits">Nosotros</Link> </li>
         <li> <Link href="#contact">Contáctanos</Link></li>
         <li> <Button text="Registrate" onClick={openSignUpModal} /> </li>
         <li> <Button text="Iniciar sesión" onClick={openSignInModal} /> </li>

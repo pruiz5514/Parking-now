@@ -26,19 +26,3 @@ export const FormContactStyled = styled.article`
 
     }
 `;
-
-export const Title = styled.h2`
-    font-size: 35px;
-    font-weight: bold;
-    color: var(--blue);
-    padding-left: 20px;
-    text-align: center;
-    `
-
-export const TextPurpose = styled.p`
-    color: var(--blue-dark);
-    font-size: 16px;
-    padding: 20px;
-    text-align: justify;
-    `
-

@@ -5,7 +5,6 @@ export const BanerStyled = styled.section`
     display: flex;
     justify-content: center;
     position: relative;
-    /* gap: 10px; */
     height: 300px;
     align-items: center;
 `;
@@ -25,13 +24,9 @@ export const Title = styled.h2`
   font-weight: bold;
   color: var(--white);
   text-align: center;
-  text-shadow: 
-    -1px -1px 0 black,
-    1px -1px 0 black,
-    -1px 1px 0 black,
-    1px 1px 0 black;
+
   @media(min-width: 576px){
-      font-size: 35px;
+      font-size: 40px;
   }
 `
 

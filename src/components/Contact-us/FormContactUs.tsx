@@ -6,7 +6,7 @@ import TextArea from "../UI/TextArea/TextArea"
 import Input from "../UI/Input/Input"
 import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa"
 import Form from "../General-form/Form"
-import { FormContactStyled, Title, TextPurpose } from "./Contact-us-style";
+import { FormContactStyled } from "./Contact-us-style";
 
 
 
@@ -20,11 +20,6 @@ const FormContactUs = forwardRef<HTMLFormElement, ContactProps>(
     ({ id, onSubmit }, ref) => {
         return (
             <FormContactStyled id={id}>
-                <div>
-                    <Title>PROPÓSITO</Title>
-                    <TextPurpose>El propósito de la aplicación <b>Parking Now</b> es optimizar la experiencia de estacionamiento al facilitar la búsqueda, reserva de espacios de parqueo de manera eficiente, segura y conveniente para los conductores, al mismo tiempo que maximiza la utilización y rentabilidad de los espacios de estacionamiento.
-                    </TextPurpose>
-                </div>
                 <Form ref={ref} onSubmit={onSubmit}
                     title="CONTÁCTANOS"
                     footerContent={
