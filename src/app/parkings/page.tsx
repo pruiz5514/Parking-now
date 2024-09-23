@@ -4,10 +4,10 @@ import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
 import '../globals.css'
 import Link from "next/link"
-import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle, ParkingCardsContainer } from "./parkings-style"
+import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle, PaginationContainer, ParkingCardsContainer } from "./parkings-style"
 import ParkCard from "app/components/ParkCard/ParkCard"
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
-import { IoClose } from "react-icons/io5"
+import { IoChevronBackOutline, IoChevronForwardOutline, IoClose } from "react-icons/io5"
 import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 import { useEffect, useState } from "react"
@@ -30,11 +30,32 @@ const Parkings = () => {
 
     const admin = Cookies.get("email");
 
+    const cardsCuantity = 6;
+
     const [loading, setLoading] = useState(true); 
+    const [pagination, setPagination] = useState(0); 
     const [slots, setSlots] = useState([]);
+    const [priceOrder, setPriceOrder] = useState("");
     const [commune, setCommune] = useState("");
     const [vehicle, setVehicle] = useState("");
     const [slotType, setSlotType] = useState("");
+
+    const nextButton = ()=>{
+        const quantity = pagination + 6;
+        setPagination(quantity);
+        console.log(pagination);
+    }
+
+    const backButton = ()=>{
+        const quantity = pagination - 6;
+        setPagination(quantity);
+        console.log(pagination);
+    }
+
+    const priceHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setPriceOrder(event.target.value);
+        console.log(priceOrder);
+    };
 
     const communeHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCommune(event.target.value);
@@ -53,7 +74,7 @@ const Parkings = () => {
             setLoading(true);
             try {
                 if (cookieToken) {
-                    setSlots(await getSlots(cookieToken))
+                    setSlots(await filterSlots(cookieToken,`take=${cardsCuantity}`))
                 }
             }
             catch (e) {
@@ -72,23 +93,26 @@ const Parkings = () => {
         const fetchFilterSlots = async () => {
             if (cookieToken) {
                 try {
-                    let filterQueries = [];
+                    let filterQueries = [`take=${cardsCuantity}`];
                     if (commune) filterQueries.push(`commune=${commune}`);
                     if (vehicle) filterQueries.push(`vehicleType=${vehicle}`);
                     if (slotType) filterQueries.push(`isCovered=${slotType}`);
+                    if (priceOrder) filterQueries.push(`order=${priceOrder}`);
+                    if (pagination) filterQueries.push(`skip=${pagination}`);
 
                     if (filterQueries.length > 0) {
                         const queryString = filterQueries.join("&");
                         const filteredSlots = await filterSlots(cookieToken, queryString);
                         setSlots(filteredSlots);
                     } 
+
                 } catch (e) {
                     console.log(e);
                 }
             }
         };
         fetchFilterSlots();
-    }, [commune, vehicle, slotType, cookieToken]);
+    }, [commune, vehicle, slotType, cookieToken, priceOrder, pagination]);
 
     return (
         <>
@@ -114,6 +138,14 @@ const Parkings = () => {
                 <AsideStyleContainer $isOpen={asideState}>
                     <AsideEsStye $isOpen={asideState}>
                         <CloseAsideButton onClick={() => dispatch(closeAside())}> <IoClose /> </CloseAsideButton>
+                        <FormEsStyle>
+                            <H2EsStyle>Organizar por precio</H2EsStyle>
+                            <Select name={"price"} id={"price-select"} defaultValue={""} onChange={priceHandleChange} >
+                                <option value="" disabled></option>
+                                <option value="ASC">Menor precio</option>
+                                <option value="DESC">Mayor precio</option>
+                            </Select>
+                        </FormEsStyle>
                         <FormEsStyle>
                             <H2EsStyle>Ubicación</H2EsStyle>
                             <Select name={"location"} id={"location-select"} defaultValue={""} onChange={communeHandleChange} >
@@ -185,7 +217,6 @@ const Parkings = () => {
                         ):
                             slots && slots.length > 0 ? (
                                 slots.map((slot: ISlots) => (
-                                    
                                     <ParkCard key={slot.id} href={`/parking-information/${slot.id}/parking-info`} text={"Ver más"} slot={slot} />
                                 ))
                             ) : (
@@ -194,7 +225,18 @@ const Parkings = () => {
                         }
                     </ParkingCardsContainer>
 
+                    <PaginationContainer>
+                        {pagination>=cardsCuantity ?(
+                            <Button text={(<IoChevronBackOutline/>)} onClick={backButton}/> 
+                        ): ""}
+                        {slots.length===cardsCuantity ? (
+                            <Button text={(<IoChevronForwardOutline />)} onClick={nextButton}/>
+                        ):""}
+                        
+                    </PaginationContainer>
+
                 </MainSectionEsStyle>
+
             </MainEsStyle>
         </>
     )

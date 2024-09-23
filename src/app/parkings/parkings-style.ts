@@ -126,4 +126,9 @@ export const ParkingCardsContainer = styled.div`
         justify-content: center;
         height: auto;
     }
-` 
+`
+
+export const PaginationContainer = styled.div`
+    display: flex;
+    gap: 5px;
+`
