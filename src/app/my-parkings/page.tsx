@@ -46,17 +46,19 @@ const MyParkings = () => {
             <main className="my-parkings-main">
                 <h1 className="title">Mis parqueaderos</h1>
                 <section className="container-card">
-                    {parkings.map(parking => {
-                        return (<article key={parking.id}  className="my-parkings-section">
+                    {parkings && parkings.length > 0 ? (parkings.map(parking => {
+                        return (<article key={parking.id} className="my-parkings-section">
                             {/* {parking.slots.length === 0 && <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>} */}
-                           <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>
+                            <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>
                             <div>
                                 <h3 className="my-parkings-title">{parking.name}</h3>
                                 <img className="my-parking-image" alt="propiedad" src={parking.image_url} />
                                 <Link href={`/my-parkings/edit-parking?parkingId=${parking.id}`}><Button text={"Editar"} /> </Link>
                             </div>
                         </article>)
-                    })}
+                    })) : (
+                        <p>No tienes parqueaederos registrados</p>
+                    )}
 
                 </section>
             </main>
