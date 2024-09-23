@@ -4,10 +4,10 @@ import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
 import '../globals.css'
 import Link from "next/link"
-import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle, ParkingCardsContainer } from "./parkings-style"
+import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle, PaginationContainer, ParkingCardsContainer } from "./parkings-style"
 import ParkCard from "app/components/ParkCard/ParkCard"
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
-import { IoClose } from "react-icons/io5"
+import { IoChevronBackOutline, IoChevronForwardOutline, IoClose } from "react-icons/io5"
 import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 import { useEffect, useState } from "react"
@@ -30,12 +30,27 @@ const Parkings = () => {
 
     const admin = Cookies.get("email");
 
+    const cardsCuantity = 6;
+
     const [loading, setLoading] = useState(true); 
+    const [pagination, setPagination] = useState(0); 
     const [slots, setSlots] = useState([]);
     const [priceOrder, setPriceOrder] = useState("");
     const [commune, setCommune] = useState("");
     const [vehicle, setVehicle] = useState("");
     const [slotType, setSlotType] = useState("");
+
+    const nextButton = ()=>{
+        const quantity = pagination + 6;
+        setPagination(quantity);
+        console.log(pagination);
+    }
+
+    const backButton = ()=>{
+        const quantity = pagination - 6;
+        setPagination(quantity);
+        console.log(pagination);
+    }
 
     const priceHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setPriceOrder(event.target.value);
@@ -59,7 +74,7 @@ const Parkings = () => {
             setLoading(true);
             try {
                 if (cookieToken) {
-                    setSlots(await getSlots(cookieToken))
+                    setSlots(await filterSlots(cookieToken,`take=${cardsCuantity}`))
                 }
             }
             catch (e) {
@@ -78,11 +93,12 @@ const Parkings = () => {
         const fetchFilterSlots = async () => {
             if (cookieToken) {
                 try {
-                    let filterQueries = [];
+                    let filterQueries = [`take=${cardsCuantity}`];
                     if (commune) filterQueries.push(`commune=${commune}`);
                     if (vehicle) filterQueries.push(`vehicleType=${vehicle}`);
                     if (slotType) filterQueries.push(`isCovered=${slotType}`);
                     if (priceOrder) filterQueries.push(`order=${priceOrder}`);
+                    if (pagination) filterQueries.push(`skip=${pagination}`);
 
                     if (filterQueries.length > 0) {
                         const queryString = filterQueries.join("&");
@@ -96,7 +112,7 @@ const Parkings = () => {
             }
         };
         fetchFilterSlots();
-    }, [commune, vehicle, slotType, cookieToken, priceOrder]);
+    }, [commune, vehicle, slotType, cookieToken, priceOrder, pagination]);
 
     return (
         <>
@@ -209,7 +225,18 @@ const Parkings = () => {
                         }
                     </ParkingCardsContainer>
 
+                    <PaginationContainer>
+                        {pagination>=cardsCuantity ?(
+                            <Button text={(<IoChevronBackOutline/>)} onClick={backButton}/> 
+                        ): ""}
+                        {slots.length===cardsCuantity ? (
+                            <Button text={(<IoChevronForwardOutline />)} onClick={nextButton}/>
+                        ):""}
+                        
+                    </PaginationContainer>
+
                 </MainSectionEsStyle>
+
             </MainEsStyle>
         </>
     )
