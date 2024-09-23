@@ -37,7 +37,6 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                     setAmount(response.data.amount);
                     setTotalHours(response.data.totalHours);
                     console.log("este es amount", setAmount, "este es total", setTotalHours);
-                    successAlert("Reserva finalizada, por favor confirma o cancela.");
                     router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/pay-terminate-reserved`);
                 }
             } catch (error) {
@@ -52,8 +51,8 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
         if (cookieToken) {
             setIsLoading(true);
             try {
-                const response = await terminateBooking(cookieToken); // Llamar al endpoint terminateBooking
-                successAlert("Reserva terminada con éxito.");
+                const response = await terminateBooking(cookieToken); 
+                successAlert("Reserva terminada.");
                 router.push(`/parkings`);
             } catch (error) {
                 errorAlert("Error al terminar la reserva: " + (error as Error).message);
@@ -63,7 +62,6 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
         }
     };
     const handleCancel = () => {
-        errorAlert("tu reserva seguirá.");
         router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/end-reserved`);
     };
     useEffect(() => {
@@ -77,14 +75,12 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                 </ReservedParkingImg>
                 <CardContainer>
                     <CardContent>
-                        <H2Card>Factura de Reserva</H2Card>
+                        <H2Card>FACTURA RESERVA</H2Card>
                         <PCard>Total horas: {totalHours !== undefined ? totalHours : 'Cargando...'}</PCard>
-                        <PriceCard>Total a pagar: ${amount !== undefined ? amount : 'Cargando...'}</PriceCard>
+                        <PriceCard>Total a pagar: $ {amount !== undefined ? amount : 'Cargando...'}</PriceCard>
                         <DivButtonContainer>
                             <ButtonWrapper>
                                 <Button text="Confirmar" onClick={handleConfirm} />
-                            </ButtonWrapper>
-                            <ButtonWrapper>
                                 <Button text="Cancelar" onClick={handleCancel} />
                             </ButtonWrapper>
                         </DivButtonContainer>

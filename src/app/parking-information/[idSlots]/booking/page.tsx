@@ -23,7 +23,7 @@ const Booking: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
     const handleReservation = () => {
         if (plateValue) {
             localStorage.setItem('vehicle_plate_booking', plateValue);
-            successAlert(`Placa del vehículo ${plateValue} guardada` );
+            // successAlert(`Placa del vehículo ${plateValue} guardada` );
             router.push(`/parking-information/${idSlots}/reserved-parking`);
         } else {
             errorAlert("Por favor, ingrese la placa del vehículo antes de reservar.");
@@ -42,13 +42,13 @@ const Booking: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
                 <div>
                     <Title>Ingresa la placa del vehículo</Title>
                     <ContainerInfoContact>
-                        <Input onChange={handleInputPlateChange} value={plateValue} name="vehicle_plate" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} />
+                        <Input onChange={handleInputPlateChange} value={plateValue} name="vehicle_plate" id="userIdVehicle" type="text" placeholder="AXY78G" icon={FaAddressCard} required={true} maxLength={6}/>
                         <Button text={"Reservar ahora"} onClick={handleReservation} />
                     </ContainerInfoContact>
                 </div>
 
                 <ContainerDeatails>
-                    <TitleInfo>Recuerda! Después de hacer la reserva, presiona el botón <Span>Iniciar</Span> para que comience el cobro del parqueadero. </TitleInfo>
+                    <TitleInfo>Recuerda! Después de hacer la reserva, tienes <Span> 15 minutos</Span> para llegar al parqueadero. </TitleInfo>
                 </ContainerDeatails>
             </MainStyle>
         </>

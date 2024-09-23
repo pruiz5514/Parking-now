@@ -31,7 +31,7 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                 const response = await endBooking(endbookingData, cookieToken);
                 if (response.data.id) {
                     const bookingId = response.data.id;
-                    successAlert("Reserva finalizada, por favor dale terminar ");
+                    // successAlert("Reserva finalizada, por favor dale terminar ");
                     // router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/pay-terminate-reserved`);
                 }
             } catch (error) {
@@ -48,7 +48,6 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
             <ReservedParkingArticle>
                 <ReservedParkingText>HAZ CLICK PARA FINALIZAR TU RESERVA</ReservedParkingText>
                 <ContainerCronometro>
-                    <Span> Recuerda dar terminar una vez obtengas tu factura</Span>
                     <ReservedParkingText></ReservedParkingText>
                 </ContainerCronometro>
                 <Link href={`/parking-information/${idSlots}/reserved-parking/${bookingId}/pay-terminate-reserved`}><Button text={isLoading ? "FINALIZANDO RESERVA..." : "FINALIZAR"} onClick={handleInitiate} disabled={isLoading} /></Link>

@@ -9,13 +9,13 @@ export const CardContainer = styled.article`
   max-width: 470px;
   min-width: 250px;
   min-height: 200px;
-  background-color: var(--blue);
+  background-color: var(--white);
   border-radius: 12px;
   padding: 10px;
   
   @media (min-width: 711px) {
-      flex-direction: row;
-      height: 180px;
+    flex-direction: row;
+    height: 180px;
       min-width: 290px;
     }
     `;
@@ -30,21 +30,27 @@ export const CardContent = styled.div`
   `;
 
 export const H2Card = styled.h2`
+
   font-weight: bold;
-  color: var(--white);
-  margin-bottom: 10px;
+  color: var(--blue-dark);
+  margin-top: 30px;
+  font-weight: bold;
+  font-size:25px;
   `;
 
 export const PCard = styled.p`
-  font-size: 13px;
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
   margin-bottom: 7px;
-  color: var(--white);
+  color: var(--blue-dark);
+
   `;
 
 export const PriceCard = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  color: var(--white);
+  color: var(--blue-dark);
   margin-top: 10px;
   `;
 
@@ -61,9 +67,12 @@ export const DivButtonContainer = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 45%;
-
-  @media (min-width: 711px) {
-    width: 45%;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
+  margin: 5px;
+  color: var(--white);
+  cursor: pointer;
 `;
