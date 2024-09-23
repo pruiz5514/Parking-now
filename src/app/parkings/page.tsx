@@ -27,7 +27,7 @@ const Parkings = () => {
 
     const userToken = userInformation.token;
 
-    const admin = sessionStorage.getItem("admin");
+    const admin = Cookies.get("email");
 
     const [slots, setSlots] = useState([]);
     const [commune, setCommune] = useState("");

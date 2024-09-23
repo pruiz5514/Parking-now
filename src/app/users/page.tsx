@@ -16,8 +16,11 @@ import { IUsers } from 'app/types/IUsers';
 import TableContaier from 'app/components/UI/Table/TableContainer';
 import Spinner from 'app/components/Spinner/Spinner';
 import { confirmAlert } from 'app/utils/alerts';
+import { useRouter } from 'next/navigation';
+
 
 const User = () => {
+  const router = useRouter();
   const [users, setUsers] = useState<IUsers[]>([]);
   const [loading, setLoading] = useState(true); 
 
@@ -42,21 +45,19 @@ const User = () => {
   }, []);
 
   const deleteUser = async (event: React.MouseEvent<HTMLButtonElement>) =>{
-        const id = String(event.currentTarget.getAttribute("user-id"));
-        if(cookieToken){
-            confirmAlert(deleteUserById,cookieToken, id, fetchUsers)
-        }
-         
+    const id = String(event.currentTarget.getAttribute("user-id"));
+    if(cookieToken){
+        confirmAlert(deleteUserById,cookieToken, id, fetchUsers)
+    }
+  }
+
+  const editHandleClik = (event: React.MouseEvent<HTMLButtonElement>)=>{
+    const id = String(event.currentTarget.getAttribute("user-id"));
+    router.push(`http://localhost:3000/users/edit-user?editUser=${id}`)
   }
 
   return (
     <>
-      <Header>
-        <li><Link href="/parkings">Inicio</Link></li>
-        <li><Link href="/users">Usuarios</Link></li>
-        <li><Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
-      </Header>
-
       <main className="users-main">
         <h1 className="users-h1">Usuarios</h1>
 
@@ -86,7 +87,7 @@ const User = () => {
                     <Td>{user.document_type_id}</Td>
                     <Td>{user.doc_number}</Td>
                     <Td>
-                      <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600  mr-2">Editar</button>
+                      <button user-id={user.id} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2" onClick={editHandleClik}>Editar</button>
                       <button user-id={user.id} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" onClick={deleteUser}>Eliminar</button>
                     </Td>
                   </Tr>
