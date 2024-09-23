@@ -48,7 +48,8 @@ const MyParkings = () => {
                 <section className="container-card">
                     {parkings.map(parking => {
                         return (<article key={parking.id}  className="my-parkings-section">
-                            {parking.slots.length === 0 && <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>}
+                            {/* {parking.slots.length === 0 && <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>} */}
+                           <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>
                             <div>
                                 <h3 className="my-parkings-title">{parking.name}</h3>
                                 <img className="my-parking-image" alt="propiedad" src={parking.image_url} />
