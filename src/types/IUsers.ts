@@ -14,3 +14,15 @@ export interface IUsers {
     updated_at: Date;
     delete_at: null;
 }
+
+export interface IUpdateUser {
+    id?: string;
+    fullname: string;
+    email: string;
+    password: string;
+    document_type_id: number;
+    phone_number: string;
+    address: string;
+    doc_number: string;
+    role_id: number;
+}

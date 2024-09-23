@@ -8,7 +8,6 @@ import Td from 'app/components/UI/Table/Td';
 import Th from 'app/components/UI/Table/Th';
 import Thead from 'app/components/UI/Table/Thead';
 import Tr from 'app/components/UI/Table/Tr';
-import Link from "next/link";
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { deleteUserById, getUsers } from 'app/services/users';
