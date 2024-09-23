@@ -32,9 +32,15 @@ const Parkings = () => {
 
     const [loading, setLoading] = useState(true); 
     const [slots, setSlots] = useState([]);
+    const [priceOrder, setPriceOrder] = useState("");
     const [commune, setCommune] = useState("");
     const [vehicle, setVehicle] = useState("");
     const [slotType, setSlotType] = useState("");
+
+    const priceHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setPriceOrder(event.target.value);
+        console.log(priceOrder);
+    };
 
     const communeHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCommune(event.target.value);
@@ -76,19 +82,21 @@ const Parkings = () => {
                     if (commune) filterQueries.push(`commune=${commune}`);
                     if (vehicle) filterQueries.push(`vehicleType=${vehicle}`);
                     if (slotType) filterQueries.push(`isCovered=${slotType}`);
+                    if (priceOrder) filterQueries.push(`order=${priceOrder}`);
 
                     if (filterQueries.length > 0) {
                         const queryString = filterQueries.join("&");
                         const filteredSlots = await filterSlots(cookieToken, queryString);
                         setSlots(filteredSlots);
                     } 
+
                 } catch (e) {
                     console.log(e);
                 }
             }
         };
         fetchFilterSlots();
-    }, [commune, vehicle, slotType, cookieToken]);
+    }, [commune, vehicle, slotType, cookieToken, priceOrder]);
 
     return (
         <>
@@ -114,6 +122,14 @@ const Parkings = () => {
                 <AsideStyleContainer $isOpen={asideState}>
                     <AsideEsStye $isOpen={asideState}>
                         <CloseAsideButton onClick={() => dispatch(closeAside())}> <IoClose /> </CloseAsideButton>
+                        <FormEsStyle>
+                            <H2EsStyle>Organizar por precio</H2EsStyle>
+                            <Select name={"price"} id={"price-select"} defaultValue={""} onChange={priceHandleChange} >
+                                <option value="" disabled></option>
+                                <option value="ASC">Menor precio</option>
+                                <option value="DESC">Mayor precio</option>
+                            </Select>
+                        </FormEsStyle>
                         <FormEsStyle>
                             <H2EsStyle>Ubicación</H2EsStyle>
                             <Select name={"location"} id={"location-select"} defaultValue={""} onChange={communeHandleChange} >
@@ -185,7 +201,6 @@ const Parkings = () => {
                         ):
                             slots && slots.length > 0 ? (
                                 slots.map((slot: ISlots) => (
-                                    
                                     <ParkCard key={slot.id} href={`/parking-information/${slot.id}/parking-info`} text={"Ver más"} slot={slot} />
                                 ))
                             ) : (
