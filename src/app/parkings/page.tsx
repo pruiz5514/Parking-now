@@ -17,6 +17,7 @@ import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
 import { filterSlots } from "app/services/filterSlots"
+import Spinner from "app/components/Spinner/Spinner"
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
@@ -29,6 +30,7 @@ const Parkings = () => {
 
     const admin = Cookies.get("email");
 
+    const [loading, setLoading] = useState(true); 
     const [slots, setSlots] = useState([]);
     const [commune, setCommune] = useState("");
     const [vehicle, setVehicle] = useState("");
@@ -48,6 +50,7 @@ const Parkings = () => {
 
     useEffect(() => {
         const fetchSlots = async () => {
+            setLoading(true);
             try {
                 if (cookieToken) {
                     setSlots(await getSlots(cookieToken))
@@ -56,6 +59,9 @@ const Parkings = () => {
             catch (e) {
                 console.log(e);
                 errorAlert("No se pudo obtener la información, intente mas tarde");
+            }
+            finally{
+                setLoading(false);
             }
         }
         fetchSlots();
@@ -174,7 +180,9 @@ const Parkings = () => {
                         <HiOutlineAdjustmentsHorizontal />
                     </FilterButton>
                     <ParkingCardsContainer>
-                        {
+                        { loading ? (
+                            <Spinner/>
+                        ):
                             slots && slots.length > 0 ? (
                                 slots.map((slot: ISlots) => (
                                     
