@@ -1,45 +1,45 @@
 import styled from "styled-components"
-import { FaCheck } from "react-icons/fa";
 
 export const BenefitsList = styled.div`
     display: flex;
     gap: 20px;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
-    background-color: var(--grey);
-    border-radius: 5px;
-    margin: 50px 16px;
+    justify-content: center;
     padding:20px;
-
-    @media (min-width: 576px){
-        flex-direction: row;
-        justify-content: space-around;
-        text-align: center;
-        margin: 50px 100px;
-    }
 
     & > div {
         display: flex;
         flex-direction: column;
-
+        gap: 10px;
+        
         & > p {
             display: flex;
-            align-items: center;
-            gap: 4px;
+            gap: 10px;
             color: var(--blue-dark);
-            font-size: 16px;
+            font-size: 20px;
+        }
+    }
+
+    @media (min-width: 750px){
+        flex-direction: row;
+        margin: 50px 100px;
+
+        & > div {
+        width: 40%;
+
         }
     }
 `
 
 export const Title = styled.h2`
-font-size: 35px;
-text-align:center;
-font-weight: bold;
-color: var(--blue);
+    font-size: 35px;
+    text-align:center;
+    font-weight: bold;
+    color: var(--blue);
 `
 
-export const CheckIconStyled = styled(FaCheck)`
-color: var(--blue-dark);
+export const ContainerImage = styled.div`
+display: flex;
+align-items: center;
 `
