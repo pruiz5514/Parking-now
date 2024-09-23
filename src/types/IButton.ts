@@ -1,6 +1,6 @@
 export interface IButton {
-    text: string;
+    text: string | React.ReactNode;
     onClick?: () => void;
-    type?: string; 
+    type?: string;
     disabled?: boolean;
 }

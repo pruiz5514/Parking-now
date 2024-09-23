@@ -83,7 +83,7 @@ const User = () => {
                     <Td>{user.email}</Td>
                     <Td>{user.phone_number}</Td>
                     <Td>{user.address}</Td>
-                    <Td>{user.document_type_id}</Td>
+                    <Td>{user.documentType.name}</Td>
                     <Td>{user.doc_number}</Td>
                     <Td>
                       <button user-id={user.id} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2" onClick={editHandleClik}>Editar</button>

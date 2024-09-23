@@ -46,8 +46,8 @@ export function deleteUserAlert(
     text: "No podrá revertir esta acción",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
+    confirmButtonColor: "#F66B0E",
+    cancelButtonColor: "#112B3C",
     confirmButtonText: "Sí",
     cancelButtonText: "Cancelar"
   }).then((result) => {
@@ -55,7 +55,8 @@ export function deleteUserAlert(
       Swal.fire({
         title: "¡Eliminado!",
         text: "El usuario ha sido eliminado.",
-        icon: "success"
+        icon: "success",
+        confirmButtonColor: "#F66B0E",
       });
       deleteUserById(cookieToken, id);
       fetchUsers();

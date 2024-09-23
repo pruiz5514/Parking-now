@@ -8,7 +8,7 @@ export interface IUsers {
     doc_number: string;
     isActive: boolean;
     role_id: number;
-    document_type_id: number;
+    documentType: DocumentType;
     resetPasswordToken: null;
     created_at: Date;
     updated_at: Date;
@@ -20,9 +20,15 @@ export interface IUpdateUser {
     fullname: string;
     email: string;
     password: string;
-    document_type_id: number;
+    documentType: DocumentType;
     phone_number: string;
     address: string;
     doc_number: string;
     role_id: number;
+}
+
+export interface DocumentType {
+    id: number;
+    name: string;
+    delete_at?: null;
 }
