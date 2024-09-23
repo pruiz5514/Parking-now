@@ -62,7 +62,7 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({params}) =>
                 const response = await createBooking(bookingData,cookieToken);
                 if(response.data.id){
                     const bookingId = response.data.id;
-                    successAlert("Reserva iniciada con éxito");
+                    successAlert("Reserva iniciada");
                     router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/end-reserved`);
                 }
             } catch (error) {
@@ -82,7 +82,7 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({params}) =>
                 <Span>Te quedan:</Span>
                 <ReservedParkingText>{formatTime(timeLeft)}</ReservedParkingText>
                 </ContainerCronometro>
-                <Link href="/"><Button text={isLoading ? "CREANDO RESERVA..." :"INICIAR"} onClick={handleInitiate} disabled={isLoading || timeLeft <= 0} /></Link>
+                <Button text={isLoading ? "CREANDO RESERVA..." :"ACTIVAR"} onClick={handleInitiate} disabled={isLoading || timeLeft <= 0} />
                 <ReservedParkingImg>
                     <Image src="/img/LogoOrange.png" alt="logo" width={190} height={190} />
                 </ReservedParkingImg>

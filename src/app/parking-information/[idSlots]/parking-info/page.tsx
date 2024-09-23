@@ -21,7 +21,7 @@ const ParkingInfo: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
       try {
         if (cookieToken) {
           const slotData = await getSlotById(cookieToken, idSlots);
-          // console.log("answer Apigetslotbyis",slotData);
+          console.log("answer Apigetslotbyis",slotData);
           setSlot(slotData);
         }
       } catch (e) {
@@ -53,7 +53,7 @@ const ParkingInfo: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
 
         <ParkingInfoCard 
           href={`/parking-information/${idSlots}/booking`} 
-          button={<Button text={"Ver más"}/>}
+          button={<Button text={"Reservar"}/>}
           slot={slot}
         />
       </ParkingInfoContainer>

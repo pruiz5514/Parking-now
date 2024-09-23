@@ -47,7 +47,6 @@ export async function endBooking(endbooking: IEndBooking, token: string) {
         throw new Error("No se pudo finalizar la reserva, por favor intente más tarde");
     }
 
-    successAlert("Su reserva se ha finalizado, confirma");
     return data;
 }
 

@@ -11,5 +11,6 @@ export interface IInput {
     min?: string;
     max?: string;
     key?: string | number
+    maxLength?: number
     defaultValue?: string
 }
