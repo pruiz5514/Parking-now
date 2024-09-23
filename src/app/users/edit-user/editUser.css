@@ -1,0 +1,6 @@
+.edit-user_main{
+    width: 90%;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+    padding: 40px;
+}

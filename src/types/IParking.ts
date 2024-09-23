@@ -32,3 +32,31 @@ export interface Commune {
     name:      string;
     delete_at: null;
 }
+
+export interface ISlotResponse {
+    crearted_at:     Date;
+    delete_at:       null;
+    hour_price:      number;
+    id:              string;
+    is_available:    boolean;
+    is_covered:      boolean;
+    name:            string;
+    owner_id:        string;
+    property_id:     string;
+    updated_at:      Date;
+    vehicle_type_id: number;
+}
+
+export interface IParkingResponse {
+    address:     string;
+    commune_id:  number;
+    crearted_at: Date;
+    delete_at:   null;
+    description: string;
+    id:          string;
+    image_url:   string;
+    name:        string;
+    owner_id:    string;
+    slots: ISlotResponse[];
+    updated_at:  Date;
+}

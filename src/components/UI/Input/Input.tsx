@@ -2,7 +2,7 @@ import React from "react";
 import { InputContainer, Label, InputStyled, InputWrapper, IconContainer, SpanIcon } from "./Input-style";
 import { IInput } from "app/types/IInput";
 
-const Input: React.FC<IInput> = ({  label, type, placeholder, required, id, value, onChange, icon: IconComponent, name, key }) => {
+const Input: React.FC<IInput> = ({  label, type, placeholder, required, id, value, onChange, icon: IconComponent, name, key, defaultValue }) => {
     return (
         <InputContainer key={key}>
             <Label htmlFor={id}>{label}</Label>
@@ -17,6 +17,7 @@ const Input: React.FC<IInput> = ({  label, type, placeholder, required, id, valu
                     value={value} 
                     name = {name}
                     onChange={onChange} 
+                    defaultValue={defaultValue}
                     {...(required && { required })}
                 />
             </InputWrapper>

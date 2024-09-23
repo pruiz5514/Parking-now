@@ -1,0 +1,14 @@
+.users-main{
+    width: 90%;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+    padding: 30px 0;
+}
+
+.users-h1{
+    font-size: 30px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}

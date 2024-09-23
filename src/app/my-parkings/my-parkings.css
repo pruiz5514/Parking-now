@@ -23,18 +23,20 @@
     height: auto;
     border-radius: 12px;
     padding: 10px 10px 20px 10px;
-    box-shadow: 0 0 10px rgba(26, 17, 17, 0.5);
+    box-shadow: 0 0 10px rgba(26, 17, 17, 0.15);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.my-parking-image {
-    width: 300px;
-    height: 250px;
-    padding: 10px 0;
-
+.button-delete {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .my-parkings-title { 
@@ -42,4 +44,11 @@
     color: var(--blue-dark);
     font-weight: bold;
     text-align: center;
+    padding-top: 10px;
+}
+
+.my-parking-image {
+    width: 300px;
+    height: 250px;
+    padding: 10px 0;
 }

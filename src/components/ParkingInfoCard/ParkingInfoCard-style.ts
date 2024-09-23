@@ -7,7 +7,7 @@ export const ParkingInfoCardContainer = styled.article`
     height: auto;
     border-radius: 12px;
     padding: 10px 10px 20px 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
     @media (min-width: 630px){
         display: flex;

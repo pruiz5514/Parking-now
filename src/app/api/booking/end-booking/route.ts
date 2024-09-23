@@ -1,34 +1,32 @@
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request, {params}:{params:{id:string}} ) {
+export async function POST(request: Request ) {
     const token = request.headers.get('Authorization');
-    const {id} = params;
+    const endbooking = await request.json()
 
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/slots/findById/${id}`, {
-        method: 'GET',
+    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/bookings/end-booking', {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `${token}`
-        }
+        },
+        body: JSON.stringify(endbooking),
     });
 
     const data = await response.json();
     return NextResponse.json(data, { status: response.status });
 }
 
-export async function DELETE(request: Request, {params}:{params:{id:string}} ) {
+export async function PATCH(request: Request) {
     const token = request.headers.get('Authorization');
-    const {id} = params;
 
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/slots/${id}`, {
-        method: 'DELETE',
+    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/bookings/end-booking/terminate', {
+        method: 'PATCH',
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': `${token}`
-        }
+        },
     });
 
     const data = await response.json();
     return NextResponse.json(data, { status: response.status });
 }
-
