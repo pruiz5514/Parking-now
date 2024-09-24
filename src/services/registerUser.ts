@@ -16,7 +16,7 @@ export async function createUser(user: IRegisterUser) {
         const errorData = await response.json();
         console.error('Error message:', errorData.message);
 
-        if (response.status === 400) {
+        if (response.status === 409) {
             errorAlert("Usuario ya se encuentra registrado");
             throw Error("Usuario ya se encuentra registrado");
         }
