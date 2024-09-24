@@ -4,7 +4,7 @@ import Button from "app/components/UI/Button/Button"
 import Select from "app/components/UI/Select/Select"
 import '../globals.css'
 import Link from "next/link"
-import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle, PaginationContainer, ParkingCardsContainer } from "./parkings-style"
+import { AsideBackground, AsideEsStye, AsideStyleContainer, CloseAsideButton, DivEsStyle, FilterButton, FormEsStyle, H2EsStyle, LabelEsStyle, MainEsStyle, MainSectionEsStyle, PaginationButtonContainer, PaginationContainer, ParkingCardsContainer } from "./parkings-style"
 import ParkCard from "app/components/ParkCard/ParkCard"
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2"
 import { IoChevronBackOutline, IoChevronForwardOutline, IoClose } from "react-icons/io5"
@@ -262,13 +262,14 @@ const Parkings = () => {
                     </ParkingCardsContainer>
 
                     <PaginationContainer>
-                        {pagination>=cardsCuantity ?(
-                            <Button text={(<IoChevronBackOutline/>)} onClick={backButton}/> 
-                        ): ""}
-                        {slots.length===cardsCuantity ? (
-                            <Button text={(<IoChevronForwardOutline />)} onClick={nextButton}/>
-                        ):""}
-                        
+                        <PaginationButtonContainer>
+                            {pagination>=cardsCuantity ?(
+                                <Button text={(<IoChevronBackOutline/>)} onClick={backButton}/> 
+                            ): ""}
+                            {slots.length===cardsCuantity ? (
+                                <Button text={(<IoChevronForwardOutline />)} onClick={nextButton}/>
+                            ):""}
+                        </PaginationButtonContainer>        
                     </PaginationContainer>
 
                 </MainSectionEsStyle>
