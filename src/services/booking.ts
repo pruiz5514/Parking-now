@@ -28,6 +28,22 @@ export async function createBooking(booking: ICreateBooking, token: string) {
     return data;
 }
 
+export async function getBookinginProgressDriver(token: string) {
+
+    const response = await fetch("/api/booking/booking-in-progress-driver", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    });
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw Error("No hay tienes una reserva de parqueadero en progreso")
+    }
+    return data.data;
+}
 
 export async function endBooking(endbooking: IEndBooking, token: string) {
     const response = await fetch('/api/booking/end-booking', {
@@ -47,7 +63,6 @@ export async function endBooking(endbooking: IEndBooking, token: string) {
         throw new Error("No se pudo finalizar la reserva, por favor intente más tarde");
     }
 
-    successAlert("Su reserva se ha finalizado, confirma");
     return data;
 }
 

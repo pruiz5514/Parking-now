@@ -20,15 +20,16 @@ export interface IUpdateUser {
     fullname: string;
     email: string;
     password: string;
-    documentType: DocumentType;
+    document_type_id: number;
     phone_number: string;
     address: string;
     doc_number: string;
     role_id: number;
 }
 
+
 export interface DocumentType {
     id: number;
-    name: string;
+    name?: string;
     delete_at?: null;
 }

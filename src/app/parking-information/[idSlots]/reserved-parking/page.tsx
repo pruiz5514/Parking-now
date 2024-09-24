@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Button from "../../../../components/UI/Button/Button";
-import { ReservedParkingArticle, ReservedParkingContainer, ReservedParkingImg, ReservedParkingText, ContainerCronometro } from "./ReservedParking-style"
+import { ReservedParkingArticle, ReservedParkingContainer, ReservedParkingImg, ReservedParkingText, ContainerCronometro, ReservedAddress } from "./ReservedParking-style"
 import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -11,15 +11,35 @@ import { ICreateBooking } from "app/types/IBooking";
 import { createBooking } from "app/services/booking";
 import Cookies from 'js-cookie';
 import { Span } from "../booking/booking-style";
+import { getSlotById } from "app/services/slots";
+import { ISlots } from "app/types/IParking";
 
 
-const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({params}) => {
-    const {idSlots} = params;
-    const [timeLeft, setTimeLeft] = useState(15*60);
+const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
+    const { idSlots } = params;
+    const [timeLeft, setTimeLeft] = useState(15 * 60);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const cookieToken = Cookies.get("token");
-    
+    const [slotInfo, setSlotInfo] = useState<ISlots | null>(null);
+
+    useEffect(() => {
+        const fetchSlotInfo = async () => {
+            if (cookieToken) {
+                try {
+                    const data = await getSlotById(cookieToken, idSlots);
+                    console.log("datahola",data);
+                    
+                    setSlotInfo(data); // Guardar la información del slot en el estado
+                } catch (error) {
+                    errorAlert("Error al obtener la información del slot: " + (error as Error).message);
+                }
+            }
+        };
+
+        fetchSlotInfo();
+    }, [cookieToken, idSlots]);
+
     useEffect(() => {
         if (timeLeft <= 0) {
             handleTimeOut();
@@ -59,10 +79,10 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({params}) =>
             };
             setIsLoading(true);
             try {
-                const response = await createBooking(bookingData,cookieToken);
-                if(response.data.id){
+                const response = await createBooking(bookingData, cookieToken);
+                if (response.data.id) {
                     const bookingId = response.data.id;
-                    successAlert("Reserva iniciada con éxito");
+                    successAlert("Reserva iniciada");
                     router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/end-reserved`);
                 }
             } catch (error) {
@@ -78,11 +98,17 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({params}) =>
         <ReservedParkingContainer>
             <ReservedParkingArticle>
                 <ReservedParkingText>HAZ CLICK PARA ACTIVAR TU RESERVA</ReservedParkingText>
+                {slotInfo && (
+                    <div>
+                        <ReservedAddress>Dirección del parqueadero</ReservedAddress>
+                        <ReservedAddress>{slotInfo.property.commune.name} {slotInfo.property.address}</ReservedAddress>
+                    </div>
+                )}
                 <ContainerCronometro>
-                <Span>Te quedan:</Span>
-                <ReservedParkingText>{formatTime(timeLeft)}</ReservedParkingText>
+                    <Span>Te quedan:</Span>
+                    <ReservedParkingText>{formatTime(timeLeft)}</ReservedParkingText>
                 </ContainerCronometro>
-                <Link href="/"><Button text={isLoading ? "CREANDO RESERVA..." :"INICIAR"} onClick={handleInitiate} disabled={isLoading || timeLeft <= 0} /></Link>
+                <Button text={isLoading ? "CREANDO RESERVA..." : "ACTIVAR"} onClick={handleInitiate} disabled={isLoading || timeLeft <= 0} />
                 <ReservedParkingImg>
                     <Image src="/img/LogoOrange.png" alt="logo" width={190} height={190} />
                 </ReservedParkingImg>

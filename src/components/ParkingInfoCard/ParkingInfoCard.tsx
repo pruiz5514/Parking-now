@@ -5,6 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { GiHomeGarage } from "react-icons/gi";
 import React from "react";
 import { ISlots } from "app/types/IParking";
+import { ParkingInfoTitle } from "app/app/parking-information/[idSlots]/parking-info/parking-info-style";
 
 interface ParkingInfoCardProps {
   button?: React.ReactNode;
@@ -12,23 +13,24 @@ interface ParkingInfoCardProps {
   href: string;
 }
 
-const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({button, slot, href}) => {
+const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({ button, slot, href }) => {
   return (
     <ParkingInfoCardContainer>
       <ParkingInfoCardImg>
-        <ParkingInfoCardImage 
-          alt={slot.name} 
-          style={{ borderRadius: '12px' }} 
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTud3ZSGczSxU0tQb4oTlLZPjD6g-Z-Y6rCbw&s" 
+        <ParkingInfoCardImage
+          alt={slot.property.name}
+          style={{ borderRadius: '12px' }}
+          src={slot.property.image_url}
         />
       </ParkingInfoCardImg>
       <ParkingInfoCardText>
-        <p>{slot.name}</p>
-        {slot.property && slot.property.commune && (
+        <ParkingInfoTitle>Celda {slot.name}</ParkingInfoTitle>
+        <p>{slot.property.description}</p>
           <ParkingInfoCardP>
             <FaLocationDot /> {slot.property.commune.name}
+            <p>{slot.property.address}</p>
           </ParkingInfoCardP>
-        )}
+        
         <ParkingInfoCardP>
           <GiHomeGarage /> {slot.is_covered ? 'Parqueadero cubierto' : 'Parqueadero descubierto'}
         </ParkingInfoCardP>
