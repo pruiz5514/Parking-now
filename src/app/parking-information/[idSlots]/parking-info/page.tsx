@@ -47,7 +47,7 @@ const ParkingInfo: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
 
       <ParkingInfoContainer>
         <ParkingInfoTitleContainer>
-          <ParkingInfoTitle>{slot.name}</ParkingInfoTitle>
+          <ParkingInfoTitle>{slot.property.name}</ParkingInfoTitle>
           <StarsContainer><IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></StarsContainer>
         </ParkingInfoTitleContainer>
 

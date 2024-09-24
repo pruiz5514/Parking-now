@@ -18,20 +18,19 @@ const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({ button, slot, href })
     <ParkingInfoCardContainer>
       <ParkingInfoCardImg>
         <ParkingInfoCardImage
-          alt={slot.name}
+          alt={slot.property.name}
           style={{ borderRadius: '12px' }}
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTud3ZSGczSxU0tQb4oTlLZPjD6g-Z-Y6rCbw&s"
+          src={slot.property.image_url}
         />
       </ParkingInfoCardImg>
       <ParkingInfoCardText>
-        <ParkingInfoTitle>{slot.property.name}</ParkingInfoTitle>
+        <ParkingInfoTitle>Celda {slot.name}</ParkingInfoTitle>
         <p>{slot.property.description}</p>
-        {slot.property && slot.property.commune && (
           <ParkingInfoCardP>
             <FaLocationDot /> {slot.property.commune.name}
             <p>{slot.property.address}</p>
           </ParkingInfoCardP>
-        )}
+        
         <ParkingInfoCardP>
           <GiHomeGarage /> {slot.is_covered ? 'Parqueadero cubierto' : 'Parqueadero descubierto'}
         </ParkingInfoCardP>
