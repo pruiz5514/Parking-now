@@ -18,7 +18,7 @@ export const ReservedParkingArticle = styled.article`
     width: 100%;
     min-width: 300px;
     max-width: 500px;
-    height: 300px;
+    height: 350px;
     background-color: var(--white);
     border-radius: 30px;
     display: flex;
@@ -32,7 +32,12 @@ export const ContainerCronometro = styled.p`
 `
 
 export const ReservedParkingText = styled.p`
-    font-size: 24px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+`
+export const ReservedAddress = styled.p`
+    font-size: 17px;
     font-weight: bold;
     text-align: center;
 `
