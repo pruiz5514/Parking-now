@@ -38,7 +38,6 @@ export default function Home() {
 
   return (
     <>
-      <StripePricingTable/>
       <Header>
         <li> <Link href="/">Inicio</Link> </li>
         <li> <Link href="#benefits">Nosotros</Link> </li>
