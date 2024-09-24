@@ -24,10 +24,7 @@ const EditUser = ()=>{
 
     const initialState = {
         fullname: '',
-        documentType: {
-            id: 0,
-            name: '',
-        },
+        document_type_id: 0,
         doc_number: '',
         address: '',
         phone_number: '',
@@ -52,9 +49,6 @@ const EditUser = ()=>{
         getUser();
     },[])
 
-    console.log(user);
-    
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement |HTMLSelectElement>)=>{
         const {name , value} = event?.target;
         setUser({
@@ -70,10 +64,7 @@ const EditUser = ()=>{
             try{
                 const editedUser = {
                     fullname: user.fullname,
-                    documentType: {
-                        id: user.documentType.id,
-                        name: user.documentType.name,
-                    },
+                    document_type_id: Number(user.document_type_id),
                     doc_number: user.doc_number,
                     address: user.address,
                     phone_number: user.phone_number,
@@ -81,12 +72,12 @@ const EditUser = ()=>{
                     role_id: user.role_id, 
                     password: user.password
                 }
+                console.log(editedUser)
                 await editUser(cookieToken, userId, editedUser)
                 successAlert("Usuario editado exitosamente");
                 router.push("/users");
             }catch(e){
                 console.log(e);
-                setUser(initialState);
             }
         } 
     }
@@ -109,9 +100,9 @@ const EditUser = ()=>{
                     onSubmit={onFormSubmit}
                 >
                     <Input label="Nombre completo" id="userName" type="text" placeholder="Ingresa tu nombre" name={"fullname"} value={user.fullname} onChange={handleChange}  icon={FaUser} required={true} />
-                    {/* <InputContainer>
+                    <InputContainer>
                         <Label htmlFor="type-document-id">Tipo de documento</Label>
-                        <SelectAddress name={"id"} id={"type-document-id"} value={user.documentType.id} onChange={handleChange}>
+                        <SelectAddress name={"document_type_id"} id={"type-document-id"} value={user.document_type_id} onChange={handleChange}>
                             <option value={""} selected disabled></option> 
                             <option value={1}>Cédula</option>
                             <option value={2}>Pasaporte</option>
@@ -119,7 +110,7 @@ const EditUser = ()=>{
                             <option value={4}>TI</option>
                             <option value={5}>Cédula de Extranjería</option>
                         </SelectAddress>
-                    </InputContainer> */}
+                    </InputContainer>
                     <Input label="Número de documento" id="userId" type="number" placeholder="1008001003" name={"doc_number"} value={user.doc_number} onChange={handleChange} icon={FaIdCard} required={true} />
                     <Input label="Dirección de residencia" id="userAddressHome" type="text" placeholder=" mde cra 55 # 25-15" value={user.address} onChange={handleChange} name={"address"} icon={FaHome} required={true} />
                     <Input label="Teléfono" id="userPhone" type="number" placeholder="123 456 14 25" name={"phone_number"} value={user.phone_number} onChange={handleChange} icon={FaPhone} required={true} />
