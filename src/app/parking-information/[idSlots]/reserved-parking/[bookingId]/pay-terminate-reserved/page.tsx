@@ -53,7 +53,7 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
             try {
                 const response = await terminateBooking(cookieToken); 
                 successAlert("Reserva terminada.");
-                router.push(`/parkings`);
+                router.push(`/payment`);
             } catch (error) {
                 errorAlert("Error al terminar la reserva: " + (error as Error).message);
             } finally {
