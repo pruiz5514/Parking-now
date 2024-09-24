@@ -4,6 +4,7 @@ export const MainEsStyle = styled.main`
     width: 100%;
     min-height: calc(100vh - 100px - 100px);
     display: flex;
+    
 `
 
 export const AsideStyleContainer = styled.div<{ $isOpen: boolean }>`
@@ -79,7 +80,7 @@ export const MainSectionEsStyle = styled.section`
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
-    min-height: calc(100vh - 100px - 100px);
+    height: 100%;
     padding: 30px;
     align-items: start;
 
@@ -129,6 +130,12 @@ export const ParkingCardsContainer = styled.div`
 `
 
 export const PaginationContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+export const PaginationButtonContainer = styled.div`
     display: flex;
     gap: 5px;
+    justify-content: center;
 `
