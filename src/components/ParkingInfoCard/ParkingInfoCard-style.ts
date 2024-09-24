@@ -4,7 +4,7 @@ export const ParkingInfoCardContainer = styled.article`
     width: 100%;
     min-width: 300px;
     max-width: 1000px;
-    height: auto;
+    height: 300px;
     border-radius: 12px;
     padding: 10px 10px 10px 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -42,7 +42,7 @@ export const ParkingInfoCardText = styled.div`
     text-align: justify;
     
     @media (min-width: 630px){
-        height: 100%;
+        height: auto;
         width: 60%;
         padding-left: 30px;
     }

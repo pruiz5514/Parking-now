@@ -18,20 +18,22 @@ import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
 import { filterSlots } from "app/services/filterSlots"
 import Spinner from "app/components/Spinner/Spinner"
-
+import { getBookinginProgressDriver } from "app/services/booking";
+import { IBookingActive } from "app/types/IBooking";
+import { useRouter } from 'next/navigation'
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
     const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
-
+    
     const cookieToken = Cookies.get("token");
-
+    
     const userToken = userInformation.token;
-
+    
     const admin = Cookies.get("email");
-
+    
     const cardsCuantity = 6;
-
+    
     const [loading, setLoading] = useState(true); 
     const [pagination, setPagination] = useState(0); 
     const [slots, setSlots] = useState([]);
@@ -39,36 +41,69 @@ const Parkings = () => {
     const [commune, setCommune] = useState("");
     const [vehicle, setVehicle] = useState("");
     const [slotType, setSlotType] = useState("");
-
+    
     const nextButton = ()=>{
         const quantity = pagination + 6;
         setPagination(quantity);
         console.log(pagination);
     }
-
+    
     const backButton = ()=>{
         const quantity = pagination - 6;
         setPagination(quantity);
         console.log(pagination);
     }
-
+    
     const priceHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setPriceOrder(event.target.value);
         console.log(priceOrder);
     };
-
+    
     const communeHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCommune(event.target.value);
     };
-
+    
     const vehicleHandleChange =(event: React.ChangeEvent<HTMLInputElement>) => {
         setVehicle(event.target.value);
     };
-
+    
     const slotTypeHandleChange =(event: React.ChangeEvent<HTMLInputElement>) => {
         setSlotType(event.target.value);
     };    
+    
+    const [bookingActiveInfo, setBookingActiveInfo] = useState<IBookingActive>();
+    const [BookingInProgress, setBookingInProgress] = useState<boolean>(false);
+    const router = useRouter();
 
+    useEffect(() => {
+        const checkBookingInProgress = async () => {
+            try {
+                if (cookieToken) {
+                    const data = await getBookinginProgressDriver(cookieToken);
+                    if (data) {
+                        setBookingInProgress(true);
+                        setBookingActiveInfo(data);
+                    } else {
+                        setBookingInProgress(false);
+                    }
+                } 
+            } catch (error) {
+                console.error("No hay reserva en progreso:", error);
+                setBookingInProgress(false);
+            }
+        };
+        checkBookingInProgress();
+    }, [cookieToken]);
+
+    const handleBookingButtonClick = () => {
+        if (BookingInProgress && bookingActiveInfo) {
+            const { slotId, bookingId } = bookingActiveInfo;
+            router.push(`/parking-information/${slotId}/reserved-parking/${bookingId}/end-reserved`);
+        } else {
+            router.push("/parkings");
+        }
+    };
+    
     useEffect(() => {
         const fetchSlots = async () => {
             setLoading(true);
@@ -119,6 +154,7 @@ const Parkings = () => {
             <Header>
                 {admin !== "admin@example.com" ? (
                 <>
+                    <li>{BookingInProgress && (<Button text="Tu reserva"onClick={handleBookingButtonClick}/>)}</li>
                     <li><Link href="/parkings">Inicio</Link></li>
                     <li><Link href="/register-parking">Publicar parqueadero</Link></li>
                     <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
