@@ -10,6 +10,7 @@ import Button from "app/components/UI/Button/Button";
 import { ButtonWrapper,  CardContainer,  CardContent, DivButtonContainer, H2Card, PCard, PriceCard } from "./Card-pay-booking-style";
 import { ReservedParkingArticle, ReservedParkingContainer, ReservedParkingImg } from "../../ReservedParking-style";
 import Image from "next/image";
+import { ReservedParkingArticleEndReserved } from "../end-reserved/ReservedParking-style";
 
 
 
@@ -69,7 +70,7 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
     }, []);
     return (
         <ReservedParkingContainer>
-            <ReservedParkingArticle>
+            <ReservedParkingArticleEndReserved>
                 <ReservedParkingImg>
                     <Image src="/img/LogoOrange.png" alt="logo" width={190} height={190} />
                 </ReservedParkingImg>
@@ -86,7 +87,7 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                         </DivButtonContainer>
                     </CardContent>
                 </CardContainer>
-            </ReservedParkingArticle>
+            </ReservedParkingArticleEndReserved>
         </ReservedParkingContainer>
     )
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ReservedParkingArticle, ReservedParkingContainer, ReservedParkingImg, ReservedParkingText, ContainerCronometro } from "../../ReservedParking-style"
+import { ReservedParkingArticle, ReservedParkingContainer, ReservedParkingImg, ReservedParkingText, ContainerCronometro, ReservedAddress } from "../../ReservedParking-style"
 import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -11,6 +11,10 @@ import { createBooking, endBooking } from "app/services/booking";
 import Cookies from 'js-cookie';
 import Button from "app/components/UI/Button/Button";
 import { Span } from "../../../booking/booking-style";
+import { getSlotById } from "app/services/slots";
+import { ISlots } from "app/types/IParking";
+import { ReservedParkingArticleEndReserved } from "./ReservedParking-style";
+
 
 
 const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: string } }> = ({ params }) => {
@@ -18,6 +22,24 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const cookieToken = Cookies.get("token");
+    const [slotInfo, setSlotInfo] = useState<ISlots | null>(null);
+
+    useEffect(() => {
+        const fetchSlotInfo = async () => {
+            if (cookieToken) {
+                try {
+                    const data = await getSlotById(cookieToken, idSlots);
+                    console.log("datahola",data);
+                    
+                    setSlotInfo(data); // Guardar la información del slot en el estado
+                } catch (error) {
+                    errorAlert("Error al obtener la información del slot: " + (error as Error).message);
+                }
+            }
+        };
+
+        fetchSlotInfo();
+    }, [cookieToken, idSlots]);
 
     const handleInitiate = async () => {
 
@@ -45,8 +67,14 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
 
     return (
         <ReservedParkingContainer>
-            <ReservedParkingArticle>
+            <ReservedParkingArticleEndReserved>
                 <ReservedParkingText>HAZ CLICK PARA FINALIZAR TU RESERVA</ReservedParkingText>
+                {slotInfo && (
+                    <div>
+                        <ReservedAddress>Dirección del parqueadero</ReservedAddress>
+                        <ReservedAddress>{slotInfo.property.commune.name} {slotInfo.property.address}</ReservedAddress>
+                    </div>
+                )}
                 <ContainerCronometro>
                     <ReservedParkingText></ReservedParkingText>
                 </ContainerCronometro>
@@ -54,7 +82,7 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                 <ReservedParkingImg>
                     <Image src="/img/LogoOrange.png" alt="logo" width={190} height={190} />
                 </ReservedParkingImg>
-            </ReservedParkingArticle>
+            </ReservedParkingArticleEndReserved>
             {/* <CardPayBooking amount={22680} totalHours={5.4} onConfirm={() => console.log('Confirmed')} onCancel={() => console.log('Cancelled')} /> */}
         </ReservedParkingContainer>
     )
