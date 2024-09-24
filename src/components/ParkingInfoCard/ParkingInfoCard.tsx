@@ -1,5 +1,5 @@
 "use client";
-import { ParkingInfoCardButton, ParkingInfoCardContainer, ParkingInfoCardImage, ParkingInfoCardImg, ParkingInfoCardP, ParkingInfoCardPrice, ParkingInfoCardText } from "./ParkingInfoCard-style";
+import { CommuneTextContainer, ParkingInfoCardButton, ParkingInfoCardContainer, ParkingInfoCardImage, ParkingInfoCardImg, ParkingInfoCardP, ParkingInfoCardPrice, ParkingInfoCardText } from "./ParkingInfoCard-style";
 import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiHomeGarage } from "react-icons/gi";
@@ -27,12 +27,16 @@ const ParkingInfoCard: React.FC<ParkingInfoCardProps> = ({ button, slot, href })
         <ParkingInfoTitle>Celda {slot.name}</ParkingInfoTitle>
         <p>{slot.property.description}</p>
           <ParkingInfoCardP>
-            <FaLocationDot /> {slot.property.commune.name}
+            <CommuneTextContainer>
+              <FaLocationDot /> {slot.property.commune.name} 
+            </CommuneTextContainer>
             <p>{slot.property.address}</p>
           </ParkingInfoCardP>
         
         <ParkingInfoCardP>
-          <GiHomeGarage /> {slot.is_covered ? 'Parqueadero cubierto' : 'Parqueadero descubierto'}
+          <CommuneTextContainer>
+            <GiHomeGarage /> {slot.is_covered ? 'Parqueadero cubierto' : 'Parqueadero descubierto'}
+          </CommuneTextContainer>
         </ParkingInfoCardP>
         <ParkingInfoCardButton>
           <ParkingInfoCardPrice>$ {slot.hour_price} /Hora</ParkingInfoCardPrice>
