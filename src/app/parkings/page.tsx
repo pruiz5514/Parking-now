@@ -93,7 +93,7 @@ const Parkings = () => {
             }
         };
         checkBookingInProgress();
-    }, [cookieToken]);
+    }, []);
 
     const handleBookingButtonClick = () => {
         if (BookingInProgress && bookingActiveInfo) {

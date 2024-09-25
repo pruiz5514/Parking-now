@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ReservedParkingArticle, ReservedParkingContainer, ReservedParkingImg, ReservedParkingText, ContainerCronometro, ReservedAddress } from "../../ReservedParking-style"
+import { ReservedParkingArticle, ReservedParkingContainer, ReservedParkingImg, ReservedParkingText, ContainerCronometro, ReservedAddress, ButtonsEndBooking } from "../../ReservedParking-style"
 import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -29,7 +29,7 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
             if (cookieToken) {
                 try {
                     const data = await getSlotById(cookieToken, idSlots);
-                    console.log("datahola",data);
+                    console.log(data);
                     
                     setSlotInfo(data); // Guardar la información del slot en el estado
                 } catch (error) {
@@ -53,11 +53,9 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                 const response = await endBooking(endbookingData, cookieToken);
                 if (response.data.id) {
                     const bookingId = response.data.id;
-                    // successAlert("Reserva finalizada, por favor dale terminar ");
-                    // router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/pay-terminate-reserved`);
                 }
             } catch (error) {
-                errorAlert("Error al iniciar la reserva: " + (error as Error).message);
+                errorAlert((error as Error).message);
             } finally {
                 setIsLoading(false);
             }
@@ -78,12 +76,14 @@ const EndReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                 <ContainerCronometro>
                     <ReservedParkingText></ReservedParkingText>
                 </ContainerCronometro>
+                <ButtonsEndBooking>
                 <Link href={`/parking-information/${idSlots}/reserved-parking/${bookingId}/pay-terminate-reserved`}><Button text={isLoading ? "FINALIZANDO RESERVA..." : "FINALIZAR"} onClick={handleInitiate} disabled={isLoading} /></Link>
+                <Link href={`/parkings`}><Button text={" IR A INICIO"} /></Link>
+                </ButtonsEndBooking>
                 <ReservedParkingImg>
                     <Image src="/img/LogoOrange.png" alt="logo" width={190} height={190} />
                 </ReservedParkingImg>
             </ReservedParkingArticleEndReserved>
-            {/* <CardPayBooking amount={22680} totalHours={5.4} onConfirm={() => console.log('Confirmed')} onCancel={() => console.log('Cancelled')} /> */}
         </ReservedParkingContainer>
     )
 }

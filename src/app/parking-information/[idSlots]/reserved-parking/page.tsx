@@ -86,7 +86,8 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({ params }) 
                     router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/end-reserved`);
                 }
             } catch (error) {
-                errorAlert("Error al iniciar la reserva: " + (error as Error).message);
+                errorAlert((error as Error).message);
+                
             } finally {
                 setIsLoading(false);
             }
