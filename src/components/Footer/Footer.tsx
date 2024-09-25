@@ -1,5 +1,4 @@
 'use client'
-import { PropsWithChildren } from "react"
 import { FooterStyled, Title, ContainerLogo, ContainerSocialMedia, TitleCoppyRight, ContainerInfo, FacebookStyled, WhatsappStyled, InstagramStyled } from "./footer-style";
 import Image from "next/image";
 import Link from "next/link";
