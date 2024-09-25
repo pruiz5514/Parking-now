@@ -12,7 +12,6 @@ import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 import { useEffect, useState } from "react"
 import { ISlots } from "app/types/IParking"
-import { getSlots } from "app/services/slots"
 import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
@@ -23,12 +22,12 @@ import { IBookingActive } from "app/types/IBooking";
 import { useRouter } from 'next/navigation'
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
-    const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
+    // const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
     
     const cookieToken = Cookies.get("token");
     
-    const userToken = userInformation.token;
+    // const userToken = userInformation.token;
     
     const admin = Cookies.get("email");
     
