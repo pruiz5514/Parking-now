@@ -15,6 +15,7 @@ import { login } from "app/services/loginUser";
 import Cookies from 'js-cookie';
 import Link from "next/link";
 import { Label } from "../UI/Input/Input-style";
+import { errorAlert } from "app/utils/alerts";
 
 
 const initialState = {
@@ -46,15 +47,15 @@ const SignIn: React.FC = () => {
                 path: "/",
                 sameSite: "strict"
             })
-            router.push("/parkings")
-            if(values.email === "admin@example.com"){
-                Cookies.set("email", values.email,{
-                    path: "/",
-                    sameSite: "strict"
-                });
-            }
+            router.push("/parkings");
+
+            Cookies.set("email", values.email,{
+                path: "/",
+                sameSite: "strict"
+            });
         }catch(e){
             console.log(e);
+            errorAlert("Credenciales invalidas")
             setValues(initialState);
         }
     }

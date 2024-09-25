@@ -18,7 +18,6 @@ import Cookies from 'js-cookie';
 const RegisterParking: React.FC = () => {
     const router = useRouter()
     const cookieToken = Cookies.get("token");
-    
 
     const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
