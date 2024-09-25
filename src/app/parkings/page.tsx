@@ -35,7 +35,7 @@ const Parkings = () => {
 
     // const userToken = userInformation.token;
 
-    const cardsCuantity = 6;
+    const cardsCuantity = 8;
     
     const [loading, setLoading] = useState(true); 
     const [pagination, setPagination] = useState(0); 
