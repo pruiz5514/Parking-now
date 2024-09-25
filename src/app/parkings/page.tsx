@@ -47,13 +47,11 @@ const Parkings = () => {
     const nextButton = ()=>{
         const quantity = pagination + 6;
         setPagination(quantity);
-        console.log(pagination);
     }
     
     const backButton = ()=>{
         const quantity = pagination - 6;
         setPagination(quantity);
-        console.log(pagination);
     }
     
     const priceHandleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {

@@ -1,12 +1,27 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
- 
-// This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
-  return NextResponse.redirect(new URL('/parkings', request.url))
+import { verifyToken } from './services/token';
+
+export async function middleware(request: NextRequest) {
+  const cookieToken = request.cookies.get("servToken")?.value;
+
+  if (!cookieToken) {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
+  else {
+    try {
+      const validateToken = await verifyToken(cookieToken);
+      if (!validateToken.success) {
+        return NextResponse.redirect(new URL('/', request.url));
+      }
+    } catch (e) {
+      console.log(e)
+    }
+
+  }
+
 }
- 
-// See "Matching Paths" below to learn more
+
 export const config = {
-  matcher: '/about/:path*',
+  matcher: ['/parkings', '/payment', '/users/:path*', '/parking-information/:path*', '/my-parkings/:path*', '/register-parking/:path*']
 }

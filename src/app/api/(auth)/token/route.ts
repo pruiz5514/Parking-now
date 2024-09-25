@@ -10,8 +10,8 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'No hay token' }, { status: 400 });
     }
     try {
-        const verify = jwt.verify(token, secretKey as jwt.Secret);
-        return NextResponse.json({ success: true, verify });
+        const decode = jwt.verify(token, secretKey as jwt.Secret);
+        return NextResponse.json({ success: true, decode });
     } catch (error) {
         return NextResponse.json({ success: false, message: 'Token no válido o expirado' }, { status: 401 });
     }
