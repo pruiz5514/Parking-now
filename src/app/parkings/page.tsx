@@ -21,11 +21,13 @@ import Spinner from "app/components/Spinner/Spinner"
 import { getBookinginProgressDriver } from "app/services/booking";
 import { IBookingActive } from "app/types/IBooking";
 import { useRouter } from 'next/navigation'
+
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
     const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
-    
+    const router = useRouter();
+
     const cookieToken = Cookies.get("token");
     
     const userToken = userInformation.token;
@@ -73,7 +75,7 @@ const Parkings = () => {
     
     const [bookingActiveInfo, setBookingActiveInfo] = useState<IBookingActive>();
     const [BookingInProgress, setBookingInProgress] = useState<boolean>(false);
-    const router = useRouter();
+    
 
     useEffect(() => {
         const checkBookingInProgress = async () => {
