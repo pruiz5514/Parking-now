@@ -13,8 +13,6 @@ import Modal from "app/components/Modal/Modal";
 import FormContactUs from "app/components/Contact-us/FormContactUs";
 import SignUp from "app/components/SignUp/SignUp";
 import SignIn from "app/components/SignIn/SignIn";
-import { ButtonStyle } from "app/components/UI/Button/Button-style";
-import StripePricingTable from "app/components/StripePricingTable/StripePricingTable";
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
