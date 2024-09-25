@@ -57,7 +57,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Technologies
 
 - Frontend: NEXT.js
-- Dependencies: styled components, tailwind css, SweetAlert, JWT, js-cookie, redux
+- Dependencies: Styled components, Tailwind, Css, SweetAlert, JWT, Js-cookie, Redux, Email-js, React-icons
 - Version control: Git & GitHub
 - Backend: https://github.com/Estebangccoder/backend_parkingnow
 - Link Project design in Figma: 
