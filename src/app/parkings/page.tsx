@@ -46,12 +46,12 @@ const Parkings = () => {
     const [slotType, setSlotType] = useState("");
     
     const nextButton = ()=>{
-        const quantity = pagination + 6;
+        const quantity = pagination + cardsCuantity;
         setPagination(quantity);
     }
     
     const backButton = ()=>{
-        const quantity = pagination - 6;
+        const quantity = pagination - cardsCuantity;
         setPagination(quantity);
     }
     

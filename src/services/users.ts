@@ -1,8 +1,9 @@
 import { IUpdateUser } from "app/types/IUsers";
 import { errorAlert } from "app/utils/alerts";
 
-export async function getUsers(token: string) {
-    const response = await fetch("/api/users", {
+export async function getUsers(token: string, params: string) {
+    const queryString = new URLSearchParams({ params })
+    const response = await fetch(`/api/users?${queryString}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'Application/json',
