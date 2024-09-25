@@ -29,12 +29,19 @@ Parking Now offers a platform to maximize the use of their parking spaces. They 
 
 Parking Now not only enhances the parking experience for drivers but also optimizes the use of available parking spaces in the city, benefiting both users and providers.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+First, clon te repository
 
+- Clon the repository
+```bash
+git clone https://github.com/pruiz5514/Proyecto-frontend
+```
+- Then, dependencies must be installed 
+```
+    npm i 
+```
+- Run the development server:
 ```bash
 npm run dev
 # or
@@ -50,12 +57,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Technologies
 
 - Frontend: NEXT.js
-- Dependencies: styled components, tailwind css, SweetAlert, JWT, js-cookie, redux
+- Dependencies: Styled components, Tailwind, Css, SweetAlert, JWT, Js-cookie, Redux, Email-js, React-icons
 - Version control: Git & GitHub
 - Backend: https://github.com/Estebangccoder/backend_parkingnow
 - Link Project design in Figma: 
 https://www.figma.com/design/W8SzFwjUWGa5kfXSUGSjyb/Easy-park?node-id=0-1&node-type=CANVAS&t=nmG4gYyYF9MYVaC5-0
-
+- [Link project documentation PARKING NOW notion](https://gifted-failing-57f.notion.site/Parking-Now-e25e3fee8f6c47ec9eda7a9afb26ee32) 
 
 
 ## Developers
