@@ -12,7 +12,6 @@ import { useAppDispatch, useAppSelector } from "app/redux/hooks"
 import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 import { useEffect, useState } from "react"
 import { ISlots } from "app/types/IParking"
-import { getSlots } from "app/services/slots"
 import { errorAlert } from "app/utils/alerts"
 import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
@@ -26,7 +25,7 @@ import { logout } from "app/utils/logout"
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
-    const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
+    // const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
     const router = useRouter();
     const pathname = usePathname(); 
@@ -34,7 +33,7 @@ const Parkings = () => {
     const cookieToken = Cookies.get("token");
     const admin = Cookies.get("email");
 
-    const userToken = userInformation.token;
+    // const userToken = userInformation.token;
 
     const cardsCuantity = 6;
     
@@ -95,7 +94,7 @@ const Parkings = () => {
             }
         };
         checkBookingInProgress();
-    }, [cookieToken]);
+    }, []);
 
     const handleBookingButtonClick = () => {
         if (BookingInProgress && bookingActiveInfo) {

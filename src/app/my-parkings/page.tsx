@@ -8,10 +8,12 @@ import { IParkingResponse } from "app/types/IParking";
 import { deleteParking, getMyParkings } from "app/services/parkings";
 import { IoClose } from "react-icons/io5";
 import { confirmAlert, errorAlert, successAlert } from "app/utils/alerts";
+import Spinner from "app/components/Spinner/Spinner";
 
 
 const MyParkings = () => {
     const [parkings, setParkings] = useState<IParkingResponse[]>([])
+    const [loading, setLoading] = useState(true); 
 
     const onDeleteSlot = async (idParking: string) => {
         try {
@@ -34,8 +36,19 @@ const MyParkings = () => {
 
     useEffect(() => {
         const getParkings = async () => {
-            const myParkings = await getMyParkings()
-            setParkings(myParkings.data)
+            setLoading(true);
+            try {
+                const myParkings = await getMyParkings()
+                setParkings(myParkings.data)
+            }
+            catch (e) {
+                console.log(e);
+                errorAlert("No se pudo obtener la información, intente mas tarde");
+            }
+            finally {
+                setLoading(false);
+            }
+
         }
         getParkings()
     }, [])
@@ -46,9 +59,10 @@ const MyParkings = () => {
             <main className="my-parkings-main">
                 <h1 className="title">Mis parqueaderos</h1>
                 <section className="container-card">
-                    {parkings && parkings.length > 0 ? (parkings.map(parking => {
+                    {loading ? (
+                        <Spinner />
+                    ) : parkings && parkings.length > 0 ? (parkings.map(parking => {
                         return (<article key={parking.id} className="my-parkings-section">
-                            {/* {parking.slots.length === 0 && <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>} */}
                             <button className="button-delete" onClick={() => onDeleteClick(parking.id)} > <IoClose /> </button>
                             <div>
                                 <h3 className="my-parkings-title">{parking.name}</h3>

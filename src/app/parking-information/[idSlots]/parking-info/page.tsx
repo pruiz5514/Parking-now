@@ -39,7 +39,7 @@ const ParkingInfo: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
         }
     };
     checkBookingInProgress();
-}, [cookieToken]);
+}, []);
 
 const handleBookingButtonClick = () => {
     if (BookingInProgress && bookingActiveInfo) {
@@ -55,7 +55,7 @@ const handleBookingButtonClick = () => {
       try {
         if (cookieToken) {
           const slotData = await getSlotById(cookieToken, idSlots);
-          console.log("answer Apigetslotbyis",slotData);
+          console.log(slotData);
           setSlot(slotData);
         }
       } catch (e) {

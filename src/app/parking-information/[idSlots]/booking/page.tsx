@@ -38,7 +38,7 @@ const Booking: React.FC<{ params: { idSlots: string } }> = ({ params }) => {
             }
         };
         checkBookingInProgress();
-    }, [cookieToken]);
+    }, []);
 
     const handleBookingButtonClick = () => {
         if (BookingInProgress && bookingActiveInfo) {

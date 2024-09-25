@@ -13,6 +13,13 @@ export const ReservedParkingContainer = styled.div`
     padding: 30px;
     z-index: 10;
 `
+
+export const ButtonsEndBooking = styled.div`
+    width: auto;
+    display: flex;
+    gap: 30px;
+
+`
 export const ReservedParkingArticle = styled.article`
     position: relative;
     width: 100%;
