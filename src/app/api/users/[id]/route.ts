@@ -4,7 +4,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
     const token = request.headers.get('Authorization');
     const { id } = params;
 
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/users/${id}`, {
+    const response = await fetch(`${process.env.BACK_HOST}/api/users/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     const user = await request.json();
     const { id } = params;
 
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/users/update/${id}`, {
+    const response = await fetch(`${process.env.BACK_HOST}/api/users/update/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

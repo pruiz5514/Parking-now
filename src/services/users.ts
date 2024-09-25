@@ -19,7 +19,7 @@ export async function getUsers(token: string, params: string) {
 }
 
 export async function deleteUserById(token: string, id: string) {
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/users/${id}`, {
+    const response = await fetch(`${process.env.BACK_HOST}/api/users/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'Application/json',

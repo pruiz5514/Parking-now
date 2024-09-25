@@ -1,7 +1,7 @@
 import { error } from "console";
 
 export async function verifyToken(token: string) {
-    const response = await fetch("http://localhost:3000/api/token", {
+    const response = await fetch(`${process.env.FRONT_HOST}/api/token`, {
         method: 'POST',
         headers: {
             'Content-Type': 'Application/json'

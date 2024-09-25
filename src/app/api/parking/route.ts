@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 
     parking.commune_id = parseInt(parking.commune_id)
 
-    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/properties', {
+    const response = await fetch(`${process.env.BACK_HOST}/api/properties`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 export async function GET(request: Request) {
     const token = request.headers.get('Authorization');
 
-    const response = await fetch("https://backend-parkingnow-fuyg.onrender.com/api/properties", {
+    const response = await fetch(`${process.env.BACK_HOST}/api/properties`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
