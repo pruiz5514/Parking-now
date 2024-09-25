@@ -21,18 +21,16 @@ export async function middleware(request: NextRequest) {
           return NextResponse.redirect(new URL('/', request.url));
         }
       }
-      else if (validateToken.decode.role_id === 2) {
-        const paths = ['/my-parkings', '/parking-information', '/payment', '/register-parking'];
-        if (paths.some(path => request.nextUrl.pathname.startsWith(path))) {
-          return NextResponse.redirect(new URL('/users', request.url));
-        }
-      }
+      // else if (validateToken.decode.role_id === 2) {
+      //   const paths = ['/my-parkings', '/parking-information', '/payment', '/register-parking'];
+      //   if (paths.some(path => request.nextUrl.pathname.startsWith(path))) {
+      //     return NextResponse.redirect(new URL('/users', request.url));
+      //   }
+      // }
     } catch (e) {
       console.log(e)
     }
-
   }
-
 }
 
 export const config = {

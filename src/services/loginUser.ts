@@ -23,6 +23,10 @@ export async function login(user: ILogin) {
             errorAlert("No se pudo iniciar sesión. Intente más tarde.")
             throw Error("No se pudo iniciar sesión. Intente más tarde")
         }
+    }
+    if (response.status === 500) {
+        errorAlert("No se pudo iniciar sesión. Intente más tarde.")
+        throw Error("No se pudo iniciar sesión. Intente más tarde")
     };
 
 

@@ -21,19 +21,21 @@ import Spinner from "app/components/Spinner/Spinner"
 import { getBookinginProgressDriver } from "app/services/booking";
 import { IBookingActive } from "app/types/IBooking";
 import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation';
+import { logout } from "app/utils/logout"
 
 const Parkings = () => {
     const asideState = useAppSelector(state => state.filterAsideReducer.isOpen);
     const userInformation: IUserInformation = useAppSelector(state => state.userReducer.userData);
     const dispatch = useAppDispatch();
     const router = useRouter();
+    const pathname = usePathname(); 
 
     const cookieToken = Cookies.get("token");
-    
-    const userToken = userInformation.token;
-    
     const admin = Cookies.get("email");
-    
+
+    const userToken = userInformation.token;
+
     const cardsCuantity = 6;
     
     const [loading, setLoading] = useState(true); 
@@ -152,19 +154,21 @@ const Parkings = () => {
     return (
         <>
             <Header>
-                {admin !== "admin@example.com" ? (
+                {admin !== "parkingnowcontacto@gmail.com" ? (
                 <>
                     <li>{BookingInProgress && (<Button text="Tu reserva"onClick={handleBookingButtonClick}/>)}</li>
                     <li><Link href="/parkings">Inicio</Link></li>
                     <li><Link href="/register-parking">Publicar parqueadero</Link></li>
                     <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
-                    <li><Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+                    <li><Button text={"Cerrar sesión"} onClick={()=>{logout(); router.push("/");}}/></li>
                 </>
                 ): (
                 <>
                     <li><Link href="/parkings">Inicio</Link></li>
                     <li><Link href="/users">Usuarios</Link></li>
-                    <li><Link href="/"><Button text={"Cerrar sesión"} /></Link></li>
+                    <li><Link href="/register-parking">Publicar parqueadero</Link></li>
+                    <li><Link href="/my-parkings">Mis parqueaderos</Link></li>
+                    <li><Button text={"Cerrar sesión" } onClick={()=>{logout(); router.push("/");}}/></li>
                 </>
                 )}        
                 
