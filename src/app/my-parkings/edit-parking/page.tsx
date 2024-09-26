@@ -20,9 +20,12 @@ import { FaMotorcycle, FaCar } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { deleteSlot } from "app/services/slots";
 import { errorAlert, successAlert, confirmAlert } from "app/utils/alerts";
+import Cookies from 'js-cookie';
 
 
 const EditParking = () => {
+    const [isUploadingImage, setIsUploadingImage] = useState(false)
+    const [imageUrl, setImageUrl] = useState('')
     const [loading, setLoading] = useState(true)
     const [parking, setParking] = useState<IParkingResponse>()
     const searchParams = useSearchParams()
@@ -31,12 +34,55 @@ const EditParking = () => {
     const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
+        if(isUploadingImage === true) return
+
         const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries())
+        delete formData.file
+
+        if(imageUrl) {
+            formData.image_url = imageUrl
+        } else {
+            formData.image_url = parking?.image_url!
+        }
+
+
         try {
             updateParking(parkingId!, formData as unknown as IRegisterParking)
         } catch (error) {
             console.error(error)
         }
+    }
+
+    const onFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const fileInput = event.target
+        if (fileInput?.files?.length === 0) return
+        const file = fileInput?.files?.[0]
+        const imageForm = new FormData()
+        imageForm.append('file', file!)
+
+        try {
+            setIsUploadingImage(true)
+            const imageUrlResponse = await fetch(`${process.env.BACK_HOST}/api/uploads`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('token')}`
+                },
+                body: imageForm
+            })
+
+            if(!imageUrlResponse.ok) {
+                throw new Error('Hubo un error cargando la imagen')
+            }
+
+            const imageUrlData = await imageUrlResponse.json()
+            const url = imageUrlData.data.url
+            setImageUrl(url)
+        } catch (error: unknown) {
+            console.error(error)
+        } finally {
+            setIsUploadingImage(false)
+        }
+
     }
 
     const onDeleteSlot = async (idSlot: string) => {
@@ -118,7 +164,8 @@ const EditParking = () => {
                             </SelectAddress>
                         </InputContainer>
                         <Input name="address" label="Dirección " id="userAddressParking" type="text" icon={FaMapMarkerAlt} placeholder="Cll 16 #55-129" required={true} defaultValue={parking?.address} />
-                        <Input name="image_url" label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} defaultValue={parking?.image_url} />
+                        {/* <Input name="image_url" label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} defaultValue={parking?.image_url} /> */}
+                        <input type="file" name="file" onChange={onFileChange} />
                         <TextArea name="description" id="textareaDescriptionParking" label="Descripción Parqueadero" defaultValue={parking?.description} ></TextArea>
                     </Form>
                 </section>

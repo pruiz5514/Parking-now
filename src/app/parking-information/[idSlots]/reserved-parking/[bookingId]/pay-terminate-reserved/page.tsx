@@ -32,12 +32,10 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
             setIsLoading(true);
             try {
                 const response: IEndBookingResponse = await endBooking(endbookingData, cookieToken);
-                console.log('Respuesta completa del backend:', response);
-
                 if (response.data) {
                     setAmount(response.data.amount);
                     setTotalHours(response.data.totalHours);
-                    console.log("este es amount", setAmount, "este es total", setTotalHours);
+                    console.log(setAmount, setTotalHours);
                     router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/pay-terminate-reserved`);
                 }
             } catch (error) {
@@ -56,7 +54,7 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                 successAlert("Reserva terminada.");
                 router.push(`/payment`);
             } catch (error) {
-                errorAlert("Error al terminar la reserva: " + (error as Error).message);
+                errorAlert((error as Error).message);
             } finally {
                 setIsLoading(false);
             }
@@ -81,8 +79,8 @@ const PayReservedParking: React.FC<{ params: { bookingId: string, idSlots: strin
                         <PriceCard>Total a pagar: $ {amount !== undefined ? amount : 'Cargando...'}</PriceCard>
                         <DivButtonContainer>
                             <ButtonWrapper>
-                                <Button text="Confirmar" onClick={handleConfirm} />
-                                <Button text="Cancelar" onClick={handleCancel} />
+                                <Button text="CONFIRMAR" onClick={handleConfirm} />
+                                <Button text="CANCELAR" onClick={handleCancel} />
                             </ButtonWrapper>
                         </DivButtonContainer>
                     </CardContent>

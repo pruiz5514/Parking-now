@@ -28,11 +28,9 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({ params }) 
             if (cookieToken) {
                 try {
                     const data = await getSlotById(cookieToken, idSlots);
-                    console.log("datahola",data);
-                    
-                    setSlotInfo(data); // Guardar la información del slot en el estado
+                    setSlotInfo(data); 
                 } catch (error) {
-                    errorAlert("Error al obtener la información del slot: " + (error as Error).message);
+                    errorAlert((error as Error).message);
                 }
             }
         };
@@ -86,7 +84,8 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({ params }) 
                     router.push(`/parking-information/${idSlots}/reserved-parking/${bookingId}/end-reserved`);
                 }
             } catch (error) {
-                errorAlert("Error al iniciar la reserva: " + (error as Error).message);
+                errorAlert((error as Error).message);
+                
             } finally {
                 setIsLoading(false);
             }

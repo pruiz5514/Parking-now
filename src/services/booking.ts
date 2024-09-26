@@ -16,8 +16,7 @@ export async function createBooking(booking: ICreateBooking, token: string) {
         console.error('Error message:', errorData.message);
 
         if (response.status !== 201) {
-            errorAlert("No se puedo realizar la reserva, por favor intente mas tarde");
-            throw Error("No se puedo realizar la reserva, por favor intente mas tarde");
+            throw Error("Ya existe una reserva en progreso");
         }
     }
     else {
@@ -28,7 +27,7 @@ export async function createBooking(booking: ICreateBooking, token: string) {
     return data;
 }
 
-export async function getBookinginProgressDriver(token: string) {
+export async function getBookinginProgressDriver(token:string) {
 
     const response = await fetch("/api/booking/booking-in-progress-driver", {
         method: 'GET',
@@ -38,10 +37,9 @@ export async function getBookinginProgressDriver(token: string) {
         },
     });
     const data = await response.json();
+    
 
-    if (!response.ok) {
-        throw Error("No hay tienes una reserva de parqueadero en progreso")
-    }
+ 
     return data.data;
 }
 
