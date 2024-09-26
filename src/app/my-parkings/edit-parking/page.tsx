@@ -62,7 +62,7 @@ const EditParking = () => {
 
         try {
             setIsUploadingImage(true)
-            const imageUrlResponse = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/uploads', {
+            const imageUrlResponse = await fetch(`${process.env.BACK_HOST}/api/uploads`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${Cookies.get('token')}`
