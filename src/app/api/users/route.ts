@@ -5,7 +5,7 @@ export async function GET(request: Request) {
 
     const url = new URL(request.url);
     const params = url.searchParams.get('params');
-    const response = await fetch(`${process.env.BACK_HOST}/api/users?${params}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/users?${params}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

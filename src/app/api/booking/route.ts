@@ -4,7 +4,7 @@ export async function POST(request: Request) {
     const booking = await request.json();
     const token = request.headers.get('Authorization');
 
-    const response = await fetch(`${process.env.BACK_HOST}/api/bookings`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/bookings`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

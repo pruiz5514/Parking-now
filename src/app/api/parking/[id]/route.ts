@@ -4,7 +4,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
     const token = request.headers.get('Authorization');
     const { id } = params;
 
-    const response = await fetch(`${process.env.BACK_HOST}/api/properties/searchById?id=${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/properties/searchById?id=${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
     parking.commune_id = parseInt(parking.commune_id)
 
-    const response = await fetch(`${process.env.BACK_HOST}/api/properties/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/properties/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     const token = request.headers.get('Authorization');
     const { id } = params;
 
-    const response = await fetch(`${process.env.BACK_HOST}/api/properties/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/properties/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

@@ -62,7 +62,7 @@ const EditParking = () => {
 
         try {
             setIsUploadingImage(true)
-            const imageUrlResponse = await fetch(`${process.env.BACK_HOST}/api/uploads`, {
+            const imageUrlResponse = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/uploads`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${Cookies.get('token')}`
