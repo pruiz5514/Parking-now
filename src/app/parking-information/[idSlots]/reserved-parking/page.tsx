@@ -28,8 +28,6 @@ const ReservedParking: React.FC<{ params: { idSlots: string } }> = ({ params }) 
             if (cookieToken) {
                 try {
                     const data = await getSlotById(cookieToken, idSlots);
-                    console.log("datahola",data);
-                    
                     setSlotInfo(data); 
                 } catch (error) {
                     errorAlert((error as Error).message);

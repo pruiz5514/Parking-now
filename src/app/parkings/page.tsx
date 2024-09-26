@@ -13,7 +13,6 @@ import { closeAside, openAside } from "app/redux/features/filterAsideSlice"
 import { useEffect, useState } from "react"
 import { ISlots } from "app/types/IParking"
 import { errorAlert } from "app/utils/alerts"
-import { IUserInformation } from "app/types/IUserInformation"
 import Cookies from 'js-cookie';
 import { filterSlots } from "app/services/filterSlots"
 import Spinner from "app/components/Spinner/Spinner"

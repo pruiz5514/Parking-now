@@ -27,7 +27,7 @@ export async function createBooking(booking: ICreateBooking, token: string) {
     return data;
 }
 
-export async function getBookinginProgressDriver(token: string) {
+export async function getBookinginProgressDriver(token:string) {
 
     const response = await fetch("/api/booking/booking-in-progress-driver", {
         method: 'GET',
@@ -37,6 +37,7 @@ export async function getBookinginProgressDriver(token: string) {
         },
     });
     const data = await response.json();
+    
 
  
     return data.data;
