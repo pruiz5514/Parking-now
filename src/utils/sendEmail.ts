@@ -6,7 +6,7 @@ export const sendEmail = (formRef: RefObject<HTMLFormElement>, service: string, 
     if (formRef.current) {
         if (token) {
             const hiddenTokenInput = formRef.current.querySelector('input[name="token"]') as HTMLInputElement;
-            hiddenTokenInput.value = `https://parking-now.vercel.app/forgot-password/reset-password?pn=${token}`;
+            hiddenTokenInput.value = `${process.env.NEXT_PUBLIC_FRONT_HOST}/forgot-password/reset-password?pn=${token}`;
         }
 
         emailjs.sendForm(service, template, formRef.current, pk)

@@ -66,7 +66,7 @@ const User = () => {
 
   const editHandleClik = (event: React.MouseEvent<HTMLButtonElement>)=>{
     const id = String(event.currentTarget.getAttribute("user-id"));
-    router.push(`https://parking-now.vercel.app/users/edit-user?editUser=${id}`)
+    router.push(`${process.env.NEXT_PUBLIC_FRONT_HOST}/users/edit-user?editUser=${id}`)
   }
 
   return (
