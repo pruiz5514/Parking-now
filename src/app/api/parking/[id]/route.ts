@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
     const token = request.headers.get('Authorization');
-    const {id} = params;
+    const { id } = params;
 
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/properties/searchById?id=${id}`, {
+    const response = await fetch(`${process.env.BACK_HOST}/api/properties/searchById?id=${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -19,11 +19,11 @@ export async function GET(request: Request, { params }: { params: { id: string }
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
     const parking = await request.json();
     const token = request.headers.get('Authorization');
-    const {id} = params;
+    const { id } = params;
 
     parking.commune_id = parseInt(parking.commune_id)
 
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/properties/${id}` , {
+    const response = await fetch(`${process.env.BACK_HOST}/api/properties/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -36,11 +36,11 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     return NextResponse.json(data, { status: response.status });
 }
 
-export async function DELETE(request: Request, {params}:{params:{id:string}} ) {
+export async function DELETE(request: Request, { params }: { params: { id: string } }) {
     const token = request.headers.get('Authorization');
-    const {id} = params;
+    const { id } = params;
 
-    const response = await fetch(`https://backend-parkingnow-fuyg.onrender.com/api/properties/${id}`, {
+    const response = await fetch(`${process.env.BACK_HOST}/api/properties/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

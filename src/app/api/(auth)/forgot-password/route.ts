@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function PATCH(request: Request) {
     const email = await request.json();
-    const response = await fetch("https://backend-parkingnow-fuyg.onrender.com/api/users/request-password", {
+    const response = await fetch(`${process.env.BACK_HOST}/api/users/request-password`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'Application/json'

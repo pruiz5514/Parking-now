@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 
-export async function POST(request: Request ) {
+export async function POST(request: Request) {
     const token = request.headers.get('Authorization');
     const endbooking = await request.json()
 
-    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/bookings/end-booking', {
+    const response = await fetch(`${process.env.BACK_HOST}/api/bookings/end-booking`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export async function POST(request: Request ) {
 export async function PATCH(request: Request) {
     const token = request.headers.get('Authorization');
 
-    const response = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/bookings/end-booking/terminate', {
+    const response = await fetch(`${process.env.BACK_HOST}/api/bookings/end-booking/terminate`, {
         method: 'PATCH',
         headers: {
             'Authorization': `${token}`

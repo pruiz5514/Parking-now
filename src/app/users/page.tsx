@@ -16,12 +16,26 @@ import TableContaier from 'app/components/UI/Table/TableContainer';
 import Spinner from 'app/components/Spinner/Spinner';
 import { deleteUserAlert } from 'app/utils/alerts';
 import { useRouter } from 'next/navigation';
+import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 
 
 const User = () => {
   const router = useRouter();
   const [users, setUsers] = useState<IUsers[]>([]);
   const [loading, setLoading] = useState(true); 
+  const [pagination, setPagination] = useState(0); 
+
+  const usersCuantity = 10;
+  
+  const nextButton = ()=>{
+    const quantity = pagination + usersCuantity;
+    setPagination(quantity);
+  }
+
+  const backButton = ()=>{
+      const quantity = pagination - usersCuantity;
+      setPagination(quantity);
+  }
 
   const cookieToken = Cookies.get("token");
 
@@ -29,7 +43,7 @@ const User = () => {
     setLoading(true);
     try {
       if (cookieToken) {
-        const fetchedUsers = await getUsers(cookieToken);
+        const fetchedUsers = await getUsers(cookieToken,`take=${usersCuantity}&skip=${pagination}`);
         setUsers(fetchedUsers);
       }
     } catch (e) {
@@ -41,7 +55,7 @@ const User = () => {
 
   useEffect(() => {
     fetchUsers();  
-  }, []);
+  }, [pagination]);
 
   const deleteUser = async (event: React.MouseEvent<HTMLButtonElement>) =>{
     const id = String(event.currentTarget.getAttribute("user-id"));
@@ -63,37 +77,49 @@ const User = () => {
         {loading ? (
           <Spinner/>
         ) : users && users.length > 0 ? (
-          <TableContaier>
-            <Table>
-              <Thead>
-                <Tr>
-                  <Th>Nombre</Th>
-                  <Th>Email</Th>
-                  <Th>Teléfono</Th>
-                  <Th>Dirección</Th>
-                  <Th>Tipo de documento</Th>
-                  <Th>Documento</Th>
-                  <Th>Acción</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {users.map((user: IUsers) => (
-                  <Tr key={user.id}>
-                    <Td>{user.fullname}</Td>
-                    <Td>{user.email}</Td>
-                    <Td>{user.phone_number}</Td>
-                    <Td>{user.address}</Td>
-                    <Td>{user.documentType.name}</Td>
-                    <Td>{user.doc_number}</Td>
-                    <Td>
-                      <button user-id={user.id} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2" onClick={editHandleClik}>Editar</button>
-                      <button user-id={user.id} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" onClick={deleteUser}>Eliminar</button>
-                    </Td>
+          <>
+            <TableContaier>
+              <Table>
+                <Thead>
+                  <Tr>
+                    <Th>Nombre</Th>
+                    <Th>Email</Th>
+                    <Th>Teléfono</Th>
+                    <Th>Dirección</Th>
+                    <Th>Tipo de documento</Th>
+                    <Th>Documento</Th>
+                    <Th>Acción</Th>
                   </Tr>
-                ))}
-              </Tbody>
-            </Table>
-          </TableContaier>
+                </Thead>
+                <Tbody>
+                  {users.map((user: IUsers) => (
+                    <Tr key={user.id}>
+                      <Td>{user.fullname}</Td>
+                      <Td>{user.email}</Td>
+                      <Td>{user.phone_number}</Td>
+                      <Td>{user.address}</Td>
+                      <Td>{user.documentType.name}</Td>
+                      <Td>{user.doc_number}</Td>
+                      <Td>
+                        <button user-id={user.id} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2" onClick={editHandleClik}>Editar</button>
+                        <button user-id={user.id} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" onClick={deleteUser}>Eliminar</button>
+                      </Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            </TableContaier>
+            <div className='button-pagination-contianer'>
+              <div className='button-container'>
+                {pagination>= usersCuantity ?(
+                    <Button text={(<IoChevronBackOutline/>)} onClick={backButton}/> 
+                ): ""}
+                {users.length===usersCuantity ? (
+                    <Button text={(<IoChevronForwardOutline />)} onClick={nextButton}/>
+                ):""}
+              </div>
+            </div>
+          </>
         ) : (
           <p>No hay usuarios disponibles</p>
         )}

@@ -34,7 +34,7 @@ const Parkings = () => {
 
     // const userToken = userInformation.token;
 
-    const cardsCuantity = 6;
+    const cardsCuantity = 8;
     
     const [loading, setLoading] = useState(true); 
     const [pagination, setPagination] = useState(0); 
@@ -45,12 +45,12 @@ const Parkings = () => {
     const [slotType, setSlotType] = useState("");
     
     const nextButton = ()=>{
-        const quantity = pagination + 6;
+        const quantity = pagination + cardsCuantity;
         setPagination(quantity);
     }
     
     const backButton = ()=>{
-        const quantity = pagination - 6;
+        const quantity = pagination - cardsCuantity;
         setPagination(quantity);
     }
     

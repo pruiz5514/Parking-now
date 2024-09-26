@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
     const token = request.headers.get('Authorization');
 
-    const response = await fetch("https://backend-parkingnow-fuyg.onrender.com/api/users", {
+    const url = new URL(request.url);
+    const params = url.searchParams.get('params');
+    const response = await fetch(`${process.env.BACK_HOST}/api/users?${params}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
