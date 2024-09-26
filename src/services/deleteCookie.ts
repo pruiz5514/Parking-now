@@ -1,5 +1,5 @@
 export async function deleteCookie() {
-    const response = await fetch(`${process.env.FRONT_HOST}/api/logout`, {
+    const response = await fetch(`https://parking-now.vercel.app/api/logout`, {
         method: 'POST',
     });
 
