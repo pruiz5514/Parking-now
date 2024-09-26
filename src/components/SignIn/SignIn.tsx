@@ -47,12 +47,12 @@ const SignIn: React.FC = () => {
                 path: "/",
                 sameSite: "strict"
             })
-            router.push("/parkings");
-
             Cookies.set("email", values.email,{
                 path: "/",
                 sameSite: "strict"
             });
+            window.location.assign("/parkings");
+
         }catch(e){
             console.log(e);
             errorAlert("Credenciales invalidas")
