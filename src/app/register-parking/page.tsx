@@ -13,20 +13,28 @@ import { createParking } from "app/services/parkings";
 import { IRegisterParking } from "app/types/IRegisterParking";
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie';
+import { useState } from "react";
 
 
 const RegisterParking: React.FC = () => {
+    const [isUploadingImage, setIsUploadingImage] = useState(false)
+    const [imageUrl, setImageUrl] = useState('')
     const router = useRouter()
     const cookieToken = Cookies.get("token");
 
     const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
+        if(isUploadingImage === true) return
+
         const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement).entries())
+
+        formData.image_url = imageUrl
+        delete formData.file
         try {
-            if(cookieToken){
+            if (cookieToken) {
                 const data = await createParking(formData as unknown as IRegisterParking, cookieToken)
-                if(data) {
+                if (data) {
                     (event.target as HTMLFormElement).reset()
                     router.push(`/register-parking/${data.data.id}/register-slots`)
                 }
@@ -34,6 +42,38 @@ const RegisterParking: React.FC = () => {
         } catch (error) {
             console.error(error)
         }
+    }
+
+    const onFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const fileInput = event.target
+        if (fileInput?.files?.length === 0) return
+        const file = fileInput?.files?.[0]
+        const imageForm = new FormData()
+        imageForm.append('file', file!)
+
+        try {
+            setIsUploadingImage(true)
+            const imageUrlResponse = await fetch('https://backend-parkingnow-fuyg.onrender.com/api/uploads', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('token')}`
+                },
+                body: imageForm
+            })
+
+            if(!imageUrlResponse.ok) {
+                throw new Error('Hubo un error cargando la imagen')
+            }
+
+            const imageUrlData = await imageUrlResponse.json()
+            const url = imageUrlData.data.url
+            setImageUrl(url)
+        } catch (error: unknown) {
+            console.error(error)
+        } finally {
+            setIsUploadingImage(false)
+        }
+
     }
 
     return (
@@ -47,7 +87,7 @@ const RegisterParking: React.FC = () => {
                     }
                     title="Registro Parqueadero"
                     footerContent={
-                        <Button text={"Siguiente"} />
+                        <Button text={"Siguiente"} disabled={isUploadingImage} />
                     }
                 >
                     <Input name="name" label="Nombre de la propiedad" id="nameParking" type="text" icon={FaTag} placeholder="La Colina" required={true} />
@@ -83,7 +123,8 @@ const RegisterParking: React.FC = () => {
                         </SelectAddress>
                     </InputContainer>
                     <Input name="address" label="Dirección " id="userAddressParking" type="text" icon={FaMapMarkerAlt} placeholder="Cll 16 #55-129" required={true} />
-                    <Input name="image_url" label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} />
+                    {/* <Input name="image_url" label="Imagen parqueadero " id="userImageParking" type="url" icon={FaImage} placeholder="https://riwi.io/wp-content/uploads/2023/07/Fondo-claro-logo2-1.png" required={true} /> */}
+                    <input type="file" name="file" onChange={onFileChange} />
                     <TextArea name="description" id="textareaDescriptionParking" label="Descripción Parqueadero"></TextArea>
                 </Form>
             </MainRegParking>
