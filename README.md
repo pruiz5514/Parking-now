@@ -4,9 +4,6 @@
 
 Parking Now is a web application developed to facilitate mobility and parking in the city of Medellín, providing a platform for people looking for parking spaces and for those who want to generate income by renting out their parking spots.
 
-
-## FAQ
-
 ### Why?
 
 When there’s an important event or when you visit a part of the city that you’re not familiar with, finding a nearby parking space can become a stressful and time-consuming task. The search for a suitable parking space often involves unnecessary circling, which not only increases stress and fuel consumption but can also lead to unsafe situations where the driver is forced to leave their vehicle in an unknown or unreliable area.
@@ -57,12 +54,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Technologies
 
 - Frontend: NEXT.js
-- Dependencies: Styled components, Tailwind, Css, SweetAlert, JWT, Js-cookie, Redux, Email-js, React-icons
+- Dependencies: Styled components, Tailwind, Css, SweetAlert, JWT, Js-cookie, Email-js, React-icons
 - Version control: Git & GitHub
-- Backend: https://github.com/Estebangccoder/backend_parkingnow
-- Link Project design in Figma: 
-https://www.figma.com/design/W8SzFwjUWGa5kfXSUGSjyb/Easy-park?node-id=0-1&node-type=CANVAS&t=nmG4gYyYF9MYVaC5-0
+
+## Documentation
+
+- [Parking Now Deployed](https://parking-now.vercel.app/) 
+
+- [Repository Backend Parking Now](https://github.com/Estebangccoder/backend_parkingnow)
+
+- [Link Project design in Figma](https://www.figma.com/design/W8SzFwjUWGa5kfXSUGSjyb/Easy-park?node-id=0-1&node-type=CANVAS&t=nmG4gYyYF9MYVaC5-0)
+
 - [Link project documentation PARKING NOW notion](https://gifted-failing-57f.notion.site/Parking-Now-e25e3fee8f6c47ec9eda7a9afb26ee32) 
+
 
 
 ## Developers
